@@ -3,7 +3,7 @@ import datetime
 def main():
     timetable = pd.read_csv('final/mrs_wilde.csv')
     day , period = ask_info()
-    
+    get_datetime()
     display_location(day,period,timetable)
     
 def display_location(day,period,timetable):
@@ -13,10 +13,20 @@ def display_location(day,period,timetable):
     print(f"Teacher's Class code is {teacherDetails[1]}")
     
 def get_datetime():
+    bellTimes={
+        "Morning Tutor":[8.40,8.50],
+        "Period 1" : [8.50,9.40],
+        "Period 2" : [9.40,10.30],
+        "Period 3" : [10.50,11.40],
+        "Period 4" : [11.40,12.30],        
+    }
+    
     currentDateAndTime = datetime.datetime.now()
     currentDate = currentDateAndTime.strftime("%d/%m/%Y")
-    currentTime = currentDateAndTime.strftime("%H:%M:%S")
-    print(currentDate,currentTime)
+    currentTime = currentDateAndTime.strftime("%H.%M")
+
+    for period,time in bellTimes.items():
+        print(time)
     
     
 
