@@ -5,14 +5,27 @@ def main():
     #day , period = ask_info()
     period , day = get_datetime()
     
-    print(day[5:],period)
+    print(day,period)
     display_location(day,period,timetable)
     
 def display_location(day,period,timetable):
-    teacherDetails = timetable.iloc[(period-1)*3:(period-1)*3+3][day].values
-    print(f"Teacher's Location is {teacherDetails[2]}")
-    print(f"Teacher's Class is {teacherDetails[0]}")
-    print(f"Teacher's Class code is {teacherDetails[1]}")
+    period = "Period 3"
+    day = "Day 3"
+    
+    if day != "Not at School" and (period != "Before School" or period != "After School"):
+        
+        for item,row in timetable.iterrows():
+        if row["start_date"] == currentDate:
+            currentDay = row["name"]
+        teacherDetails = timetable.loc[period]
+        print(teacherDetails)
+        '''
+        print(f"Teacher's Location is {teacherDetails[2]}")
+        print(f"Teacher's Class is {teacherDetails[0]}")
+        print(f"Teacher's Class code is {teacherDetails[1]}")
+        '''
+    else:
+        print("Teacher location is unknown\nOutside of school hours")
     
 def get_datetime():
     bellTimes={
@@ -33,7 +46,6 @@ def get_datetime():
     currentDate = currentDateAndTime.strftime("%d/%m/%Y")
     currentTime = currentDateAndTime.strftime("%H.%M")
     
-    currentPeriod = "Out of school"
     for period,time in bellTimes.items():
         if time[0] <= float(currentTime) < time[1]:
             currentPeriod = period
@@ -45,10 +57,10 @@ def get_datetime():
         if row["start_date"] == currentDate:
             currentDay = row["name"]
         
+    currentDay = currentDay[5:]
+    
     return currentPeriod,currentDay
     
-    
-
 def ask_info():
     day=input("Day> ")
     period=input("Period: ")
