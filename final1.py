@@ -36,6 +36,7 @@ def get_datetime():
         if time[0] <= float(currentTime) < time[1]:
             currentPeriod = period
             
+    currentDay = "Not at School"
     return currentPeriod,
     
     
