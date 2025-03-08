@@ -2,12 +2,14 @@ import pandas as pd
 import datetime
 def main():
     timetable = pd.read_csv('final/mrs_wilde.csv')
-    day , period = ask_info()
-    get_datetime()
+    #day , period = ask_info()
+    period , day = get_datetime()
+    
+    print(day[5:],period)
     display_location(day,period,timetable)
     
 def display_location(day,period,timetable):
-    teacherDetails = timetable.iloc[(period-1)*3:(period-1)*3+3]["day "+day].values
+    teacherDetails = timetable.iloc[(period-1)*3:(period-1)*3+3][day].values
     print(f"Teacher's Location is {teacherDetails[2]}")
     print(f"Teacher's Class is {teacherDetails[0]}")
     print(f"Teacher's Class code is {teacherDetails[1]}")
@@ -36,8 +38,14 @@ def get_datetime():
         if time[0] <= float(currentTime) < time[1]:
             currentPeriod = period
             
-    currentDay = "Not at School"
-    return currentPeriod,
+    currentDay = "_____Not at School"
+    
+    schoolCalender = pd.read_csv('final/school_calender.csv')
+    for item,row in schoolCalender.iterrows():
+        if row["start_date"] == currentDate:
+            currentDay = row["name"]
+        
+    return currentPeriod,currentDay
     
     
 
