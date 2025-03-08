@@ -14,19 +14,29 @@ def display_location(day,period,timetable):
     
 def get_datetime():
     bellTimes={
+        "Before School" : [00.00,8.40],
         "Morning Tutor":[8.40,8.50],
         "Period 1" : [8.50,9.40],
         "Period 2" : [9.40,10.30],
         "Period 3" : [10.50,11.40],
-        "Period 4" : [11.40,12.30],        
+        "Period 4" : [11.40,12.30],
+        "ETT" : [12.30,13.00],
+        "Lunch" : [13.00,13.50],
+        "Period 5" : [13.50,14.40],
+        "Period 6" : [14.40,15.30],
+        "After School" : [15.30,23.59],                 
     }
     
     currentDateAndTime = datetime.datetime.now()
     currentDate = currentDateAndTime.strftime("%d/%m/%Y")
     currentTime = currentDateAndTime.strftime("%H.%M")
-
+    
+    currentPeriod = "Out of school"
     for period,time in bellTimes.items():
-        print(time)
+        if time[0] <= float(currentTime) < time[1]:
+            currentPeriod = period
+            
+    return currentPeriod,
     
     
 
