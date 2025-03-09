@@ -12,13 +12,11 @@ def display_location(day,period,timetable):
     period = "Period 3"
     day = "Day 3"
     if day != "Not at School" and (period != "Before School" or period != "After School"):
-        
-        position = (timetable == "Period 3").idxmax().dropna()
-        print(position)
-        '''
-        teacherDetails = timetable.loc[period]
+        periodIndexPosition = timetable.index[timetable.iloc[:,0] == period][0]
+        dayIndexPosition = timetable.columns.get_loc(day)
+        teacherDetails = timetable.iloc[periodIndexPosition:periodIndexPosition+3,dayIndexPosition]
         print(teacherDetails)
-        
+        '''
         print(f"Teacher's Location is {teacherDetails[2]}")
         print(f"Teacher's Class is {teacherDetails[0]}")
         print(f"Teacher's Class code is {teacherDetails[1]}")
