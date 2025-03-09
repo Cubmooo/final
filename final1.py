@@ -1,26 +1,26 @@
 import pandas as pd
 import datetime
+
 def main():
     timetable = pd.read_csv('final/mrs_wilde.csv')
     #day , period = ask_info()
     period , day = get_datetime()
     
     print(day,period)
-    display_location(day,period,timetable)
+    display_location(day,period,timetable) 
     
 def display_location(day,period,timetable):
     period = "Period 3"
     day = "Day 3"
-    if day != "Not at School" and (period != "Before School" or period != "After School"):
-        periodIndexPosition = timetable.index[timetable.iloc[:,0] == period][0]
-        dayIndexPosition = timetable.columns.get_loc(day)
-        teacherDetails = timetable.iloc[periodIndexPosition:periodIndexPosition+3,dayIndexPosition]
-        print(teacherDetails)
-        '''
+    if day != "No School" and period != ("Before School" or "After School"):
+        periodIloc = timetable.index[timetable.iloc[:,0] == period][0]
+        dayIloc = timetable.columns.get_loc(day)
+        teacherDetails = timetable.iloc[periodIloc:periodIloc+3,dayIloc].tolist()
+        
         print(f"Teacher's Location is {teacherDetails[2]}")
         print(f"Teacher's Class is {teacherDetails[0]}")
         print(f"Teacher's Class code is {teacherDetails[1]}")
-        '''
+        
     else:
         print("Teacher location is unknown\nOutside of school hours")
     
@@ -47,7 +47,7 @@ def get_datetime():
         if time[0] <= float(currentTime) < time[1]:
             currentPeriod = period
             
-    currentDay = "_____Not at School"
+    currentDay = "_____No School"
     
     schoolCalender = pd.read_csv('final/school_calender.csv')
     for item,row in schoolCalender.iterrows():
