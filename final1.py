@@ -108,18 +108,18 @@ def ask_time():
     return period, day
 
 def figure_out_time(inputedTime):
-    print("made it")
     try:
-        inputedTime = int(inputedTime)
+        int(inputedTime)
         if len(inputedTime)>4:
             return None
-        elif len(inputedTime)<3 and inputedTime<25:
-            return inputedTime
+        elif len(inputedTime)<3:
+            if int(inputedTime)<25:
+                return inputedTime
         else:
-            print(int(str(inputedTime[-2:])+"."+str(inputedTime[:-2])))
-            return int(str(inputedTime[-2:])+"."+str(inputedTime[:-2]))
-        
-        
+            print("test")
+            print(inputedTime[:-2]+"."+inputedTime[-2:])
+            return float(inputedTime[:-2]+"."+inputedTime[-2:])
+           
     except:
         if ":" in inputedTime:
             print("::::::")
