@@ -3,6 +3,7 @@ import datetime
 from spellchecker import SpellChecker
 
 def main():
+    teacher = ask_teacher()
     timetable = pd.read_csv('final/mrs_wilde.csv')
     #day , period = ask_info()
     period, day = get_datetime()
@@ -72,18 +73,24 @@ def ask_info():
         exit_program()
         
     teacher = ask_teacher()
+    print(teacher)
     
 
 def ask_teacher():
     teacher = input("What teacher would you like to find: ")
     teacher = teacher.replace(" ","")
     
+    teacherList=[]
+    teachers = open("final/teachers.txt", "r")
+    for i in teachers:
+        teacherList.append(i.split(" ",1)[0])
+        
     spell = SpellChecker(language = None)
-    spell.word_frequency.load_text_file("final/teachers.txt")
+    spell.word_frequency.load_words(teacherList)
     
     teacher = spell.correction(teacher)
     
-    with open("final/teacherindex.txt") as gh:
+    with open("final/teachers.txt") as gh:
         teacherIndex = dict([line.strip().split(" ",1) for line in gh])
     teacher = teacherIndex[teacher]
     
