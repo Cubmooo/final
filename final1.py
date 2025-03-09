@@ -1,18 +1,19 @@
 import pandas as pd
 import datetime
+from spellchecker import SpellChecker
 
 def main():
     timetable = pd.read_csv('final/mrs_wilde.csv')
     #day , period = ask_info()
-    period , day = get_datetime()
-    
-    print(day,period)
-    display_location(day,period,timetable) 
+    period, day = get_datetime()
+    while True:
+        display_location(day,period,timetable)
+        period, day = ask_info() 
     
 def display_location(day,period,timetable):
-    period = "Period 3"
-    day = "Day 3"
+    
     if day != "No School" and period != ("Before School" or "After School"):
+        
         periodIloc = timetable.index[timetable.iloc[:,0] == period][0]
         dayIloc = timetable.columns.get_loc(day)
         teacherDetails = timetable.iloc[periodIloc:periodIloc+3,dayIloc].tolist()
@@ -59,9 +60,18 @@ def get_datetime():
     return currentPeriod,currentDay
     
 def ask_info():
-    day=input("Day> ")
-    period=input("Period: ")
-    return day,int(period)
+    gh = input("Would you like to pick a diffrent time: ")
+    spell = SpellChecker(language=None)
+    spell.word_frequency.load_text_file("final/yes.txt")
+    if gh not in spell:
+        gh = spell.correction(gh)
+    print(gh)
+    
+def spellcheck(word,spell):
+    if word not in spell:
+        word = spell.correction(word)
+        return word
+        
 
 if __name__ == "__main__":
     main()
