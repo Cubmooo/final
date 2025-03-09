@@ -78,27 +78,53 @@ def ask_info():
     display_location(day,period,pd.read_csv(teacher))
     
 def ask_time():
-    return period, day
-
-def ask_teacher():
-    teacher = input("What teacher would you like to find: ")
-    teacher = teacher.replace(" ","")
+    inputedTime = input("What time of day:")
+    inputedTime = inputedTime.replace(" ","")
     
-    teacherList=[]
-    teachers = open("final/teachers.txt", "r")
-    for i in teachers:
-        teacherList.append(i.split(" ",1)[0])
+    periodsList=[]
+    periods = open("final/periods.txt", "r")
+    for i in periods:
+        periodsList.append(i.split(" ",1)[0])
         
     spell = SpellChecker(language = None)
-    spell.word_frequency.load_words(teacherList)
+    spell.word_frequency.load_words(periodsList)
     
-    teacher = spell.correction(teacher)
+    if inputedTime in periodsList():
+        period = inputedTime
+    else:
+        period = spell.correction(inputedTime)
     
-    with open("final/teachers.txt") as gh:
-        teacherIndex = dict([line.strip().split(" ",1) for line in gh])
-    teacher = teacherIndex[teacher]
+    if period == None:
+        period = figure_out_time(inputedTime)
+        
     
-    return teacher   
+    return period, day
+
+def figure_out_time(inputedTime):
+    pass
+
+def ask_teacher():
+    while True:
+        teacher = input("What teacher would you like to find: ")
+        teacher = teacher.replace(" ","")
+        
+        teacherList=[]
+        teachers = open("final/teachers.txt", "r")
+        for i in teachers:
+            teacherList.append(i.split(" ",1)[0])
+            
+        spell = SpellChecker(language = None)
+        spell.word_frequency.load_words(teacherList)
+        
+        teacher = spell.correction(teacher)
+        if teacher == None:
+            continue
+        
+        with open("final/teachers.txt") as gh:
+            teacherIndex = dict([line.strip().split(" ",1) for line in gh])
+        teacher = teacherIndex[teacher]
+        
+        return teacher   
     
 def sentiment_finder(word):
     word = word.replace(" ","")
