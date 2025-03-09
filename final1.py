@@ -60,12 +60,35 @@ def get_datetime():
     return currentPeriod,currentDay
     
 def ask_info():
-    gh = input("Would you like to pick a diffrent time: ")
-    spell = SpellChecker(language=None)
-    spell.word_frequency.load_text_file("final/yes.txt")
-    if gh not in spell:
-        gh = spell.correction(gh)
-    print(gh)
+    while True:
+        
+        gh = input("Would you like to pick a diffrent time: ")
+        
+        spell = SpellChecker(language = None)
+        spell.word_frequency.load_text_file("final/yes.txt")
+        if len(gh) <= 3:
+            spell.distance = 1
+        else:
+            spell.distance = 2
+        
+        if gh not in spell:
+            hg = spell.correction(gh)
+        else:
+            hg = gh
+            
+        if hg == None:
+            spell = SpellChecker(language = None)
+            spell.word_frequency.load_text_file("final/no.txt")
+            
+            if gh not in spell:
+                hg = spell.correction(gh)
+            else:
+                hg = gh
+                
+        if hg == None:
+            print("Input agian please")
+            continue
+        print(hg)
     
 def spellcheck(word,spell):
     if word not in spell:
