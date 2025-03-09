@@ -4,12 +4,12 @@ from spellchecker import SpellChecker
 
 def main():
     teacher = ask_teacher()
-    timetable = pd.read_csv('final/mrs_wilde.csv')
+    timetable = pd.read_csv(teacher)
     #day , period = ask_info()
     period, day = get_datetime()
+    display_location(day,period,timetable)
     while True:
-        display_location(day,period,timetable)
-        period, day = ask_info() 
+       ask_info() 
     
 def display_location(day,period,timetable):
     
@@ -74,7 +74,11 @@ def ask_info():
         
     teacher = ask_teacher()
     print(teacher)
+    period, day = ask_time()
+    display_location(day,period,pd.read_csv(teacher))
     
+def ask_time():
+    return period, day
 
 def ask_teacher():
     teacher = input("What teacher would you like to find: ")

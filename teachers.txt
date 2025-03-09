@@ -1,3 +1,3 @@
-ancawilde ancawilde
-wilde ancawilde
-mrswilde ancawilde
+ancawilde final/mrs_wilde.csv
+wilde final/mrs_wilde.csv
+mrswilde final/mrs_wilde.csv
