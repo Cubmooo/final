@@ -6,26 +6,26 @@ good
 okay
 true
 yea
-all right
+allRight
 aye
-beyond doubt
+beyondDoubt
 certainly
 definitely
 exactly
 gladly
-good enough
+goodEnough
 granted
 indubitably
-most assuredly
+mostAssuredly
 naturally
 positively
 precisely
-sure thing
+sureThing
 surely
 undoubtedly
 unquestionably
-very well
+veryWell
 willingly
-without fail
+withoutFail
 yep
 yeah

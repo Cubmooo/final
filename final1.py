@@ -61,34 +61,35 @@ def get_datetime():
     
 def ask_info():
     while True:
-        
         gh = input("Would you like to pick a diffrent time: ")
-        
-        spell = SpellChecker(language = None)
-        spell.word_frequency.load_text_file("final/yes.txt")
-        if len(gh) <= 3:
-            spell.distance = 1
-        else:
-            spell.distance = 2
-        
-        if gh not in spell:
-            hg = spell.correction(gh)
-        else:
-            hg = gh
-            
-        if hg == None:
-            spell = SpellChecker(language = None)
-            spell.word_frequency.load_text_file("final/no.txt")
-            
-            if gh not in spell:
-                hg = spell.correction(gh)
-            else:
-                hg = gh
-                
-        if hg == None:
-            print("Input agian please")
+        simpleUserAnswer = sentiment_finder(gh)
+        if simpleUserAnswer == None:
             continue
-        print(hg)
+        break
+    
+def sentiment_finder(word):
+    word = word.replace(" ","")
+    
+    spell = SpellChecker(language = None)
+    spell.word_frequency.load_text_file("final/yes.txt")
+    if len(word) <= 3:
+        spell.distance = 1
+    else:
+        spell.distance = 2
+    
+    if word in spell or spell.candidates(word) != None:
+        sentiment = True
+    else:
+        spell = SpellChecker(language = None)
+        spell.word_frequency.load_text_file("final/no.txt")    
+        
+        if word in spell or spell.candidates(word) != None:
+            sentiment = False
+        else:
+            print("Input agian please")
+            return None
+    
+    return sentiment
     
 def spellcheck(word,spell):
     if word not in spell:

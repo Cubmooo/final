@@ -2,13 +2,13 @@ no
 never
 nothing
 none
-in no wise
-on no account
-by no means
-nothing doing
+inNoWise
+onNoAccount
+byNoMeans
+nothingDoing
 noways
 nowise
-nowhere near
+nowhereNear
 no way
 veto
 nay
@@ -18,8 +18,8 @@ con
 denial
 not
 nix
-no way
-not at all
-I'm alright
-I'm good
-no need
+noWay
+notAtAll
+I'mAlright
+I'mGood
+noNeed
