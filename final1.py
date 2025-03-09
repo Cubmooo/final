@@ -61,11 +61,22 @@ def get_datetime():
     
 def ask_info():
     while True:
-        gh = input("Would you like to pick a diffrent time: ")
+        gh = input("Would you like to pick a diffrent teacher or time: ")
         simpleUserAnswer = sentiment_finder(gh)
         if simpleUserAnswer == None:
+            print("Input agian please")
             continue
         break
+    
+    if simpleUserAnswer == False:
+        exit_program()
+        
+    teacher = ask_teacher()
+    
+
+def ask_teacher():
+    teacher = input("What teacher would you like to find: ")
+    return teacher   
     
 def sentiment_finder(word):
     word = word.replace(" ","")
@@ -86,7 +97,6 @@ def sentiment_finder(word):
         if word in spell or spell.candidates(word) != None:
             sentiment = False
         else:
-            print("Input agian please")
             return None
     
     return sentiment
@@ -95,6 +105,10 @@ def spellcheck(word,spell):
     if word not in spell:
         word = spell.correction(word)
         return word
+
+def exit_program():
+    print("Thank you for using this teacher stalking machine\nI hope you found whay you needed")
+    exit()
         
 
 if __name__ == "__main__":
