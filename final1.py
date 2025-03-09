@@ -1,6 +1,7 @@
 import pandas as pd
 import datetime
 from spellchecker import SpellChecker
+from word2number import w2n
 
 def main():
     teacher = ask_teacher()
@@ -89,20 +90,44 @@ def ask_time():
     spell = SpellChecker(language = None)
     spell.word_frequency.load_words(periodsList)
     
-    if inputedTime in periodsList():
+    if inputedTime in periodsList:
         period = inputedTime
     else:
         period = spell.correction(inputedTime)
+
+    try:
+        int(inputedTime)
+        period = None
+    except:
+        pass
     
     if period == None:
         period = figure_out_time(inputedTime)
         
-    
+    print(period,"test")
     return period, day
 
 def figure_out_time(inputedTime):
-    pass
-
+    print("made it")
+    try:
+        inputedTime = int(inputedTime)
+        if len(inputedTime)>4:
+            return None
+        elif len(inputedTime)<3 and inputedTime<25:
+            return inputedTime
+        else:
+            print(int(str(inputedTime[-2:])+"."+str(inputedTime[:-2])))
+            return int(str(inputedTime[-2:])+"."+str(inputedTime[:-2]))
+        
+        
+    except:
+        if ":" in inputedTime:
+            print("::::::")
+            
+    inputedTime = w2n.word_to_num(inputedTime)
+    if "to" or "past" in inputedTime:
+        print("to,past")
+    
 def ask_teacher():
     while True:
         teacher = input("What teacher would you like to find: ")
@@ -160,4 +185,4 @@ def exit_program():
         
 
 if __name__ == "__main__":
-    main()
+    ask_time()
