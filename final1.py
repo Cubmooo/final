@@ -76,6 +76,17 @@ def ask_info():
 
 def ask_teacher():
     teacher = input("What teacher would you like to find: ")
+    teacher = teacher.replace(" ","")
+    
+    spell = SpellChecker(language = None)
+    spell.word_frequency.load_text_file("final/teachers.txt")
+    
+    teacher = spell.correction(teacher)
+    
+    with open("final/teacherindex.txt") as gh:
+        teacherIndex = dict([line.strip().split(" ",1) for line in gh])
+    teacher = teacherIndex[teacher]
+    
     return teacher   
     
 def sentiment_finder(word):
