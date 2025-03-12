@@ -150,17 +150,31 @@ def figure_out_word_time(inputedTime):
             inputedTime[inputedTime.index(i)] = w2n.word_to_num(i)
         except:
             pass
-    print(inputedTime)
-    print("test")
     
     pm = False
     if "pm" in inputedTime:
         pm = True
     
-    if ("to" or "past") in inputedTime:
-        print(inputedTime)
-        return None
-    
+    if "to" in inputedTime or "past" in inputedTime:
+        for i in inputedTime:
+            if i == "quarter":
+                inputedTime[inputedTime.index(i)] = 15
+            if i == "half":
+                inputedTime[inputedTime.index(i)] = 30
+        try:
+            pivot = inputedTime.index("to")
+        except:
+            pivot = inputedTime.index("past")
+        hours = inputedTime[pivot+1]
+        minutes = inputedTime[pivot-1]
+        if "to" in inputedTime:
+            time = hours - minutes * 0.01 - 0.4
+        else:
+            time = hours + minutes * 0.01
+        if pm == True:
+            time += 12
+        return time    
+            
     i = 0
     for _ in inputedTime:
         if type(inputedTime[i]) == str:
@@ -174,11 +188,9 @@ def figure_out_word_time(inputedTime):
             inputedTime[i] = inputedTime[i] + inputedTime[i+1]
             inputedTime.pop(i+1)
         i += 1
-    print(inputedTime)
     numTime = float(".".join(str(i) for i in inputedTime))
     if pm == True:
         numTime += 12
-    print(numTime)
     return numTime
     
 def ask_teacher():
