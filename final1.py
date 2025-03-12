@@ -39,7 +39,7 @@ def get_datetime():
         "Lunch" : [13.00,13.50],
         "Period 5" : [13.50,14.40],
         "Period 6" : [14.40,15.30],
-        "After School" : [15.30,23.59],                 
+        "After School" : [15.30,24.00],                 
     }
     
     currentDateAndTime = datetime.datetime.now()
@@ -63,10 +63,10 @@ def get_datetime():
     
 def ask_info():
     while True:
-        gh = input("Would you like to pick a diffrent teacher or time: ")
+        gh = input("Would you like to pick a different teacher or time: ")
         simpleUserAnswer = sentiment_finder(gh)
         if simpleUserAnswer == None:
-            print("Input agian please")
+            print("Input again please")
             continue
         break
     
@@ -80,6 +80,7 @@ def ask_info():
     
 def ask_time():
     inputedTime = input("What time of day:")
+    spacedInputTime = inputedTime
     inputedTime = inputedTime.replace(" ","")
     
     periodsList=[]
@@ -103,6 +104,8 @@ def ask_time():
     
     if period == None:
         period = figure_out_time(inputedTime)
+    if period == 0:
+        period = figure_out_word_time(spacedInputTime)
         
     print(period,"test")
     return period, day
@@ -111,7 +114,7 @@ def figure_out_time(inputedTime):
     try:
         int(inputedTime)
         if len(inputedTime)>4:
-            return None
+            pass
         elif len(inputedTime)<3:
             if int(inputedTime)<25:
                 return inputedTime
@@ -119,14 +122,64 @@ def figure_out_time(inputedTime):
             print("test")
             print(inputedTime[:-2]+"."+inputedTime[-2:])
             return float(inputedTime[:-2]+"."+inputedTime[-2:])
+        return None
            
     except:
         if ":" in inputedTime:
-            print("::::::")
-            
-    inputedTime = w2n.word_to_num(inputedTime)
-    if "to" or "past" in inputedTime:
-        print("to,past")
+            colonIndex = inputedTime.index(":")
+            if len(inputedTime)-2>colonIndex>1:
+                hour = inputedTime[colonIndex-2:colonIndex]
+                minute = inputedTime[colonIndex+1:colonIndex+3]
+                if "pm" in inputedTime:
+                    hour += 12
+                if hour < 24 and minute < 60:
+                    return float(hour+"."+minute)
+                else:
+                    return None
+            else:
+                return None
+    return 0
+
+def figure_out_word_time(inputedTime):
+    inputedTime = inputedTime.split(" ")
+    spell = SpellChecker()
+    for i in inputedTime:
+        if i not in spell:
+            inputedTime[inputedTime.index(i)] = spell.correction(i)
+        try:
+            inputedTime[inputedTime.index(i)] = w2n.word_to_num(i)
+        except:
+            pass
+    print(inputedTime)
+    print("test")
+    
+    pm = False
+    if "pm" in inputedTime:
+        pm = True
+    
+    if ("to" or "past") in inputedTime:
+        print(inputedTime)
+        return None
+    
+    i = 0
+    for _ in inputedTime:
+        if type(inputedTime[i]) == str:
+            print(inputedTime[i])
+            inputedTime.pop(i)
+        i += 1
+    
+    i = 0
+    for _ in inputedTime:
+        if inputedTime[i] >= 10:
+            inputedTime[i] = inputedTime[i] + inputedTime[i+1]
+            inputedTime.pop(i+1)
+        i += 1
+    print(inputedTime)
+    numTime = float(".".join(str(i) for i in inputedTime))
+    if pm == True:
+        numTime += 12
+    print(numTime)
+    return numTime
     
 def ask_teacher():
     while True:
@@ -180,7 +233,7 @@ def spellcheck(word,spell):
         return word
 
 def exit_program():
-    print("Thank you for using this teacher stalking machine\nI hope you found whay you needed")
+    print("Thank you for using this teacher stalking machine\nI hope you found what you needed")
     exit()
         
 
