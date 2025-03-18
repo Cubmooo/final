@@ -93,19 +93,43 @@ def ask_time():
     
     if inputedTime in periodsList:
         period = inputedTime
+        return period, day
     else:
         period = spell.correction(inputedTime)
-
+        print(period)
+        if period != None:
+            return period, day
+        
     try:
         int(inputedTime)
-        period = None
+        time = None
     except:
-        pass
+        time = 0
     
-    if period == None:
-        period = figure_out_time(inputedTime)
-    if period == 0:
-        period = figure_out_word_time(spacedInputTime)
+    if time == None:
+        time = figure_out_time(inputedTime)
+    if time == 0:
+        time = figure_out_word_time(spacedInputTime)
+        
+    
+    bellTimes={
+        "Before School" : [00.00,8.40],
+        "Morning Tutor":[8.40,8.50],
+        "Period 1" : [8.50,9.40],
+        "Period 2" : [9.40,10.30],
+        "Period 3" : [10.50,11.40],
+        "Period 4" : [11.40,12.30],
+        "ETT" : [12.30,13.00],
+        "Lunch" : [13.00,13.50],
+        "Period 5" : [13.50,14.40],
+        "Period 6" : [14.40,15.30],
+        "After School" : [15.30,24.00],                 
+    } 
+        
+    print(time)
+    for periods,times in bellTimes.items():
+        if times[0] <= float(time) < times[1]:
+            period = time
         
     print(period,"test")
     return period, day
@@ -250,4 +274,4 @@ def exit_program():
         
 
 if __name__ == "__main__":
-    ask_time()
+    main()
