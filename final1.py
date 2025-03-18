@@ -87,19 +87,21 @@ def ask_time():
         inputedTime = input("What time of day:")
         spacedInputTime = inputedTime
         inputedTime = inputedTime.replace(" ","")      
-        period = period_time(inputedTime)
+        period = period_time(spacedInputTime)
         if period == None:
             period = military_time(inputedTime)
             if period == None:
-                period = digits_time(inputedTime)
+                period = word_to_past_time(spacedInputTime)
                 if period == None:
-                    period = word_to_past_time(spacedInputTime)
-                    if period == None:
-                        period = word_time(spacedInputTime)
+                    period = word_time(spacedInputTime)
         print(period)
         
 def period_time(inputedTime):
+    spell = SpellChecker()
     inputedTime = inputedTime.split(" ")
+    for i,word in enumerate(inputedTime):
+        if word not in spell:
+            inputedTime[i] = spell.correction(word)
     try:
         index = inputedTime.index("period")
         number = inputedTime[index + 1]
@@ -109,54 +111,34 @@ def period_time(inputedTime):
             number = w2n.word_to_num(number)
         
         if 1 <= number <=6:
-            return "Period"+str(number)
+            return ("Period" + str(number))
+        else:
+            return 1
     except:
         return None
-    print("1")
-    periodsList=[]
-    periods = open("final/periods.txt", "r")
-    for i in periods:
-        periodsList.append(i.split(" ",1)[0].lower())
-        
-    spell = SpellChecker(language = None)
-    spell.word_frequency.load_words(periodsList)
-    
-    if inputedTime not in periodsList:
-        period = spell.correction(inputedTime)
-    else:
-        period = inputedTime
-    print(inputedTime)
-    print(periodsList)
-    if inputedTime in periodsList:
-        return period
-    return None
 
 def military_time(inputedTime):
-    print("2")
-    try:
-        int(inputedTime)
-        if len(inputedTime)>4:
-            return None
-        elif len(inputedTime)<3:
-            if int(inputedTime)<25:
-                return inputedTime
-        else:
-            return float(inputedTime[:-2]+"."+inputedTime[-2:])
-    except:
+    pm = False
+    if "pm" in inputedTime:
+        pm = True
+    inputedTime = list(inputedTime)
+    i = 0
+    while i < len(inputedTime):
+        char = inputedTime[i]
+        try:
+            inputedTime[i] = int(char)
+            i += 1
+        except:
+            inputedTime.pop(i)
+    inputedTime = int("".join(str(char) for char in inputedTime))
+    
+    if len(str(inputedTime)) > 4:
         return None
+    if len(str(inputedTime)) >= 3:
+        inputedTime = inputedTime/100
+    if 0 <=inputedTime <= 24:
+        return inputedTime + 12*pm
         
-def digits_time(inputedTime):
-    print("3")
-    if ":" in inputedTime:
-        colonIndex = inputedTime.index(":")
-        if len(inputedTime)-2>colonIndex>1:
-            hour = inputedTime[colonIndex-2:colonIndex]
-            minute = inputedTime[colonIndex+1:colonIndex+3]
-            if "pm" in inputedTime:
-                hour += 12
-            if hour < 24 and minute < 60:
-                return float(hour+"."+minute)
-    return None
 
 def word_time(inputedTime):
     print("4")

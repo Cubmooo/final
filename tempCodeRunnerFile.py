@@ -1,0 +1,2 @@
+
+            inputedTime.replace(char,"")
