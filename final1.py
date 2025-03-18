@@ -130,6 +130,8 @@ def military_time(inputedTime):
             i += 1
         except:
             inputedTime.pop(i)
+    if len(inputedTime) == 0:
+        return None
     inputedTime = int("".join(str(char) for char in inputedTime))
     
     if len(str(inputedTime)) > 4:
@@ -179,8 +181,6 @@ def word_to_past_time(inputedTime):
     print("5") 
     inputedTime = inputedTime.split(" ")
     spell = SpellChecker()
-    
-    
     for i in inputedTime:
         if i not in spell:
             inputedTime[inputedTime.index(i)] = spell.correction(i)
@@ -191,15 +191,12 @@ def word_to_past_time(inputedTime):
     
     if ("to" and "past") not in inputedTime:
         return None
-    
-            
+        
     for i in inputedTime:
         if i == "quarter":
             inputedTime[inputedTime.index(i)] = 15
         if i == "half":
             inputedTime[inputedTime.index(i)] = 30   
-    
-    print("uyfu t fgi")
     
     pm = False
     if "pm" in inputedTime:
