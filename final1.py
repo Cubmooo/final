@@ -8,15 +8,19 @@ def main():
     timetable = pd.read_csv(teacher)
     #day , period = ask_info()
     period, day = get_datetime()
+    print(period,day)
     display_location(day,period,timetable)
     while True:
        ask_info() 
     
 def display_location(day,period,timetable):
     
-    if day != "No School" and period != ("Before School" or "After School"):
-        
-        periodIloc = timetable.index[timetable.iloc[:,0] == period][0]
+    if day != "No School" and period not in ["Before School", "After School"]:
+        try:
+            periodIloc = timetable.index[timetable.iloc[:,0] == period][0]
+        except:
+            print("teacher location unknown")
+            return
         dayIloc = timetable.columns.get_loc(day)
         teacherDetails = timetable.iloc[periodIloc:periodIloc+3,dayIloc].tolist()
         
@@ -79,94 +83,122 @@ def ask_info():
     display_location(day,period,pd.read_csv(teacher))
     
 def ask_time():
-    inputedTime = input("What time of day:")
-    spacedInputTime = inputedTime
-    inputedTime = inputedTime.replace(" ","")
-    
+    while True:
+        inputedTime = input("What time of day:")
+        spacedInputTime = inputedTime
+        inputedTime = inputedTime.replace(" ","")      
+        period = period_time(inputedTime)
+        if period == None:
+            period = military_time(inputedTime)
+            if period == None:
+                period = digits_time(inputedTime)
+                if period == None:
+                    period = word_to_past_time(spacedInputTime)
+                    if period == None:
+                        period = word_time(spacedInputTime)
+        print(period)
+        
+def period_time(inputedTime):
+    inputedTime = inputedTime.split(" ")
+    try:
+        index = inputedTime.index("period")
+        number = inputedTime[index + 1]
+        try:
+            number = int(number)
+        except:
+            number = w2n.word_to_num(number)
+        
+        if 1 <= number <=6:
+            return "Period"+str(number)
+    except:
+        return None
+    print("1")
     periodsList=[]
     periods = open("final/periods.txt", "r")
     for i in periods:
-        periodsList.append(i.split(" ",1)[0])
+        periodsList.append(i.split(" ",1)[0].lower())
         
     spell = SpellChecker(language = None)
     spell.word_frequency.load_words(periodsList)
     
-    if inputedTime in periodsList:
-        period = inputedTime
-        return period, day
-    else:
+    if inputedTime not in periodsList:
         period = spell.correction(inputedTime)
-        print(period)
-        if period != None:
-            return period, day
-        
-    try:
-        int(inputedTime)
-        time = None
-    except:
-        time = 0
-    
-    if time == None:
-        time = figure_out_time(inputedTime)
-    if time == 0:
-        time = figure_out_word_time(spacedInputTime)
-        
-    
-    bellTimes={
-        "Before School" : [00.00,8.40],
-        "Morning Tutor":[8.40,8.50],
-        "Period 1" : [8.50,9.40],
-        "Period 2" : [9.40,10.30],
-        "Period 3" : [10.50,11.40],
-        "Period 4" : [11.40,12.30],
-        "ETT" : [12.30,13.00],
-        "Lunch" : [13.00,13.50],
-        "Period 5" : [13.50,14.40],
-        "Period 6" : [14.40,15.30],
-        "After School" : [15.30,24.00],                 
-    } 
-        
-    print(time)
-    for periods,times in bellTimes.items():
-        if times[0] <= float(time) < times[1]:
-            period = time
-        
-    print(period,"test")
-    return period, day
+    else:
+        period = inputedTime
+    print(inputedTime)
+    print(periodsList)
+    if inputedTime in periodsList:
+        return period
+    return None
 
-def figure_out_time(inputedTime):
+def military_time(inputedTime):
+    print("2")
     try:
         int(inputedTime)
         if len(inputedTime)>4:
-            pass
+            return None
         elif len(inputedTime)<3:
             if int(inputedTime)<25:
                 return inputedTime
         else:
-            print("test")
-            print(inputedTime[:-2]+"."+inputedTime[-2:])
             return float(inputedTime[:-2]+"."+inputedTime[-2:])
-        return None
-           
     except:
-        if ":" in inputedTime:
-            colonIndex = inputedTime.index(":")
-            if len(inputedTime)-2>colonIndex>1:
-                hour = inputedTime[colonIndex-2:colonIndex]
-                minute = inputedTime[colonIndex+1:colonIndex+3]
-                if "pm" in inputedTime:
-                    hour += 12
-                if hour < 24 and minute < 60:
-                    return float(hour+"."+minute)
-                else:
-                    return None
-            else:
-                return None
-    return 0
+        return None
+        
+def digits_time(inputedTime):
+    print("3")
+    if ":" in inputedTime:
+        colonIndex = inputedTime.index(":")
+        if len(inputedTime)-2>colonIndex>1:
+            hour = inputedTime[colonIndex-2:colonIndex]
+            minute = inputedTime[colonIndex+1:colonIndex+3]
+            if "pm" in inputedTime:
+                hour += 12
+            if hour < 24 and minute < 60:
+                return float(hour+"."+minute)
+    return None
 
-def figure_out_word_time(inputedTime):
+def word_time(inputedTime):
+    print("4")
+    
     inputedTime = inputedTime.split(" ")
     spell = SpellChecker()
+    spell.word_frequency.remove("fourth")
+    spell.word_frequency.add("forty")
+    for i in inputedTime:
+        if i not in spell:
+            inputedTime[inputedTime.index(i)] = spell.correction(i)
+        try:
+            inputedTime[inputedTime.index(i)] = w2n.word_to_num(i)
+        except:
+            pass 
+    print(inputedTime)
+    pm = False
+    if "pm" in inputedTime:
+        pm = True
+        
+    for i,_ in enumerate(inputedTime):
+        if type(inputedTime[i]) == str:
+            print(inputedTime[i])
+            inputedTime.pop(i)
+            
+    print(inputedTime)
+    for i,_ in enumerate(inputedTime):
+        if inputedTime[i] >= 10:
+            inputedTime[i] = inputedTime[i] + inputedTime[i+1]
+            inputedTime.pop(i+1)
+
+    numTime = float(".".join(str(i) for i in inputedTime))
+    if pm == True:
+        numTime += 12
+    return numTime
+        
+def word_to_past_time(inputedTime):  
+    print("5") 
+    inputedTime = inputedTime.split(" ")
+    spell = SpellChecker()
+    
+    
     for i in inputedTime:
         if i not in spell:
             inputedTime[inputedTime.index(i)] = spell.correction(i)
@@ -175,47 +207,34 @@ def figure_out_word_time(inputedTime):
         except:
             pass
     
+    if ("to" and "past") not in inputedTime:
+        return None
+    
+            
+    for i in inputedTime:
+        if i == "quarter":
+            inputedTime[inputedTime.index(i)] = 15
+        if i == "half":
+            inputedTime[inputedTime.index(i)] = 30   
+    
+    print("uyfu t fgi")
+    
     pm = False
     if "pm" in inputedTime:
-        pm = True
+        pm = True    
+    try:    
+        index = inputedTime.index("to")
+    except:
+        index = inputedTime.index("past")
+    hours = inputedTime[index]
+    minutes = inputedTime[index - 1]
     
-    if "to" in inputedTime or "past" in inputedTime:
-        for i in inputedTime:
-            if i == "quarter":
-                inputedTime[inputedTime.index(i)] = 15
-            if i == "half":
-                inputedTime[inputedTime.index(i)] = 30
-        try:
-            pivot = inputedTime.index("to")
-        except:
-            pivot = inputedTime.index("past")
-        hours = inputedTime[pivot+1]
-        minutes = inputedTime[pivot-1]
-        if "to" in inputedTime:
-            time = hours - minutes * 0.01 - 0.4
-        else:
-            time = hours + minutes * 0.01
-        if pm == True:
-            time += 12
-        return time    
-            
-    i = 0
-    for _ in inputedTime:
-        if type(inputedTime[i]) == str:
-            print(inputedTime[i])
-            inputedTime.pop(i)
-        i += 1
-    
-    i = 0
-    for _ in inputedTime:
-        if inputedTime[i] >= 10:
-            inputedTime[i] = inputedTime[i] + inputedTime[i+1]
-            inputedTime.pop(i+1)
-        i += 1
-    numTime = float(".".join(str(i) for i in inputedTime))
-    if pm == True:
-        numTime += 12
-    return numTime
+    print(minutes,hours)
+    if inputedTime[index] == "past":
+        return hours + minutes*0.01
+    else:
+        return hours - 0.4 -minutes*0.01
+
     
 def ask_teacher():
     while True:
@@ -274,4 +293,13 @@ def exit_program():
         
 
 if __name__ == "__main__":
-    main()
+    ask_time()
+    
+    
+    
+    """ timeFunctions = [period_time(inputedTime),military_time(inputedTime),digits_time(inputedTime),word_time(spacedInputTime),word_to_past_time(spacedInputTime)]
+        
+        for i in timeFunctions:
+            period = i
+            print(period)
+            if period != None:"""
