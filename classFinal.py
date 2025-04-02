@@ -259,8 +259,7 @@ def main():
         time.word_day
         print(time.date)
         print(time.day)
-        
-
+    
 def sentiment_finder(word):
     word = word.replace(" ","")
     
