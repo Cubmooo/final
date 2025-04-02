@@ -2,6 +2,7 @@ import pandas as pd
 import datetime
 from spellchecker import SpellChecker
 from word2number import w2n
+import re
 
 def main():
     teacher = ask_teacher()
@@ -78,23 +79,115 @@ def ask_info():
         exit_program()
         
     teacher = ask_teacher()
-    print(teacher)
-    period, day = ask_time()
+    period = ask_period()
+    day = ask_day()
     display_location(day,period,pd.read_csv(teacher))
     
-def ask_time():
+def ask_day():
+    while True:
+        inputedDay = input("What day would you like: ")
+        dayFnList = [num_day, word_day]
+        for fn in dayFnList:
+            day = fn(inputedDay)
+            if day != None:
+                break
+        if day != None:
+            break
+    if len(day) == 1:
+        day = "Day " + day
+    if len(day) != 1:
+
+        schoolCalender = pd.read_csv('final/school_calender.csv')
+        for item,row in schoolCalender.iterrows():
+            if row["start_date"] == day:
+                day = row["name"]
+    print(day)    
+    return day
+
+def num_day(inputedDay):
+    inputedDay = re.split('/|-| ', inputedDay)
+    print(inputedDay)
+    i = 0
+    while len(inputedDay) > i:
+        try:
+            inputedDay[i] = int(inputedDay[i])
+            i += 1
+        except:
+            inputedDay.pop(i)
+    print(inputedDay)
+    try:
+        if len(inputedDay) == 6:
+            return int("".join(inputedDay))
+        if len(inputedDay) == 4:
+            return int("".join(inputedDay)+"00")
+        if len(inputedDay) == 1:
+            return inputedDay
+        return None
+    except:
+        return None
+
+def word_day(inputedDay):
+    nums = open("final/numbers.txt", "r")
+    numsDict = {}
+    for i,num in enumerate(nums):
+        numsDict[num[ : -1]] = i + 1
+        
+    nums = open("final/months.txt", "r")
+    monthDict = {}
+    for i,num in enumerate(nums):
+        monthDict[num[ : -1]] = i + 1
+    
+    spell = SpellChecker()
+    inputedDay = inputedDay.split()
+    for i, word in enumerate(inputedDay):
+        inputedDay[i] = spell.correction(word)
+        
+    for i,j in enumerate(inputedDay):
+        if j == "twenty" or j == "thirty":
+            inputedDay[i] = inputedDay[i] + inputedDay[i + 1]
+            inputedDay.pop(i + 1)
+           
+    for i,j in enumerate(inputedDay):    
+        try:
+            inputedDay[i] = monthDict[j]
+        except:
+            pass
+        
+        try:
+            inputedDay[i] = monthDict[j]
+            month = monthDict[j]
+        except:
+            pass
+        
+        try:
+            inputedDay[i] = int(j)
+        except:
+            pass
+    
+    normalDateFormat = False
+    if inputedDay.index(month) == 1:
+        normalDateFormat = True
+     
+    inputedDay = [value for value in inputedDay if type(value) == int]
+    try:
+        year = int(str(inputedDay[2])[-2:])
+    except:
+        year = 25
+    month = inputedDay[normalDateFormat] * 100
+    day = inputedDay[-1 * (normalDateFormat - 1)] * 10000
+    return day + month + year
+            
+def ask_period():
     while True:
         inputedTime = input("What time of day:")
-        spacedInputTime = inputedTime
-        inputedTime = inputedTime.replace(" ","")      
-        period = period_time(spacedInputTime)
-        if period == None:
-            period = military_time(inputedTime)
-            if period == None:
-                period = word_to_past_time(spacedInputTime)
-                if period == None:
-                    period = word_time(spacedInputTime)
-        print(period)
+        periodsList = [period_time, military_time, word_to_past_time, word_time]
+        for fn in periodsList:
+            period = fn(inputedTime)
+            if period != None:
+                break
+        if period != None:
+            break
+    return period
         
 def period_time(inputedTime):
     spell = SpellChecker()
@@ -118,6 +211,7 @@ def period_time(inputedTime):
         return None
 
 def military_time(inputedTime):
+    inputedTime = inputedTime.replace(" ","")
     pm = False
     if "pm" in inputedTime:
         pm = True
@@ -139,12 +233,9 @@ def military_time(inputedTime):
     if len(str(inputedTime)) >= 3:
         inputedTime = inputedTime/100
     if 0 <=inputedTime <= 24:
-        return inputedTime + 12*pm
-        
+        return inputedTime + 12*pm       
 
 def word_time(inputedTime):
-    print("4")
-    
     inputedTime = inputedTime.split(" ")
     spell = SpellChecker()
     spell.word_frequency.remove("fourth")
@@ -156,17 +247,15 @@ def word_time(inputedTime):
             inputedTime[inputedTime.index(i)] = w2n.word_to_num(i)
         except:
             pass 
-    print(inputedTime)
+
     pm = False
     if "pm" in inputedTime:
         pm = True
         
     for i,_ in enumerate(inputedTime):
         if type(inputedTime[i]) == str:
-            print(inputedTime[i])
             inputedTime.pop(i)
             
-    print(inputedTime)
     for i,_ in enumerate(inputedTime):
         if inputedTime[i] >= 10:
             inputedTime[i] = inputedTime[i] + inputedTime[i+1]
@@ -178,7 +267,6 @@ def word_time(inputedTime):
     return numTime
         
 def word_to_past_time(inputedTime):  
-    print("5") 
     inputedTime = inputedTime.split(" ")
     spell = SpellChecker()
     for i in inputedTime:
@@ -188,8 +276,8 @@ def word_to_past_time(inputedTime):
             inputedTime[inputedTime.index(i)] = w2n.word_to_num(i)
         except:
             pass
-    
-    if ("to" and "past") not in inputedTime:
+        
+    if "to" not in inputedTime and "past" not in inputedTime:
         return None
         
     for i in inputedTime:
@@ -205,15 +293,13 @@ def word_to_past_time(inputedTime):
         index = inputedTime.index("to")
     except:
         index = inputedTime.index("past")
-    hours = inputedTime[index]
+    hours = inputedTime[index + 1]
     minutes = inputedTime[index - 1]
     
-    print(minutes,hours)
     if inputedTime[index] == "past":
         return hours + minutes*0.01
     else:
-        return hours - 0.4 -minutes*0.01
-
+        return (int(hours) + pm * 12) - (0.4 + minutes * 0.01)
     
 def ask_teacher():
     while True:
@@ -270,15 +356,11 @@ def exit_program():
     print("Thank you for using this teacher stalking machine\nI hope you found what you needed")
     exit()
         
-
+def tryy(variable, function):
+    try:
+        variable = function
+        return variable
+    except:
+        variable
 if __name__ == "__main__":
-    ask_time()
-    
-    
-    
-    """ timeFunctions = [period_time(inputedTime),military_time(inputedTime),digits_time(inputedTime),word_time(spacedInputTime),word_to_past_time(spacedInputTime)]
-        
-        for i in timeFunctions:
-            period = i
-            print(period)
-            if period != None:"""
+    main()
