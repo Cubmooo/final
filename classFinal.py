@@ -85,12 +85,6 @@ class Period:
         self.period = None
         self.toOrPastIndex = None
         self.hasPast = None
-        
-    def spell_check(str):
-        spell = SpellChecker()
-        for i,word in enumerate(str):
-            if word not in spell:
-                str[i] = spell.correction(word)
                 
     def num_word_spell_check(str):
         spell = SpellChecker()
@@ -143,10 +137,68 @@ class Period:
             pass
         
         self.splitInput = [int(i) for i in self.splitInput if i.isdigit()]
+        try:
+            while i < len(self.splitInput) - 1:
+                if self.splitInput[i] >= 10:
+                    self.splitInput[i] += self.splitInput[i + 1]
+                    self.splitInput.pop(i + 1)
+                else:
+                    i += 1
+            self.time = "".join(self.splitInput)
+        except:
+            pass
+        
 class Time:
-    def __init__(self):
-        pass
+    def __init__(self, inputedDay):
+        self.dayInput = inputedDay
+        self.monthList = self.file_to_dict("final/months.txt")
+        self.numbersList = self.file_to_dict("final/numbers.txt")
+        self.month = None
+        self.day = None
+        self.date = None
+        
+    def file_to_dict(filepath):
+        with open(filepath, "r") as file:
+            return {line.strip(): i + 1 for i, line in enumerate(filepath)}
     
+    def spell_check(givenList):
+        spell = SpellChecker()
+        givenList = givenList.split()
+        for i, word in enumerate(givenList):
+            givenList[i] = spell.correction(word)
+        return givenList
+        
+        
+    def num_day(self):
+        self.intDate = [i for i in self.dayInput if i.isdigit()]
+        try:
+            if len(self.dayInput) == 6:
+                self.date = int("".join(self.dayInput))
+            if len(self.dayInput) == 4:
+                self.date = int("".join(self.dayInput)+"00")
+            if len(self.dayInput) == 1:
+                self. day = self.dayInput
+        except:
+            pass
+    
+    def word_day(self):
+        self.dayInput = self.spell_check(self.dayInput)
+       
+        for i,j in enumerate(self.dayInput):
+            if j == "twenty" or j == "thirty":
+                self.dayInput[i] = self.dayInput[i] + self.dayInput[i + 1]
+                self.dayInput.pop(i + 1)
+        
+        for i,j in enumerate(self.dayInput):
+            self.dayInput[i] = self.monthList.get(j, self.dayInput[i])
+            
+            if self.month == None and j in self.monthList:
+                self.month = self.monthList[j]
+                
+            if type(j) == str and j.isdigit():
+                self.dayInput[i] = int(j)
+                
+       
 
 
 def main():
