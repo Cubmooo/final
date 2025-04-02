@@ -75,9 +75,74 @@ class Teacher:
             self.location = teacherDetails[2]
 
 class Period:
-    def __init__(self):
-        pass
-    
+    def __init__(self, inputedTime):
+        self.splitInput = self.num_word_spell_check(inputedTime.split(" "))
+        self.spacelessInput = inputedTime.replace(" ","").lower()
+        self.listInput = list(self.spacelessInput)
+        self.hasPm = False
+        self.hasPeriod = False
+        self.time = None
+        self.period = None
+        self.toOrPastIndex = None
+        self.hasPast = None
+        
+    def spell_check(str):
+        spell = SpellChecker()
+        for i,word in enumerate(str):
+            if word not in spell:
+                str[i] = spell.correction(word)
+                
+    def num_word_spell_check(str):
+        spell = SpellChecker()
+        for i,word in enumerate(str):
+            if word not in spell:
+                str[i] = spell.correction(word)
+            if word == "quarter":
+                str[i] = 15
+            if word == "half":
+                str[i] = 30
+            try:
+                str[i] = w2n.word_to_num(word)
+            except:
+                pass
+        
+    def num_time(self):
+        if "period" in self.spacelessInput:
+            self.hasPeriod = True
+        if "pm" in self.spacelessInput:
+            self.hasPm = True
+        
+        if self.hasPeriod:
+            try:
+                index = self.splitInput.index("period")
+                self.period = int(self.splitInput[index + 1])
+                return
+            except:
+                pass
+        
+        self.intList = [int(num) for num in self.listInput if num.isdigit()]
+        self.periodInt = "".join(self.intList)
+        if len(str(self.periodInt)) == (3 or 4):
+            self.time = self.periodInt / 100
+        elif len(str(self.periodInt)) == (1 or 2):
+            self.time = self.periodInt
+
+    def word_time(self):
+        if "to" in self.splitInput:
+            self.toOrPastIndex = self.splitInput.index("to")
+            self.hasPast = True
+        if "past" in self.splitInput:
+            self.toOrPastIndex = self.splitInput.index("past")
+            
+        try:
+            minutes = self.splitInput[self.toOrPastIndex - 1]
+            hours = self.splitInput[self.toOrPastIndex + 1]
+            self.time = hours + (2 * self.hasPast - 1) * minutes / 100
+            return
+        except:
+            pass
+        
+        self.splitInput = [int(i) for i in self.splitInput if i.isdigit()]
 class Time:
     def __init__(self):
         pass
