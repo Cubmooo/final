@@ -86,17 +86,21 @@ def ask_info():
 def ask_day():
     while True:
         inputedDay = input("What day would you like: ")
-        dayFnList = [num_day, word_day]
+        dayFnList = [word_day, num_day]
         for fn in dayFnList:
             day = fn(inputedDay)
             if day != None:
                 break
         if day != None:
             break
-    if len(day) == 1:
-        day = "Day " + day
-    if len(day) != 1:
-
+        
+    if len(str(day)) == 1:
+        day = "Day " + str(day[0])
+        
+    elif len(str(day)) != 1:
+        day = str(day)
+        day = day[:-4] + "/" + day[-4:-2] + "/" + day[-2:]
+        print(day)
         schoolCalender = pd.read_csv('final/school_calender.csv')
         for item,row in schoolCalender.iterrows():
             if row["start_date"] == day:
@@ -105,15 +109,6 @@ def ask_day():
     return day
 
 def num_day(inputedDay):
-    inputedDay = re.split('/|-| ', inputedDay)
-    print(inputedDay)
-    i = 0
-    while len(inputedDay) > i:
-        try:
-            inputedDay[i] = int(inputedDay[i])
-            i += 1
-        except:
-            inputedDay.pop(i)
     print(inputedDay)
     try:
         if len(inputedDay) == 6:
@@ -157,7 +152,7 @@ def word_day(inputedDay):
             inputedDay[i] = monthDict[j]
             month = monthDict[j]
         except:
-            pass
+            month  = None
         
         try:
             inputedDay[i] = int(j)
@@ -165,10 +160,17 @@ def word_day(inputedDay):
             pass
     
     normalDateFormat = False
-    if inputedDay.index(month) == 1:
-        normalDateFormat = True
+    try:
+        if inputedDay.index(month) == 1:
+            normalDateFormat = True
+    except:
+        pass
      
     inputedDay = [value for value in inputedDay if type(value) == int]
+    
+    day = num_day(inputedDay)
+    if day != None:
+        return day
     try:
         year = int(str(inputedDay[2])[-2:])
     except:
