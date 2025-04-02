@@ -5,12 +5,13 @@ from word2number import w2n
 import re
 
 class Teacher:
-    def __innit__(self):
-            self.location = None
-            self.className = None
-            self.classCode = None
-            self.day = None
-            self.time = None
+    def __init__(self):
+        self.location = None
+        self.className = None
+        self.classCode = None
+        self.day = None
+        self.time = None
+        self.name = None
         
     def add(self, name):
         name = name.replace(" ","")
@@ -25,14 +26,20 @@ class Teacher:
         name = spell.correction(name)
         if name == None:
             self.name = name
-            return 0
+            return
         
         with open("final/teachers.txt") as gh:
             nameIndex = dict([line.strip().split(" ",1) for line in gh])
         name = nameIndex[name]
         self.name = name
+    
+    def get_current_time(self):
+        currentDateAndTime = datetime.datetime.now()
+        self.day = currentDateAndTime.strftime("%d/%m/%Y")
+        self.dayTime = currentDateAndTime.strftime("%H.%M")
+        self.get_time(self.day, self.dayTime)
         
-    def get_time(self):
+    def get_time(self, day, time):
         bellTimes={
         "Before School" : [00.00,8.40],
         "Morning Tutor":[8.40,8.50],
@@ -47,12 +54,8 @@ class Teacher:
         "After School" : [15.30,24.00],                 
         }
         
-        currentDateAndTime = datetime.datetime.now()
-        self.day = currentDateAndTime.strftime("%d/%m/%Y")
-        time = currentDateAndTime.strftime("%H.%M")
-        
         for period,times in bellTimes.items():
-            if times[0] <= float(time) < times[1]:
+            if times[0] <= float(self.dayTime) < times[1]:
                 self.time = period
                 
         schoolCalender = pd.read_csv('final/school_calender.csv')
@@ -75,18 +78,20 @@ class Teacher:
             self.location = teacherDetails[2]
 
 class Period:
-    def __init__(self, inputedTime):
-        self.splitInput = self.num_word_spell_check(inputedTime.split(" "))
-        self.spacelessInput = inputedTime.replace(" ","").lower()
-        self.listInput = list(self.spacelessInput)
+    def __init__(self):
         self.hasPm = False
         self.hasPeriod = False
         self.time = None
         self.period = None
         self.toOrPastIndex = None
         self.hasPast = None
+    
+    def add(self, inputedTime):
+        self.splitInput = self.num_word_spell_check(inputedTime.split(" "))
+        self.spacelessInput = inputedTime.replace(" ","").lower()
+        self.listInput = list(self.spacelessInput)
                 
-    def num_word_spell_check(str):
+    def num_word_spell_check(self, str):
         spell = SpellChecker()
         for i,word in enumerate(str):
             if word not in spell:
@@ -99,6 +104,7 @@ class Period:
                 str[i] = w2n.word_to_num(word)
             except:
                 pass
+        return str
         
     def num_time(self):
         if "period" in self.spacelessInput:
@@ -115,7 +121,7 @@ class Period:
                 pass
         
         self.intList = [int(num) for num in self.listInput if num.isdigit()]
-        self.periodInt = "".join(self.intList)
+        self.periodInt = int("".join(map(str, self.intList)))
         if len(str(self.periodInt)) == (3 or 4):
             self.time = self.periodInt / 100
         elif len(str(self.periodInt)) == (1 or 2):
@@ -136,7 +142,7 @@ class Period:
         except:
             pass
         
-        self.splitInput = [int(i) for i in self.splitInput if i.isdigit()]
+        self.splitInput = [int(i) for i in self.splitInput if str(i).isdigit()]
         try:
             while i < len(self.splitInput) - 1:
                 if self.splitInput[i] >= 10:
@@ -149,15 +155,18 @@ class Period:
             pass
         
 class Time:
-    def __init__(self, inputedDay):
-        self.dayInput = inputedDay
-        self.monthList = self.file_to_dict("final/months.txt")
-        self.numbersList = self.file_to_dict("final/numbers.txt")
+    def __init__(self):
         self.month = None
+        self.year = 25
         self.day = None
         self.date = None
         
-    def file_to_dict(filepath):
+    def add(self, inputedDay):
+        self.dayInput = inputedDay
+        self.monthList = self.file_to_dict("final/months.txt")
+        self.numbersList = self.file_to_dict("final/numbers.txt")
+        
+    def file_to_dict(self,filepath):
         with open(filepath, "r") as file:
             return {line.strip(): i + 1 for i, line in enumerate(filepath)}
     
@@ -177,7 +186,7 @@ class Time:
             if len(self.dayInput) == 4:
                 self.date = int("".join(self.dayInput)+"00")
             if len(self.dayInput) == 1:
-                self. day = self.dayInput
+                self.day = self.dayInput
         except:
             pass
     
@@ -197,11 +206,87 @@ class Time:
                 
             if type(j) == str and j.isdigit():
                 self.dayInput[i] = int(j)
-                
-       
+            
+        if self.month in self.dayInput:    
+            normalDateFormat = self.dayInput.index(self.month) == 1
 
+        if len(self.dayInput) >= 3:
+            self.year = self.dayInput[2]
+        self.monthDay = self.dayInput[-1 * (normalDateFormat - 1)]
+        self.date = self.monthDay * 10000 + self.month * 100 + self.year
 
 def main():
-    pass
+    teacher = Teacher()
+    while teacher.name == None:
+        teacherInput = input("What teacher would you like to find: ")
+        teacher.add(teacherInput)
+    teacher.get_current_time()
+    teacher.current_position()
+    
+    print(f"Teacher's Location is {teacher.location}")
+    print(f"Teacher's Class is {teacher.className}")
+    print(f"Teacher's Class code is {teacher.classCode}")
+    
+    while True:
+        newInfoInput = input("Would you like to pick a different teacher or time: ")
+        newInfoInput = sentiment_finder(newInfoInput)
+        if newInfoInput == None:
+            print("Input again please")
+            continue
+        break
+        
+    if newInfoInput == False:
+        exit_program()
+    
+    while teacher.name == None:
+        teacherInput = input("What teacher would you like to find: ")
+        teacher.add(teacherInput)
+        
+    period = Period()
+    while period.period == None:
+        inputedTime = input("What time of day:")
+        period.add(inputedTime)
+        period.num_time()
+        period.word_time()
+        print(period.period)
+        print(period.time)
+        
+    time = Time()
+    while time.day == None and time.date == None:
+        inputedDay = input("What day would you like: ")
+        time.add(inputedDay)
+        time.num_day
+        time.word_day
+        print(time.date)
+        print(time.day)
+        
+
+def sentiment_finder(word):
+    word = word.replace(" ","")
+    
+    spell = SpellChecker(language = None)
+    spell.word_frequency.load_text_file("final/yes.txt")
+    if len(word) <= 3:
+        spell.distance = 1
+    else:
+        spell.distance = 2
+    
+    if word in spell or spell.candidates(word) != None:
+        sentiment = True
+    else:
+        spell = SpellChecker(language = None)
+        spell.word_frequency.load_text_file("final/no.txt")    
+        
+        if word in spell or spell.candidates(word) != None:
+            sentiment = False
+        else:
+            return None
+    
+    return sentiment
+
+def exit_program():
+    print("Thank you for using this teacher stalking machine\nI hope you found what you needed")
+    exit()
+
 if __name__ == "__main__":
     main()
