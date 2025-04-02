@@ -237,37 +237,6 @@ def military_time(inputedTime):
     if 0 <=inputedTime <= 24:
         return inputedTime + 12*pm       
 
-def word_time(inputedTime):
-    inputedTime = inputedTime.split(" ")
-    spell = SpellChecker()
-    spell.word_frequency.remove("fourth")
-    spell.word_frequency.add("forty")
-    for i in inputedTime:
-        if i not in spell:
-            inputedTime[inputedTime.index(i)] = spell.correction(i)
-        try:
-            inputedTime[inputedTime.index(i)] = w2n.word_to_num(i)
-        except:
-            pass 
-
-    pm = False
-    if "pm" in inputedTime:
-        pm = True
-        
-    for i,_ in enumerate(inputedTime):
-        if type(inputedTime[i]) == str:
-            inputedTime.pop(i)
-            
-    for i,_ in enumerate(inputedTime):
-        if inputedTime[i] >= 10:
-            inputedTime[i] = inputedTime[i] + inputedTime[i+1]
-            inputedTime.pop(i+1)
-
-    numTime = float(".".join(str(i) for i in inputedTime))
-    if pm == True:
-        numTime += 12
-    return numTime
-        
 def word_to_past_time(inputedTime):  
     inputedTime = inputedTime.split(" ")
     spell = SpellChecker()
@@ -302,6 +271,37 @@ def word_to_past_time(inputedTime):
         return hours + minutes*0.01
     else:
         return (int(hours) + pm * 12) - (0.4 + minutes * 0.01)
+
+def word_time(inputedTime):
+    inputedTime = inputedTime.split(" ")
+    spell = SpellChecker()
+    spell.word_frequency.remove("fourth")
+    spell.word_frequency.add("forty")
+    for i in inputedTime:
+        if i not in spell:
+            inputedTime[inputedTime.index(i)] = spell.correction(i)
+        try:
+            inputedTime[inputedTime.index(i)] = w2n.word_to_num(i)
+        except:
+            pass 
+
+    pm = False
+    if "pm" in inputedTime:
+        pm = True
+        
+    for i,_ in enumerate(inputedTime):
+        if type(inputedTime[i]) == str:
+            inputedTime.pop(i)
+            
+    for i,_ in enumerate(inputedTime):
+        if inputedTime[i] >= 10:
+            inputedTime[i] = inputedTime[i] + inputedTime[i+1]
+            inputedTime.pop(i+1)
+
+    numTime = float(".".join(str(i) for i in inputedTime))
+    if pm == True:
+        numTime += 12
+    return numTime
     
 def ask_teacher():
     while True:

@@ -59,8 +59,7 @@ class Teacher:
         for _,row in schoolCalender.iterrows():
             if row["start_date"] == self.day:
                 self.day = row["name"][5:]
-    
-        
+           
     def current_position(self):
         timetable = pd.read_csv(self.name)
         if self.day != "No School" and self.time not in ["Before School", "After School"]:
@@ -74,6 +73,17 @@ class Teacher:
             self.className = teacherDetails[0]
             self.classCode = teacherDetails[1]
             self.location = teacherDetails[2]
+
+class Period:
+    def __init__(self):
+        pass
+    
+class Time:
+    def __init__(self):
+        pass
+    
+
+
 def main():
     pass
 if __name__ == "__main__":
