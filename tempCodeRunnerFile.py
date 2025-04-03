@@ -1,2 +1,2 @@
 
-            inputedTime.replace(char,"")
+        for period,times in bellTimes.items():
