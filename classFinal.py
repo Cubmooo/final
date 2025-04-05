@@ -3,6 +3,7 @@ from datetime import datetime
 from spellchecker import SpellChecker
 from word2number import w2n
 
+
 class Teacher:
     def __init__(self):
         self.location = None
@@ -65,7 +66,7 @@ class Teacher:
                 self.time = period
                
     def get_day(self):
-        schoolCalender = pd.read_csv('final/school_calender.csv')
+        schoolCalender = pd.read_csv("final/school_calender.csv")
         for _,row in schoolCalender.iterrows():
             if row["start_date"] == self.day:
                 self.day = row["name"][5:]
@@ -84,6 +85,7 @@ class Teacher:
                 self.className = teacherDetails[0]
                 self.classCode = teacherDetails[1]
                 self.location = teacherDetails[2]
+
 
 class Period:
     def __init__(self):
@@ -248,6 +250,7 @@ class Time:
             self.monthDay = self.dayInput[-1 * (normalDateFormat - 1)]
             self.date = self.monthDay * 10000 + self.month * 100 + self.year
 
+
 def main():
     teacher = Teacher()
     ask_teacher(teacher)
@@ -270,6 +273,7 @@ def main():
     teacher.current_position()
     
     display_teacher(teacher)
+
 
 def ask_teacher(teacher):
     while teacher.name == None:
