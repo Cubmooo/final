@@ -2,7 +2,6 @@ import pandas as pd
 import datetime
 from spellchecker import SpellChecker
 from word2number import w2n
-import re
 
 class Teacher:
     def __init__(self):
@@ -183,7 +182,7 @@ class Time:
         
     def file_to_dict(self,filepath):
         with open(filepath, "r") as file:
-            return {line.strip(): i + 1 for i, line in enumerate(filepath)}
+            return {line.strip(): i + 1 for i, line in enumerate(file)}
     
     def spell_check(self, givenList):
         spell = SpellChecker()
@@ -216,13 +215,19 @@ class Time:
         
         for i,j in enumerate(self.dayInput):
             self.dayInput[i] = self.monthList.get(j, self.dayInput[i])
+            self.dayInput[i] = self.numbersList.get(j, self.dayInput[i])
             
-            if self.month == None and j in self.monthList:
+            if (self.month == None) and (j in self.monthList):
                 self.month = self.monthList[j]
                 
             if type(j) == str and j.isdigit():
                 self.dayInput[i] = int(j)
             
+        self.dayInput = [
+            int(num) for num in self.dayInput if isinstance(num, int)
+            or (isinstance(num, str) and  num.isdigit())
+        ]
+        
         if self.month in self.dayInput:    
             normalDateFormat = self.dayInput.index(self.month) == 1
         print(self.dayInput)
