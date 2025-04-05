@@ -1,5 +1,5 @@
 import pandas as pd
-import datetime
+from datetime import datetime
 from spellchecker import SpellChecker
 from word2number import w2n
 
@@ -33,19 +33,20 @@ class Teacher:
         self.name = name
     
     def get_current_time(self):
-        currentDateAndTime = datetime.datetime.now()
+        currentDateAndTime = datetime.now()
         self.day = currentDateAndTime.strftime("%d/%m/%Y")
         self.dayTime = currentDateAndTime.strftime("%H.%M")
-        print(self.day)
-        self.get_time()
+        self.get_period()
+        self.get_day()
         
     def add_dayTime(self, dayTime):
         self.dayTime = dayTime
         
-    def add_day(self, day):
-        self.day = day
-           
-    def get_time(self):
+    def add_day(self, date):
+        date = datetime.strptime(str(date), "%m%d%y").strftime("%m/%d/%Y")
+        self.day = date
+    
+    def get_period(self):
         bellTimes={
         "Before School" : [00.00,8.40],
         "Morning Tutor":[8.40,8.50],
@@ -63,7 +64,8 @@ class Teacher:
         for period,times in bellTimes.items():
             if times[0] <= float(self.dayTime) < times[1]:
                 self.time = period
-                
+               
+    def get_day(self):
         schoolCalender = pd.read_csv('final/school_calender.csv')
         for _,row in schoolCalender.iterrows():
             if row["start_date"] == self.day:
@@ -76,12 +78,13 @@ class Teacher:
                 periodIloc = timetable.index[timetable.iloc[:,0] == self.time][0]
             except:
                 return
-            dayIloc = timetable.columns.get_loc(self.day)
-            teacherDetails = timetable.iloc[periodIloc:periodIloc+3,dayIloc].tolist()
-        
-            self.className = teacherDetails[0]
-            self.classCode = teacherDetails[1]
-            self.location = teacherDetails[2]
+            if self.day in timetable.columns:
+                dayIloc = timetable.columns.get_loc(self.day)
+                teacherDetails = timetable.iloc[periodIloc:periodIloc + 3,dayIloc].tolist()
+            
+                self.className = teacherDetails[0]
+                self.classCode = teacherDetails[1]
+                self.location = teacherDetails[2]
 
 class Period:
     def __init__(self):
@@ -139,7 +142,7 @@ class Period:
         elif len(str(self.periodInt)) in [1, 2]:
             self.time = self.periodInt
 
-    def word_time(self):      
+    def word_time(self):
         if "to" in self.splitInput:
             self.toOrPastIndex = self.splitInput.index("to")
             self.hasTo = True
@@ -230,7 +233,7 @@ class Time:
         
         if self.month in self.dayInput:    
             normalDateFormat = self.dayInput.index(self.month) == 1
-        print(self.dayInput)
+
         if len(self.dayInput) >= 3:
             self.year = self.dayInput[2]
         self.monthDay = self.dayInput[-1 * (normalDateFormat - 1)]
@@ -238,16 +241,38 @@ class Time:
 
 def main():
     teacher = Teacher()
-    while teacher.name == None:
-        teacherInput = input("What teacher would you like to find: ")
-        teacher.add(teacherInput)
+    ask_teacher(teacher)
     teacher.get_current_time()
     teacher.current_position()
     
+    display_teacher(teacher)
+    
+    ask_continue()
+    
+    teacher.name = None
+    ask_teacher(teacher)
+        
+    period = Period()
+    ask_period()
+        
+    time = Time()
+    ask_day()
+    
+    teacher.current_position()
+    
+    display_teacher(teacher)
+
+def ask_teacher(teacher):
+    while teacher.name == None:
+        teacherInput = input("What teacher would you like to find: ")
+        teacher.add(teacherInput)
+        
+def display_teacher(teacher):
     print(f"Teacher's Location is {teacher.location}")
     print(f"Teacher's Class is {teacher.className}")
     print(f"Teacher's Class code is {teacher.classCode}")
     
+def ask_continue():
     while True:
         newInfoInput = input("Would you like to pick a different teacher or time: ")
         newInfoInput = sentiment_finder(newInfoInput)
@@ -258,28 +283,30 @@ def main():
         
     if newInfoInput == False:
         exit_program()
-    
-    while teacher.name == None:
-        teacherInput = input("What teacher would you like to find: ")
-        teacher.add(teacherInput)
-        
-    period = Period()
+
+def ask_period(period, teacher):
     while period.period == None and period.time == None:
         inputedTime = input("What time of day:")
         period.add(inputedTime)
         period.num_time()
         period.word_time()
-        print(period.period)
-        print(period.time)
-        
-    time = Time()
+        if (period.period == None) and (period.time) != None:
+            teacher.add_dayTime(period.time)
+            teacher.get_period()
+        elif (period.period != None):
+            teacher.add_dayTime(period.period)
+    
+def ask_day(time, teacher):
     while time.day == None and time.date == None:
         inputedDay = input("What day would you like: ")
         time.add(inputedDay)
         time.num_day()
         time.word_day()
-        print(time.date)
-        print(time.day)
+        if (time.day == None) and (time.date) != None:
+            teacher.add_day(time.date)
+            teacher.get_day()
+        elif (time.day != None):
+            teacher.add_day(time.day)
     
 def sentiment_finder(word):
     word = word.replace(" ","")
