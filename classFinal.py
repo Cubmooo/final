@@ -39,11 +39,10 @@ class Teacher:
         self.get_period()
         self.get_day()
         
-    def add_dayTime(self, dayTime):
+    def add_day_time(self, dayTime):
         self.dayTime = dayTime
         
     def add_day(self, date):
-        date = datetime.strptime(str(date), "%m%d%y").strftime("%m/%d/%Y")
         self.day = date
     
     def get_period(self):
@@ -73,7 +72,7 @@ class Teacher:
            
     def current_position(self):
         timetable = pd.read_csv(self.name)
-        if self.day != "No School" and self.time not in ["Before School", "After School"]:
+        if (self.day != "No School") and (self.time not in ["Before School", "After School"]):
             try:
                 periodIloc = timetable.index[timetable.iloc[:,0] == self.time][0]
             except:
@@ -89,6 +88,7 @@ class Teacher:
 class Period:
     def __init__(self):
         self.hasPm = False
+        self.hasAm = False
         self.hasPeriod = False
         self.time = None
         self.period = None
@@ -122,12 +122,13 @@ class Period:
             self.hasPeriod = True
         if "pm" in self.splitInput:
             self.hasPm = True
+        if "am" in self.splitInput:
+            self.hasAm = True
         
         if self.hasPeriod:
             try:
                 index = self.splitInput.index("period")
                 self.period = int(self.splitInput[index + 1])
-                print(self.period)
                 return
             except:
                 pass
@@ -170,7 +171,15 @@ class Period:
             self.time = float(".".join([str(num) for num in self.splitInput]))
         except:
             pass
-        
+
+    def add_pm(self, time):
+        if (self.hasPm == True) and (time < 12):
+            time += 12
+        elif (self.hasAm != True) and (time < 6):
+            time += 12
+        return time
+
+
 class Time:
     def __init__(self):
         self.month = None
@@ -225,19 +234,19 @@ class Time:
                 
             if type(j) == str and j.isdigit():
                 self.dayInput[i] = int(j)
-            
+        
         self.dayInput = [
             int(num) for num in self.dayInput if isinstance(num, int)
             or (isinstance(num, str) and  num.isdigit())
         ]
-        
         if self.month in self.dayInput:    
             normalDateFormat = self.dayInput.index(self.month) == 1
 
         if len(self.dayInput) >= 3:
             self.year = self.dayInput[2]
-        self.monthDay = self.dayInput[-1 * (normalDateFormat - 1)]
-        self.date = self.monthDay * 10000 + self.month * 100 + self.year
+        if normalDateFormat != None:
+            self.monthDay = self.dayInput[-1 * (normalDateFormat - 1)]
+            self.date = self.monthDay * 10000 + self.month * 100 + self.year
 
 def main():
     teacher = Teacher()
@@ -253,10 +262,10 @@ def main():
     ask_teacher(teacher)
         
     period = Period()
-    ask_period()
+    ask_period(period, teacher)
         
     time = Time()
-    ask_day()
+    ask_day(time, teacher)
     
     teacher.current_position()
     
@@ -268,10 +277,17 @@ def ask_teacher(teacher):
         teacher.add(teacherInput)
         
 def display_teacher(teacher):
-    print(f"Teacher's Location is {teacher.location}")
-    print(f"Teacher's Class is {teacher.className}")
-    print(f"Teacher's Class code is {teacher.classCode}")
-    
+    if teacher.location == None:
+        print("location unkown its currently outsie of school hours")
+        return
+    if isinstance(teacher.location, str):
+        print(f"Teacher's Location is {teacher.location}")
+        print(f"Teacher's Class is {teacher.className}")
+        print(f"Teacher's Class code is {teacher.classCode}")
+    else:
+        print("Teacher does not currently have a class")
+        print("The teachers location is unknown")
+           
 def ask_continue():
     while True:
         newInfoInput = input("Would you like to pick a different teacher or time: ")
@@ -291,10 +307,10 @@ def ask_period(period, teacher):
         period.num_time()
         period.word_time()
         if (period.period == None) and (period.time) != None:
-            teacher.add_dayTime(period.time)
+            teacher.add_day_time(period.add_pm(period.time))
             teacher.get_period()
         elif (period.period != None):
-            teacher.add_dayTime(period.period)
+            teacher.add_day_time(period.period)
     
 def ask_day(time, teacher):
     while time.day == None and time.date == None:
@@ -302,10 +318,12 @@ def ask_day(time, teacher):
         time.add(inputedDay)
         time.num_day()
         time.word_day()
-        if (time.day == None) and (time.date) != None:
+        if (time.day == None) and (time.date != None):
+            time.date = datetime.strptime(str(time.date), "%m%d%y").strftime("%m/%d/%Y")
             teacher.add_day(time.date)
             teacher.get_day()
         elif (time.day != None):
+            time.day = "Day " + str(time.day)
             teacher.add_day(time.day)
     
 def sentiment_finder(word):
