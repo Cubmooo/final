@@ -1,2 +1,1 @@
-
-    teacher.get_current_time()
+print(self.year)
