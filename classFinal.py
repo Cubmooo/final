@@ -4,6 +4,7 @@ from spellchecker import SpellChecker
 from word2number import w2n
 
 
+# The teacher class handles finding the teachers name and locating them
 class Teacher:
     def __init__(self):
         self.location = None
@@ -12,79 +13,110 @@ class Teacher:
         self.day = None
         self.time = None
         self.name = None
-        
+    
+    # Find and store the name in the users input  
     def add(self, name):
-        name = name.replace(" ","")
+        # Create list of teachers names and make input case insensitive
+        name = name.replace(" ","").lower()
         teacherList=[]
         teachers = open("final/teachers.txt", "r")
         for i in teachers:
             teacherList.append(i.split(" ",1)[0])
 
-        spell = SpellChecker(language = None)
+        # Define spell checker
+        spell = SpellChecker(language = None, distance=2)
         spell.word_frequency.load_words(teacherList)
-        
-        name = spell.correction(name)
+
+        # Correct input and check that the user has inputted a name
+        fixedName = spell.correction(name)
+        name = fixedName if (name != fixedName) or (name in spell) else None
         if name == None:
             self.name = name
             return
         
+        # turns list of teachers into a dict then finds filepath
         with open("final/teachers.txt") as gh:
             nameIndex = dict([line.strip().split(" ",1) for line in gh])
         name = nameIndex[name]
         self.name = name
     
     def get_current_time(self):
+        # finds and formats the current time
         currentDateAndTime = datetime.now()
         self.day = currentDateAndTime.strftime("%d/%m/%Y")
         self.dayTime = currentDateAndTime.strftime("%H.%M")
+        
+        # calls the functions to find school period and days
         self.get_period()
         self.get_day()
         
     def add_day_time(self, dayTime):
+        # defines the inputted time as a attribute of Teacher
         self.dayTime = dayTime
         
+    def add_time(self, time):
+        # defines the inputted period as a attribute of Teacher
+        self.time = "Period " + str(time)
+        
     def add_day(self, date):
+        # defines the inputted date as a attribute of Teacher
         self.day = date
     
+    # Finds the period in which any time sits
     def get_period(self):
+        # Defines list of periods and there times
         bellTimes={
-        "Before School" : [00.00,8.40],
-        "Morning Tutor":[8.40,8.50],
-        "Period 1" : [8.50,9.40],
-        "Period 2" : [9.40,10.30],
-        "Period 3" : [10.50,11.40],
-        "Period 4" : [11.40,12.30],
-        "ETT" : [12.30,13.00],
-        "Lunch" : [13.00,13.50],
-        "Period 5" : [13.50,14.40],
-        "Period 6" : [14.40,15.30],
-        "After School" : [15.30,24.00],                 
+        "Before School" : [00.00, 8.40],
+        "Morning Tutor":[8.40, 8.50],
+        "Period 1" : [8.50, 9.40],
+        "Period 2" : [9.40, 10.30],
+        "Period 3" : [10.50, 11.40],
+        "Period 4" : [11.40, 12.30],
+        "ETT" : [12.30, 13.00],
+        "Lunch" : [13.00, 13.50],
+        "Period 5" : [13.50, 14.40],
+        "Period 6" : [14.40, 15.30],
+        "After School" : [15.30, 24.00],                 
         }
         
+        # compares time to the period time to find correct period
         for period,times in bellTimes.items():
             if times[0] <= float(self.dayTime) < times[1]:
                 self.time = period
-               
+    
+    # Finds the school day for the given date           
     def get_day(self):
+        # Defines calender
         schoolCalender = pd.read_csv("final/school_calender.csv")
+        
+        # iterates through the calender to find the correct school day
         for _,row in schoolCalender.iterrows():
             if row["start_date"] == self.day:
                 self.day = row["name"][5:]
-           
+    
+    # finds current position based on school day and period       
     def current_position(self):
         timetable = pd.read_csv(self.name)
-        if (self.day != "No School") and (self.time not in ["Before School", "After School"]):
+        
+        # checks that it is within school hours
+        if ((self.day != "No School") and
+                (self.time not in ["Before School", "After School"])):
             try:
-                periodIloc = timetable.index[timetable.iloc[:,0] == self.time][0]
+                # finds the position of the information on the table
+                loc = timetable.iloc[:, 0] == self.time
+                periodIloc = timetable.index[loc][0]  
             except:
                 return
+            
+            # find the correct information based on its location
             if self.day in timetable.columns:
                 dayIloc = timetable.columns.get_loc(self.day)
-                teacherDetails = timetable.iloc[periodIloc:periodIloc + 3,dayIloc].tolist()
-            
-                self.className = teacherDetails[0]
-                self.classCode = teacherDetails[1]
-                self.location = teacherDetails[2]
+                self.info = timetable.iloc[periodIloc:periodIloc + 3, dayIloc]
+
+                # Store the location information
+                self.className = self.info.tolist()[0]
+                self.classCode = self.info.tolist()[1]
+                self.location = self.info.tolist()[2]
 
 
 class Period:
@@ -97,18 +129,23 @@ class Period:
         self.toOrPastIndex = None
         self.hasTo = False
     
+    # Store the users time input as various attributes
     def add(self, inputedTime):
+        # stores input as spell corrected and caps in-sensitive 
         self.splitInput = self.num_word_spell_check(inputedTime.split())
-        self.splitInput = [word.lower() if type(word) == str else word
+        self.splitInput = [word.lower() if isinstance(word, str) else word
                            for word in self.splitInput]
         self.spacelessInput = inputedTime.replace(" ","")
         self.listInput = list(self.spacelessInput)
                 
     def num_word_spell_check(self, str):
+        # iterates through the inputs
         spell = SpellChecker()
         for i,word in enumerate(str):
+            # Corrects the spelling of the input
             if word not in spell:
                 str[i] = spell.correction(word)
+            # Replaces all written out numbers with intergers
             if word == "quarter":
                 str[i] = 15
             if word == "half":
@@ -118,8 +155,10 @@ class Period:
             except:
                 pass
         return str
-        
+    
+    # find the time if written in a hour minute format    
     def num_time(self):
+        # Checks if time is inputed as a period or am or pm are present
         if "period" in self.splitInput:
             self.hasPeriod = True
         if "pm" in self.splitInput:
@@ -127,6 +166,7 @@ class Period:
         if "am" in self.splitInput:
             self.hasAm = True
         
+        # Returns the time as a period if the time is given as a period
         if self.hasPeriod:
             try:
                 index = self.splitInput.index("period")
@@ -135,23 +175,29 @@ class Period:
             except:
                 pass
         
+        # remove all words from the inputted time
         self.intList = [int(num) for num in self.listInput if num.isdigit()]
         self.periodInt = "".join(map(str, self.intList))
         self.periodInt = int(self.periodInt) if self.periodInt else None
+        
+        # return if no time present
         if self.periodInt == None:
             return
+        # return the time either in hours or hours and minutes
         if len(str(self.periodInt)) in [3, 4]:
-            self.time = self.periodInt / 100
+            self.time = (self.periodInt/100)
         elif len(str(self.periodInt)) in [1, 2]:
             self.time = self.periodInt
 
     def word_time(self):
+        # find the location of the words to and past if present
         if "to" in self.splitInput:
             self.toOrPastIndex = self.splitInput.index("to")
             self.hasTo = True
         if "past" in self.splitInput:
             self.toOrPastIndex = self.splitInput.index("past")
-            
+        
+        # Finds the time based on the location found earlier
         try:
             minutes = self.splitInput[self.toOrPastIndex - 1]
             hours = self.splitInput[self.toOrPastIndex + 1]
@@ -161,8 +207,12 @@ class Period:
         except:
             pass
         
-        self.splitInput = [int(i) for i in self.splitInput if str(i).isdigit()]
+        # remove all words from input
+        self.splitInput = [int(i) for i in self.splitInput
+                           if str(i).isdigit()]
         i = 0
+        """iterate through list combining all numbers larger then 10
+        with there next number e.g. 40, 5 become 45"""
         try:
             while i < len(self.splitInput) - 1:
                 if self.splitInput[i] >= 10:
@@ -170,13 +220,16 @@ class Period:
                     self.splitInput.pop(i + 1)
                 else:
                     i += 1
+            # return final time
             self.time = float(".".join([str(num) for num in self.splitInput]))
         except:
             pass
 
+    # converts 12 hour time to 24 hour time
     def add_pm(self, time):
         if (self.hasPm == True) and (time < 12):
             time += 12
+        # automaticaly assumes school hours unless otherwise stated
         elif (self.hasAm != True) and (time < 6):
             time += 12
         return time
@@ -194,7 +247,7 @@ class Time:
         self.monthList = self.file_to_dict("final/months.txt")
         self.numbersList = self.file_to_dict("final/numbers.txt")
         
-    def file_to_dict(self,filepath):
+    def file_to_dict(self, filepath):
         with open(filepath, "r") as file:
             return {line.strip(): i + 1 for i, line in enumerate(file)}
     
@@ -266,6 +319,7 @@ def main():
         
     period = Period()
     ask_period(period, teacher)
+    print(teacher.time)
         
     time = Time()
     ask_day(time, teacher)
@@ -276,9 +330,12 @@ def main():
 
 
 def ask_teacher(teacher):
-    while teacher.name == None:
+    while True:
         teacherInput = input("What teacher would you like to find: ")
         teacher.add(teacherInput)
+        if teacher.name != None:
+            break
+        print("Teacher Unknown Please Input again")
         
 def display_teacher(teacher):
     if teacher.location == None:
@@ -294,7 +351,8 @@ def display_teacher(teacher):
            
 def ask_continue():
     while True:
-        newInfoInput = input("Would you like to pick a different teacher or time: ")
+        newInfoInput = input("Would you like to pick" +
+                             "a different teacher or time: ")
         newInfoInput = sentiment_finder(newInfoInput)
         if newInfoInput == None:
             print("Input again please")
@@ -309,12 +367,14 @@ def ask_period(period, teacher):
         inputedTime = input("What time of day:")
         period.add(inputedTime)
         period.num_time()
+        print(period.time)
         period.word_time()
+        print(period.time)
         if (period.period == None) and (period.time) != None:
             teacher.add_day_time(period.add_pm(period.time))
             teacher.get_period()
         elif (period.period != None):
-            teacher.add_day_time(period.period)
+            teacher.add_time(period.period)
     
 def ask_day(time, teacher):
     while time.day == None and time.date == None:
@@ -323,7 +383,8 @@ def ask_day(time, teacher):
         time.num_day()
         time.word_day()
         if (time.day == None) and (time.date != None):
-            time.date = datetime.strptime(str(time.date), "%m%d%y").strftime("%m/%d/%Y")
+            time.date = datetime.strptime(str(time.date), "%m%d%y")
+            time.date = datetime.strftime(time.date, "%m/%d/%Y")
             teacher.add_day(time.date)
             teacher.get_day()
         elif (time.day != None):
@@ -337,24 +398,25 @@ def sentiment_finder(word):
     spell.word_frequency.load_text_file("final/yes.txt")
     if len(word) <= 3:
         spell.distance = 1
-    else:
-        spell.distance = 2
     
-    if word in spell or spell.candidates(word) != None:
-        sentiment = True
+    candidates = spell.candidates(word)
+    if candidates and ((word in spell) or (word not in candidates)):
+        return True
     else:
         spell = SpellChecker(language = None)
-        spell.word_frequency.load_text_file("final/no.txt")    
+        spell.word_frequency.load_text_file("final/no.txt")
+        if len(word) <= 3:
+            spell.distance = 1    
+        candidates = spell.candidates(word)
         
-        if word in spell or spell.candidates(word) != None:
-            sentiment = False
+        if candidates and ((word in spell) or (word not in candidates)):
+            return False
         else:
             return None
-    
-    return sentiment
 
 def exit_program():
-    print("Thank you for using this teacher stalking machine\nI hope you found what you needed")
+    print("Thank you for using this teacher stalking machine\n" +
+          "I hope you found what you needed")
     exit()
 
 if __name__ == "__main__":
