@@ -20,7 +20,7 @@ class Teacher:
         # Create list of teachers names and make input case insensitive
         name = name.replace(" ","").lower()
         teacher_list=[]
-        teachers = open("final/teachers.txt", "r")
+        teachers = open("teachers.txt", "r")
         for i in teachers:
             teacher_list.append(i.split(" ",1)[0])
 
@@ -36,7 +36,7 @@ class Teacher:
             return
         
         # turns list of teachers into a dict then finds filepath
-        with open("final/teachers.txt") as gh:
+        with open("teachers.txt") as gh:
             name_index = dict([line.strip().split(" ",1) for line in gh])
         name = name_index[name]
         self.name = name
@@ -88,7 +88,7 @@ class Teacher:
     # Finds the school day for the given date           
     def get_day(self):
         # Defines calender
-        school_calender = pd.read_csv("final/school_calender.csv")
+        school_calender = pd.read_csv("school_calender.csv")
         
         # iterates through the calender to find the correct school day
         for _,row in school_calender.iterrows():
@@ -242,8 +242,8 @@ class Time:
         self.year = 25
         self.day = None
         self.date = None
-        self.month_list = self.file_to_dict("final/months.txt")
-        self.numbers_list = self.file_to_dict("final/numbers.txt")
+        self.month_list = self.file_to_dict("months.txt")
+        self.numbers_list = self.file_to_dict("numbers.txt")
     
     # store inputed day as a attribute or Time    
     def add(self, inputed_day):
@@ -432,7 +432,7 @@ def sentiment_finder(word):
     # loads positive spell checker and makes input space insensitive
     word = word.replace(" ","")
     spell = SpellChecker(language = None)
-    spell.word_frequency.load_text_file("final/yes.txt")
+    spell.word_frequency.load_text_file("yes.txt")
     if len(word) <= 3:
         spell.distance = 1
     
@@ -443,7 +443,7 @@ def sentiment_finder(word):
     else:
         # Loads negative spell checker
         spell = SpellChecker(language = None)
-        spell.word_frequency.load_text_file("final/no.txt")
+        spell.word_frequency.load_text_file("no.txt")
         if len(word) <= 3:
             spell.distance = 1    
         candidates = spell.candidates(word)
