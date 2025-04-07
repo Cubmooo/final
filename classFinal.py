@@ -324,27 +324,32 @@ class Time:
 
 
 def main():
+    # creates teacher object then ask for teacher location
     teacher = Teacher()
     ask_teacher(teacher)
+    # Get and displaycurrent position of teacher
     teacher.get_current_time()
     teacher.current_position()
-    
     display_teacher(teacher)
     
+    # ask if they wish to input another teacher
     ask_continue()
     
+    # Remove old teacher and ask for new one
     teacher.name = None
     ask_teacher(teacher)
-        
+    
+    # create period object and user for what period they want.    
     period = Period()
     ask_period(period, teacher)
     print(teacher.time)
-        
+    
+    # Creates time object and asks user for their desired time    
     time = Time()
     ask_day(time, teacher)
     
+    # Gets and displays teacher position based on new information
     teacher.current_position()
-    
     display_teacher(teacher)
 
 
