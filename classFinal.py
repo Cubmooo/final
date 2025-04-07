@@ -241,64 +241,83 @@ class Time:
         self.year = 25
         self.day = None
         self.date = None
-        
-    def add(self, inputedDay):
-        self.dayInput = inputedDay
         self.monthList = self.file_to_dict("final/months.txt")
         self.numbersList = self.file_to_dict("final/numbers.txt")
-        
+    
+    # store inputed day as a attribute or Time    
+    def add(self, inputedDay):
+        self.dayInput = inputedDay
+    
+    # takes a file of nums or months and creates dict with same ints    
     def file_to_dict(self, filepath):
         with open(filepath, "r") as file:
             return {line.strip(): i + 1 for i, line in enumerate(file)}
     
+    # iterate through word in list spell checking it
     def spell_check(self, givenList):
         spell = SpellChecker()
         givenList = givenList.split()
         for i, word in enumerate(givenList):
             givenList[i] = spell.correction(word)
         return givenList
-              
+    
+    # finds the date or period if given in digits          
     def num_day(self):
+        # remove all words from list
         self.intDate = [i for i in self.dayInput if i.isdigit()]
         try:
+            # return the date if the inputted date is of the right length
             if len(self.intDate) == 6:
                 self.date = int("".join(self.intDate))
             if len(self.intDate) == 4:
                 self.date = int("".join(self.intDate) + "25")
+            # return the period if the input is one digit long
             if len(self.intDate) == 1:
                 self.day = self.intDate[0]
         except:
             pass
     
+    # Finds the date if it is inputed in words
     def word_day(self):
+        # ensure this function isnt run unnecessarily 
         if self.day != None or self.date != None:
             return
+        # spell check input
         self.dayInput = self.spell_check(self.dayInput)
        
+        # make all two words numbers one e.g. twenty one -> twentyone
         for i,j in enumerate(self.dayInput):
             if j == "twenty" or j == "thirty":
                 self.dayInput[i] = self.dayInput[i] + self.dayInput[i + 1]
                 self.dayInput.pop(i + 1)
         
+        # replace all months and numbers with ints
         for i,j in enumerate(self.dayInput):
             self.dayInput[i] = self.monthList.get(j, self.dayInput[i])
             self.dayInput[i] = self.numbersList.get(j, self.dayInput[i])
             
+            # store the month to know date format
             if (self.month == None) and (j in self.monthList):
                 self.month = self.monthList[j]
-                
-            if type(j) == str and j.isdigit():
+            
+            # replace all typed digits with ints    
+            if isinstance(j, str) and j.isdigit():
                 self.dayInput[i] = int(j)
         
+        # coverts all items of list into ints
         self.dayInput = [
             int(num) for num in self.dayInput if isinstance(num, int)
             or (isinstance(num, str) and  num.isdigit())
         ]
+        
+        # Finds the location of the month in the date
         if self.month in self.dayInput:    
             normalDateFormat = self.dayInput.index(self.month) == 1
 
+        # truncates the year if it is stated
         if len(self.dayInput) >= 3:
             self.year = self.dayInput[2]
+        # return date ensuring correct formating is used
         if normalDateFormat != None:
             self.monthDay = self.dayInput[-1 * (normalDateFormat - 1)]
             self.date = self.monthDay * 10000 + self.month * 100 + self.year
