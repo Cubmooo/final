@@ -394,6 +394,7 @@ def ask_continue():
     if newInfoInput == False:
         exit_program()
 
+# ask the user 
 def ask_period(period, teacher):
     while period.period == None and period.time == None:
         inputedTime = input("What time of day:")
