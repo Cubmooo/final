@@ -222,7 +222,7 @@ class Period:
                 else:
                     i += 1
             # return final time
-            self.time = float(".".join([str(num) for num in self.split_input]))
+            self.time = float(".".join([str(i) for i in self.split_input]))
         except:
             pass
 
@@ -267,7 +267,7 @@ class Time:
         # remove all words from list
         self.int_date = [i for i in self.day_input if i.isdigit()]
         try:
-            # return the date if the inputted date is of the right length
+            # return the date if the inputted date is the right length
             if len(self.int_date) == 6:
                 self.date = int("".join(self.int_date))
             if len(self.int_date) == 4 and int(self.int_date) != 2025:
