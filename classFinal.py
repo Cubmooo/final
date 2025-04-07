@@ -1,5 +1,6 @@
-import pandas as pd
 from datetime import datetime
+
+import pandas as pd
 from spellchecker import SpellChecker
 from word2number import w2n
 
@@ -352,15 +353,18 @@ def main():
     teacher.current_position()
     display_teacher(teacher)
 
-
+# Asks user to input new teachers name
 def ask_teacher(teacher):
     while True:
         teacherInput = input("What teacher would you like to find: ")
+        # Checks input is valid then makes it an atribute of teacher
         teacher.add(teacherInput)
+        # Asks again if name not found
         if teacher.name != None:
             break
         print("Teacher Unknown Please Input again")
-        
+
+# Prints out information about the teacher        
 def display_teacher(teacher):
     if teacher.location == None:
         print("location unkown its currently outsie of school hours")
@@ -373,16 +377,20 @@ def display_teacher(teacher):
         print("Teacher does not currently have a class")
         print("The teachers location is unknown")
            
+# Ask if the user would like to terminate the program      
 def ask_continue():
     while True:
         newInfoInput = input("Would you like to pick" +
                              "a different teacher or time: ")
+        # evalute wether the answer was yes or no
         newInfoInput = sentiment_finder(newInfoInput)
+        # if unknown repeat answer
         if newInfoInput == None:
             print("Input again please")
             continue
         break
-        
+    
+    # Exit program if answer was no    
     if newInfoInput == False:
         exit_program()
 
