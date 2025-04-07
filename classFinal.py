@@ -31,7 +31,7 @@ class Teacher:
         # Correct input and check that the user has inputted a name
         fixed_name = spell.correction(name)
         name = fixed_name if (name != fixed_name) or (name in spell) else None
-        if name == None:
+        if name is None:
             self.name = name
             return
         
@@ -182,7 +182,7 @@ class Period:
         self.period_int = int(self.period_int) if self.period_int else None
         
         # return if no time present
-        if self.period_int == None:
+        if self.period_int is None:
             return
         # return the time either in hours or hours and minutes
         if len(str(self.period_int)) in [3, 4]:
@@ -228,7 +228,7 @@ class Period:
 
     # converts 12 hour time to 24 hour time
     def add_pm(self, time):
-        if (self.has_pm == True) and (time < 12):
+        if self.has_pm and (time < 12):
             time += 12
         # automaticaly assumes school hours unless otherwise stated
         elif (self.has_am != True) and (time < 6):
@@ -281,7 +281,7 @@ class Time:
     # Finds the date if it is inputed in words
     def word_day(self):
         # ensure this function isnt run unnecessarily 
-        if self.day != None or self.date != None:
+        if self.day is not None or self.date is not None:
             return
         # spell check input
         self.day_input = self.spell_check(self.day_input)
@@ -318,7 +318,7 @@ class Time:
         if len(self.day_input) >= 3:
             self.year = int(str(self.day_input[2])[-2:])
         # return date ensuring correct formating is used
-        if normal_date_format != None:
+        if normal_date_format is not None:
             self.month_day = self.day_input[-1 * (normal_date_format - 1)]
             self.date = self.month_day * 10000 + self.month * 100 + self.year
 
@@ -358,13 +358,13 @@ def ask_teacher(teacher):
         # Checks input is valid then makes it an atribute of teacher
         teacher.add(teacherInput)
         # Asks again if name not found
-        if teacher.name != None:
+        if teacher.name is not None:
             break
         print("Teacher Unknown Please Input again")
 
 # Prints out information about the teacher        
 def display_teacher(teacher):
-    if teacher.location == None:
+    if teacher.location is None:
         print("location unkown its currently outsie of school hours")
         return
     if isinstance(teacher.location, str):
@@ -383,7 +383,7 @@ def ask_continue():
         # evalute wether the answer was yes or no
         new_info_input = sentiment_finder(new_info_input)
         # if unknown repeat answer
-        if new_info_input == None:
+        if new_info_input is None:
             print("Input again please")
             continue
         break
@@ -395,35 +395,35 @@ def ask_continue():
 # ask the user for the period the want
 def ask_period(period, teacher):
     # repeat until a satasfactory answer is found
-    while period.period == None and period.time == None:
+    while period.period is None and period.time is None:
         inputed_time = input("What time of day:")
         # add time as an atribute of the period object
         period.add(inputed_time)
         period.num_time()
         period.word_time()
         # add the found time as an atribute of the teacher object
-        if (period.period == None) and (period.time) != None:
+        if (period.period is None) and (period.time) is not None:
             teacher.add_day_time(period.add_pm(period.time))
             teacher.get_period()
-        elif (period.period != None):
+        elif (period.period is not None):
             teacher.add_time(period.period)
             
 # ask the user for what time they would like to chose
 def ask_day(time, teacher):
     # repeat until a suitable date or day is found
-    while time.day == None and time.date == None:
+    while time.day is None and time.date is None:
         # ask for day then find intended day
         inputed_day = input("What day would you like: ")
         time.add(inputed_day)
         time.num_day()
         time.word_day()
         # add time as a period as an attribute of Teacher
-        if (time.day == None) and (time.date != None):
+        if (time.day is None) and (time.date is not None):
             time.date = datetime.strptime(str(time.date), "%m%d%y")
             time.date = datetime.strftime(time.date, "%m/%d/%Y")
             teacher.add_day(time.date)
             teacher.get_day()
-        elif (time.day != None):
+        elif (time.day is not None):
             time.day = "Day " + str(time.day)
             teacher.add_day(time.day)
 
