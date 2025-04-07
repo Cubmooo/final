@@ -421,6 +421,7 @@ def ask_day(time, teacher):
         time.add(inputedDay)
         time.num_day()
         time.word_day()
+        # add time as a period as an attribute of Teacher
         if (time.day == None) and (time.date != None):
             time.date = datetime.strptime(str(time.date), "%m%d%y")
             time.date = datetime.strftime(time.date, "%m/%d/%Y")
@@ -429,30 +430,35 @@ def ask_day(time, teacher):
         elif (time.day != None):
             time.day = "Day " + str(time.day)
             teacher.add_day(time.day)
-    
+
+#  Finds if a given input is affirmative or not
 def sentiment_finder(word):
+    # loads positive spell checker and makes input space insensitive
     word = word.replace(" ","")
-    
     spell = SpellChecker(language = None)
     spell.word_frequency.load_text_file("final/yes.txt")
     if len(word) <= 3:
         spell.distance = 1
     
+    # Checks if the word is in the yes list
     candidates = spell.candidates(word)
     if candidates and ((word in spell) or (word not in candidates)):
         return True
     else:
+        # Loads negative spell checker
         spell = SpellChecker(language = None)
         spell.word_frequency.load_text_file("final/no.txt")
         if len(word) <= 3:
             spell.distance = 1    
         candidates = spell.candidates(word)
         
+        # checks if word is any no list and returns None if not
         if candidates and ((word in spell) or (word not in candidates)):
             return False
         else:
             return None
 
+# thanks the user and exits the program
 def exit_program():
     print("Thank you for using this teacher stalking machine\n" +
           "I hope you found what you needed")
