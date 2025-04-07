@@ -394,23 +394,29 @@ def ask_continue():
     if newInfoInput == False:
         exit_program()
 
-# ask the user 
+# ask the user for the period the want
 def ask_period(period, teacher):
+    # repeat until a satasfactory answer is found
     while period.period == None and period.time == None:
         inputedTime = input("What time of day:")
+        # add time as an atribute of the period object
         period.add(inputedTime)
         period.num_time()
         print(period.time)
         period.word_time()
         print(period.time)
+        # add the found time as an atribute of the teacher object
         if (period.period == None) and (period.time) != None:
             teacher.add_day_time(period.add_pm(period.time))
             teacher.get_period()
         elif (period.period != None):
             teacher.add_time(period.period)
-    
+            
+# ask the user for what time they would like to chose
 def ask_day(time, teacher):
+    # repeat until a suitable date or day is found
     while time.day == None and time.date == None:
+        # ask for day then find intended day
         inputedDay = input("What day would you like: ")
         time.add(inputedDay)
         time.num_day()
