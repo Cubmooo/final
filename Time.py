@@ -1,4 +1,5 @@
 from spellchecker import SpellChecker
+from config import ClassConfig
 
 class Time:
     def __init__(self):
@@ -6,8 +7,9 @@ class Time:
         self.year = 25
         self.day = None
         self.date = None
-        self.month_list = self.file_to_dict("months.txt")
-        self.numbers_list = self.file_to_dict("numbers.txt")
+        self.config = ClassConfig()
+        self.month_list = self.file_to_dict(self.config.months_file)
+        self.numbers_list = self.file_to_dict(self.config.numbers_file)
     
     # store inputed day as a attribute or Time    
     def add(self, inputed_day):

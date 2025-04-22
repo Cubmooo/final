@@ -3,6 +3,8 @@ from datetime import datetime
 import pandas as pd
 from spellchecker import SpellChecker
 
+from config import ClassConfig
+
 # The teacher class handles finding the teachers name and locating them
 class Teacher:
     def __init__(self):
@@ -12,13 +14,14 @@ class Teacher:
         self.day = None
         self.time = None
         self.name = None
+        self.config = ClassConfig()
     
     # Find and store the name in the users input  
     def add(self, name):
         # Create list of teachers names and make input case insensitive
         name = name.replace(" ","").lower()
         teacher_list=[]
-        teachers = open("teachers.txt", "r")
+        teachers = open(self.config.teacher_file, "r")
         for i in teachers:
             teacher_list.append(i.split(" ",1)[0])
 
@@ -34,7 +37,7 @@ class Teacher:
             return
         
         # turns list of teachers into a dict then finds filepath
-        with open("teachers.txt") as gh:
+        with open(self.config.teacher_file) as gh:
             name_index = dict([line.strip().split(" ",1) for line in gh])
         name = name_index[name]
         self.name = name
@@ -86,7 +89,7 @@ class Teacher:
     # Finds the school day for the given date           
     def get_day(self):
         # Defines calender
-        school_calender = pd.read_csv("school_calender.csv")
+        school_calender = pd.read_csv(self.config.calendar_file)
         
         # iterates through the calender to find the correct school day
         for _,row in school_calender.iterrows():

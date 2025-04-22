@@ -1,0 +1,8 @@
+{
+"numbers_file": "numbers.txt",
+"months_file": "months.txt",
+"yes_file": "yes.txt",
+"no_file": "no.txt",
+"calender_file": "school_calender.csv",
+"teacher_file": "teachers.txt"
+}

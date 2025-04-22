@@ -1,12 +1,13 @@
 from datetime import datetime
 from spellchecker import SpellChecker
 
+from config import ClassConfig
 import Teacher
 import Period
 import Time
 
 
-def main():
+def main(config):
     # creates teacher object then ask for teacher location
     teacher = Teacher.Teacher()
     ask_teacher(teacher)
@@ -16,7 +17,7 @@ def main():
     display_teacher(teacher)
     
     # ask if they wish to input another teacher
-    ask_continue()
+    ask_continue(config)
     
     # Remove old teacher and ask for new one
     teacher.name = None
@@ -61,12 +62,12 @@ def display_teacher(teacher):
         print("The teachers location is unknown")
            
 # Ask if the user would like to terminate the program      
-def ask_continue():
+def ask_continue(confug):
     while True:
         new_info_input = input("Would you like to pick" +
                              "a different teacher or time: ")
         # evalute wether the answer was yes or no
-        new_info_input = sentiment_finder(new_info_input)
+        new_info_input = sentiment_finder(config, new_info_input)
         # if unknown repeat answer
         if new_info_input is None:
             print("Input again please")
@@ -122,11 +123,11 @@ def ask_day(time, teacher):
             teacher.add_day(time.day)
 
 #  Finds if a given input is affirmative or not
-def sentiment_finder(word):
+def sentiment_finder(config, word):
     # loads positive spell checker and makes input space insensitive
     word = word.replace(" ","")
     spell = SpellChecker(language = None)
-    spell.word_frequency.load_text_file("yes.txt")
+    spell.word_frequency.load_text_file(config.yes_file)
     if len(word) <= 3:
         spell.distance = 1
     
@@ -137,7 +138,7 @@ def sentiment_finder(word):
     else:
         # Loads negative spell checker
         spell = SpellChecker(language = None)
-        spell.word_frequency.load_text_file("no.txt")
+        spell.word_frequency.load_text_file(config.no_file)
         if len(word) <= 3:
             spell.distance = 1    
         candidates = spell.candidates(word)
@@ -150,9 +151,10 @@ def sentiment_finder(word):
 
 # thanks the user and exits the program
 def exit_program():
-    print("Thank you for using this teacher stalking machine\n" +
+    print("Thank you for using this program\n" +
           "I hope you found what you needed")
     exit()
 
 if __name__ == "__main__":
-    main()
+    config = ClassConfig()
+    main(config)
