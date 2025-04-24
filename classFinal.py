@@ -16,6 +16,8 @@ def main(config):
     # Get and displaycurrent position of teacher
     teacher.get_current_time()
     teacher.current_position()
+    logger.info(f"teacher current position {teacher.location}")
+    logger.info(f"teacher class {teacher.class_code}")
     display_teacher(teacher)
     
     # ask if they wish to input another teacher
@@ -24,8 +26,8 @@ def main(config):
     teacher.name = None
     period = Period.Period()
     time = Time.Time()
+    logger.info("asking second time")
     ask_second_time(teacher, period, time)
-    
     
 def ask_second_time(teacher,period,time):
     #ask users for what teacher they want
@@ -44,13 +46,16 @@ def ask_second_time(teacher,period,time):
 # Asks user to input new teachers name
 def ask_teacher(teacher):
     while True:
-        teacherInput = input("What teacher would you like to find: ")
+        teacher_input = input("What teacher would you like to find: ")
+        logger.info(f"teacher input: {teacher_input}")
         # Checks input is valid then makes it an atribute of teacher
-        teacher.add(teacherInput)
+        teacher.add(teacher_input)
         # Asks again if name not found
         if teacher.name is not None:
+            logger.info(f"teacher known {teacher.name}")
             break
         print("Teacher Unknown Please Input again")
+        logger.info(f"teacher unknown input: {teacher_input}")
 
 # Prints out information about the teacher        
 def display_teacher(teacher):

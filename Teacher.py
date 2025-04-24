@@ -4,6 +4,8 @@ import pandas as pd
 from spellchecker import SpellChecker
 
 from config import ClassConfig
+from logging_config import setup_logger
+logger = setup_logger(__name__)
 
 # The teacher class handles finding the teachers name and locating them
 class Teacher:

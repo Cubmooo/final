@@ -1,5 +1,7 @@
 from spellchecker import SpellChecker
 from config import ClassConfig
+from logging_config import setup_logger
+logger = setup_logger(__name__)
 
 class Time:
     def __init__(self):
