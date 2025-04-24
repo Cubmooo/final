@@ -16,6 +16,7 @@ class Time:
     # store inputed day as a attribute or Time    
     def add(self, inputed_day):
         self.day_input = inputed_day
+        logger.debug(f"self.day_input {self.day_input}")
     
     # takes a file of nums or months and creates dict with same ints
     def file_to_dict(self, filepath):
@@ -34,17 +35,24 @@ class Time:
     def num_day(self):
         # remove all words from list
         self.int_date = [i for i in self.day_input if i.isdigit()]
+        logger.debug(f"date of ints {self.int_date}")
         try:
             # return the date if the inputted date is the right length
             if len(self.int_date) == 6:
                 self.date = int("".join(self.int_date))
-            if len(self.int_date) == 4 and int(self.int_date) != 2025:
+            elif len(self.int_date) == 4 and int(self.int_date) != 2025:
                 self.date = int("".join(self.int_date) + "25")
-            # return the period if the input is one digit long
-            if len(self.int_date) == 1:
+            # return the school day if the input is one digit long
+            elif len(self.int_date) == 1:
                 self.day = self.int_date[0]
-        except:
+            
+        # catch errors such as int_date having no numbers
+        except (ValueError, TypeError, IndexError) as e:
+            logger.debug(f"date not found: {e}")
             pass
+        except Exception as e:
+            logger.critical(f"unknown error {e}")
+            raise
     
     # Finds the date if it is inputed in words
     def word_day(self):
@@ -53,13 +61,20 @@ class Time:
             return
         # spell check input
         self.day_input = self.spell_check(self.day_input)
-       
+        self.combine_number_words(self)
+        self.convert_words_to_ints(self)
+        self.convert_digits_to_ints(self)
+        self.define_date(self)
+    
+    def combine_number_words(self):   
         # make all two words numbers one e.g. twenty one -> twentyone
         for i,j in enumerate(self.day_input):
             if j == "twenty" or j == "thirty":
                 self.day_input[i] = self.day_input[i] + self.day_input[i + 1]
                 self.day_input.pop(i + 1)
+        logger.debug(f"combined words {self.day_input}")
         
+    def convert_words_to_ints(self):
         # replace all months and numbers with ints
         for i,j in enumerate(self.day_input):
             self.day_input[i] = self.month_list.get(j, self.day_input[i])
@@ -72,21 +87,28 @@ class Time:
             # replace all typed digits with ints    
             if isinstance(j, str) and j.isdigit():
                 self.day_input[i] = int(j)
-        
+            logger.debug(f"months as ints {self.day_input}")
+            logger.debug(f"month: {self.month}")
+    def convert_digits_to_ints(self):
         # coverts all items of list into ints
         self.day_input = [
             int(num) for num in self.day_input if isinstance(num, int)
             or (isinstance(num, str) and  num.isdigit())
         ]
-        
+    
+    def define_date(self):
         normal_date_format = None
         # Finds the location of the month in the date
         if self.month in self.day_input:    
             normal_date_format = self.day_input.index(self.month) == 1
+        logger.debug(f"normal_date_format = {normal_date_format}")
         # truncates the year if it is stated
         if len(self.day_input) >= 3:
             self.year = int(str(self.day_input[2])[-2:])
         # return date ensuring correct formating is used
         if normal_date_format is not None:
             self.month_day = self.day_input[-1 * (normal_date_format - 1)]
+            logger.debug(f"day: {self.month_day}")
+            logger.debug(f"month: {self.month}")
+            logger.debug(f"year: {self.year}")
             self.date = self.month_day * 10000 + self.month * 100 + self.year
