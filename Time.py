@@ -39,11 +39,14 @@ class Time:
         try:
             # return the date if the inputted date is the right length
             if len(self.int_date) == 6:
+                logger.debug("int date length 6")
                 self.date = int("".join(self.int_date))
             elif len(self.int_date) == 4 and int(self.int_date) != 2025:
+                logger.debug("int date length 4")
                 self.date = int("".join(self.int_date) + "25")
             # return the school day if the input is one digit long
             elif len(self.int_date) == 1:
+                logger.debug("int date length 1")
                 self.day = self.int_date[0]
             
         # catch errors such as int_date having no numbers
@@ -61,10 +64,10 @@ class Time:
             return
         # spell check input
         self.day_input = self.spell_check(self.day_input)
-        self.combine_number_words(self)
-        self.convert_words_to_ints(self)
-        self.convert_digits_to_ints(self)
-        self.define_date(self)
+        self.combine_number_words()
+        self.convert_words_to_ints()
+        self.convert_digits_to_ints()
+        self.define_date()
     
     def combine_number_words(self):   
         # make all two words numbers one e.g. twenty one -> twentyone

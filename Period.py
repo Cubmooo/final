@@ -120,7 +120,7 @@ class Period:
             # return final time
             logger.debug(f"concentrated integer list {self.split_input}")
             self.time = float(".".join([str(i) for i in self.split_input]))
-        except IndexError:
+        except ValueError:
             logger.warning("word time empty")
             pass
         except Exception:

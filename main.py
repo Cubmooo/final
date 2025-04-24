@@ -122,10 +122,19 @@ def ask_day(time, teacher):
         time.add(inputed_day)
         time.num_day()
         time.word_day()
+        logger.info(f"day: {time.day} date: {time.date}")
         # add time as a period as an attribute of Teacher
         if (time.day is None) and (time.date is not None):
-            time.date = datetime.strptime(str(time.date), "%m%d%y")
-            time.date = datetime.strftime(time.date, "%m/%d/%Y")
+            try:
+                time.date = datetime.strptime(str(time.date), "%d%m%y")
+                time.date = datetime.strftime(time.date, "%d/%m/%Y")
+            except ValueError as e:
+                logger.info(f"date failed {e}")
+                time.day = None
+                time.date = None
+            except Exception as e:
+                logger.critical(f"unkown error {e}")
+                raise
             teacher.add_day(time.date)
             teacher.get_day()
         elif (time.day is not None):
