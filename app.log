@@ -1161,3 +1161,572 @@
 2025-04-24 16:37:37,566 - main - 125 - INFO - day: None date: 290425
 2025-04-24 16:37:37,571 - main - 145 - INFO - day: None date: 29/04/2025
 2025-04-24 16:37:37,573 - main - 67 - INFO - location known ('JP11', '12COM7')
+2025-04-24 16:38:21,758 - main - 50 - INFO - teacher input: wilde
+2025-04-24 16:38:21,759 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-04-24 16:38:21,767 - main - 19 - INFO - teacher current position None
+2025-04-24 16:38:21,767 - main - 20 - INFO - teacher class None
+2025-04-24 16:38:21,767 - main - 63 - INFO - place unknown (None, None)
+2025-04-24 16:38:22,384 - main - 81 - INFO - user carry on input ues
+2025-04-24 16:38:22,384 - main - 151 - DEBUG - no space word ues
+2025-04-24 16:38:22,385 - main - 173 - DEBUG - word candidates yes
+2025-04-24 16:38:22,385 - main - 154 - DEBUG - is word positive True
+2025-04-24 16:38:22,385 - main - 173 - DEBUG - word candidates None
+2025-04-24 16:38:22,385 - main - 156 - DEBUG - is word negative False
+2025-04-24 16:38:22,385 - main - 84 - INFO - revised input True
+2025-04-24 16:38:22,386 - main - 29 - INFO - asking second time
+2025-04-24 16:38:23,383 - main - 50 - INFO - teacher input: wilde
+2025-04-24 16:38:23,384 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-04-24 16:38:23,384 - main - 99 - INFO - starting ask period loop
+2025-04-24 16:38:24,118 - main - 101 - INFO - inputed time: 12
+2025-04-24 16:38:24,213 - Period - 24 - DEBUG - split input: [12]
+2025-04-24 16:38:24,213 - Period - 25 - DEBUG - spacless input: 12
+2025-04-24 16:38:24,213 - Period - 26 - DEBUG - list input: ['1', '2']
+2025-04-24 16:38:24,213 - Period - 55 - DEBUG - pm: False, am: False
+2025-04-24 16:38:24,213 - Period - 56 - DEBUG - has period: False
+2025-04-24 16:38:24,213 - Period - 72 - DEBUG - period as int 12
+2025-04-24 16:38:24,213 - Period - 83 - DEBUG - num time found 12
+2025-04-24 16:38:24,213 - Period - 103 - DEBUG - not long enough time unsupported operand type(s) for -: 'NoneType' and 'int'
+2025-04-24 16:38:24,213 - Period - 109 - DEBUG - integer list [12]
+2025-04-24 16:38:24,213 - Period - 121 - DEBUG - concentrated integer list [12]
+2025-04-24 16:38:24,213 - main - 112 - INFO - period: None time: 12.0
+2025-04-24 16:38:24,213 - main - 118 - INFO - starting ask time loop
+2025-04-24 16:38:36,139 - main - 121 - INFO - inputed day: twenty ninth of april twenty twenty four
+2025-04-24 16:38:36,139 - Time - 19 - DEBUG - self.day_input twenty ninth of april twenty twenty four
+2025-04-24 16:38:36,139 - Time - 38 - DEBUG - date of ints []
+2025-04-24 16:38:36,231 - Time - 76 - DEBUG - last bit of word twenty
+2025-04-24 16:38:36,231 - Time - 76 - DEBUG - last bit of word yninth
+2025-04-24 16:38:36,231 - Time - 76 - DEBUG - last bit of word of
+2025-04-24 16:38:36,231 - Time - 76 - DEBUG - last bit of word april
+2025-04-24 16:38:36,231 - Time - 76 - DEBUG - last bit of word twenty
+2025-04-24 16:38:36,231 - Time - 76 - DEBUG - last bit of word twenty
+2025-04-24 16:38:36,231 - Time - 76 - DEBUG - last bit of word tyfour
+2025-04-24 16:38:36,231 - Time - 83 - DEBUG - combined words ['twentyninth', 'of', 'april', 'twentytwentyfour']
+2025-04-24 16:38:36,231 - Time - 98 - DEBUG - months as ints [29, 'of', 'april', 'twentytwentyfour']
+2025-04-24 16:38:36,231 - Time - 99 - DEBUG - month: None
+2025-04-24 16:38:36,231 - Time - 98 - DEBUG - months as ints [29, 'of', 'april', 'twentytwentyfour']
+2025-04-24 16:38:36,231 - Time - 99 - DEBUG - month: None
+2025-04-24 16:38:36,231 - Time - 98 - DEBUG - months as ints [29, 'of', 4, 'twentytwentyfour']
+2025-04-24 16:38:36,231 - Time - 99 - DEBUG - month: 4
+2025-04-24 16:38:36,232 - Time - 98 - DEBUG - months as ints [29, 'of', 4, 'twentytwentyfour']
+2025-04-24 16:38:36,232 - Time - 99 - DEBUG - month: 4
+2025-04-24 16:38:36,232 - Time - 112 - DEBUG - normal_date_format = True
+2025-04-24 16:38:36,232 - Time - 119 - DEBUG - day: 29
+2025-04-24 16:38:36,232 - Time - 120 - DEBUG - month: 4
+2025-04-24 16:38:36,232 - Time - 121 - DEBUG - year: 25
+2025-04-24 16:38:36,232 - main - 125 - INFO - day: None date: 290425
+2025-04-24 16:38:36,237 - main - 145 - INFO - day: None date: 29/04/2025
+2025-04-24 16:38:36,238 - main - 67 - INFO - location known ('JP11', '12COM7')
+2025-04-24 16:43:44,807 - main - 50 - INFO - teacher input: wilde
+2025-04-24 16:43:44,808 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-04-24 16:43:44,816 - main - 19 - INFO - teacher current position None
+2025-04-24 16:43:44,816 - main - 20 - INFO - teacher class None
+2025-04-24 16:43:44,816 - main - 63 - INFO - place unknown (None, None)
+2025-04-24 16:43:45,291 - main - 81 - INFO - user carry on input yes
+2025-04-24 16:43:45,291 - main - 151 - DEBUG - no space word yes
+2025-04-24 16:43:45,291 - main - 173 - DEBUG - word candidates yes
+2025-04-24 16:43:45,292 - main - 154 - DEBUG - is word positive True
+2025-04-24 16:43:45,292 - main - 173 - DEBUG - word candidates None
+2025-04-24 16:43:45,292 - main - 156 - DEBUG - is word negative False
+2025-04-24 16:43:45,292 - main - 84 - INFO - revised input True
+2025-04-24 16:43:45,293 - main - 29 - INFO - asking second time
+2025-04-24 16:43:45,810 - main - 50 - INFO - teacher input: wilde
+2025-04-24 16:43:45,811 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-04-24 16:43:45,811 - main - 99 - INFO - starting ask period loop
+2025-04-24 16:43:46,654 - main - 101 - INFO - inputed time: 12
+2025-04-24 16:43:46,749 - Period - 24 - DEBUG - split input: [12]
+2025-04-24 16:43:46,749 - Period - 25 - DEBUG - spacless input: 12
+2025-04-24 16:43:46,749 - Period - 26 - DEBUG - list input: ['1', '2']
+2025-04-24 16:43:46,749 - Period - 55 - DEBUG - pm: False, am: False
+2025-04-24 16:43:46,749 - Period - 56 - DEBUG - has period: False
+2025-04-24 16:43:46,749 - Period - 72 - DEBUG - period as int 12
+2025-04-24 16:43:46,749 - Period - 83 - DEBUG - num time found 12
+2025-04-24 16:43:46,750 - Period - 103 - DEBUG - not long enough time unsupported operand type(s) for -: 'NoneType' and 'int'
+2025-04-24 16:43:46,750 - Period - 109 - DEBUG - integer list [12]
+2025-04-24 16:43:46,750 - Period - 121 - DEBUG - concentrated integer list [12]
+2025-04-24 16:43:46,750 - main - 112 - INFO - period: None time: 12.0
+2025-04-24 16:43:46,750 - main - 118 - INFO - starting ask time loop
+2025-04-24 16:43:53,730 - main - 121 - INFO - inputed day: twnety fourth of april twenty twenty four
+2025-04-24 16:43:53,731 - Time - 20 - DEBUG - self.day_input twnety fourth of april twenty twenty four
+2025-04-24 16:43:53,731 - Time - 39 - DEBUG - date of ints []
+2025-04-24 16:43:53,824 - Time - 77 - DEBUG - last bit of word twenty
+2025-04-24 16:43:53,824 - Time - 77 - DEBUG - last bit of word fourth
+2025-04-24 16:43:53,824 - Time - 77 - DEBUG - last bit of word of
+2025-04-24 16:43:53,824 - Time - 77 - DEBUG - last bit of word april
+2025-04-24 16:43:53,824 - Time - 77 - DEBUG - last bit of word twenty
+2025-04-24 16:43:53,825 - Time - 77 - DEBUG - last bit of word twenty
+2025-04-24 16:43:53,825 - Time - 77 - DEBUG - last bit of word tyfour
+2025-04-24 16:43:53,825 - Time - 84 - DEBUG - combined words ['twentyfourth', 'of', 'april', 'twentytwentyfour']
+2025-04-24 16:43:53,825 - Time - 91 - DEBUG - year twentyfourth, h
+2025-04-24 16:43:53,825 - Time - 103 - DEBUG - months as ints [24, 'of', 'april', 'twentytwentyfour']
+2025-04-24 16:43:53,825 - Time - 104 - DEBUG - month: None
+2025-04-24 16:43:53,825 - Time - 91 - DEBUG - year of, 
+2025-04-24 16:43:53,825 - Time - 103 - DEBUG - months as ints [24, 'of', 'april', 'twentytwentyfour']
+2025-04-24 16:43:53,825 - Time - 104 - DEBUG - month: None
+2025-04-24 16:43:53,826 - Time - 91 - DEBUG - year april, 
+2025-04-24 16:43:53,826 - Time - 103 - DEBUG - months as ints [24, 'of', 4, 'twentytwentyfour']
+2025-04-24 16:43:53,826 - Time - 104 - DEBUG - month: 4
+2025-04-24 16:43:53,826 - Time - 91 - DEBUG - year twentytwenty, yfour
+2025-04-24 16:44:10,067 - main - 50 - INFO - teacher input: wilde
+2025-04-24 16:44:10,068 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-04-24 16:44:10,077 - main - 19 - INFO - teacher current position None
+2025-04-24 16:44:10,077 - main - 20 - INFO - teacher class None
+2025-04-24 16:44:10,077 - main - 63 - INFO - place unknown (None, None)
+2025-04-24 16:44:10,640 - main - 81 - INFO - user carry on input yes
+2025-04-24 16:44:10,641 - main - 151 - DEBUG - no space word yes
+2025-04-24 16:44:10,641 - main - 173 - DEBUG - word candidates yes
+2025-04-24 16:44:10,642 - main - 154 - DEBUG - is word positive True
+2025-04-24 16:44:10,642 - main - 173 - DEBUG - word candidates None
+2025-04-24 16:44:10,642 - main - 156 - DEBUG - is word negative False
+2025-04-24 16:44:10,642 - main - 84 - INFO - revised input True
+2025-04-24 16:44:10,643 - main - 29 - INFO - asking second time
+2025-04-24 16:44:11,448 - main - 50 - INFO - teacher input: wilde
+2025-04-24 16:44:11,449 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-04-24 16:44:11,449 - main - 99 - INFO - starting ask period loop
+2025-04-24 16:44:11,928 - main - 101 - INFO - inputed time: 12
+2025-04-24 16:44:12,022 - Period - 24 - DEBUG - split input: [12]
+2025-04-24 16:44:12,022 - Period - 25 - DEBUG - spacless input: 12
+2025-04-24 16:44:12,022 - Period - 26 - DEBUG - list input: ['1', '2']
+2025-04-24 16:44:12,022 - Period - 55 - DEBUG - pm: False, am: False
+2025-04-24 16:44:12,023 - Period - 56 - DEBUG - has period: False
+2025-04-24 16:44:12,023 - Period - 72 - DEBUG - period as int 12
+2025-04-24 16:44:12,023 - Period - 83 - DEBUG - num time found 12
+2025-04-24 16:44:12,023 - Period - 103 - DEBUG - not long enough time unsupported operand type(s) for -: 'NoneType' and 'int'
+2025-04-24 16:44:12,023 - Period - 109 - DEBUG - integer list [12]
+2025-04-24 16:44:12,023 - Period - 121 - DEBUG - concentrated integer list [12]
+2025-04-24 16:44:12,023 - main - 112 - INFO - period: None time: 12.0
+2025-04-24 16:44:12,023 - main - 118 - INFO - starting ask time loop
+2025-04-24 16:44:22,772 - main - 121 - INFO - inputed day: twenty ninth of april twenty twenty five
+2025-04-24 16:44:22,772 - Time - 20 - DEBUG - self.day_input twenty ninth of april twenty twenty five
+2025-04-24 16:44:22,773 - Time - 39 - DEBUG - date of ints []
+2025-04-24 16:44:22,865 - Time - 77 - DEBUG - last bit of word twenty
+2025-04-24 16:44:22,866 - Time - 77 - DEBUG - last bit of word yninth
+2025-04-24 16:44:22,866 - Time - 77 - DEBUG - last bit of word of
+2025-04-24 16:44:22,866 - Time - 77 - DEBUG - last bit of word april
+2025-04-24 16:44:22,866 - Time - 77 - DEBUG - last bit of word twenty
+2025-04-24 16:44:22,866 - Time - 77 - DEBUG - last bit of word twenty
+2025-04-24 16:44:22,866 - Time - 77 - DEBUG - last bit of word tyfive
+2025-04-24 16:44:22,866 - Time - 84 - DEBUG - combined words ['twentyninth', 'of', 'april', 'twentytwentyfive']
+2025-04-24 16:44:22,866 - Time - 91 - DEBUG - year twentyninth, 
+2025-04-24 16:44:22,866 - Time - 103 - DEBUG - months as ints [29, 'of', 'april', 'twentytwentyfive']
+2025-04-24 16:44:22,867 - Time - 104 - DEBUG - month: None
+2025-04-24 16:44:22,867 - Time - 91 - DEBUG - year of, 
+2025-04-24 16:44:22,867 - Time - 103 - DEBUG - months as ints [29, 'of', 'april', 'twentytwentyfive']
+2025-04-24 16:44:22,867 - Time - 104 - DEBUG - month: None
+2025-04-24 16:44:22,867 - Time - 91 - DEBUG - year april, 
+2025-04-24 16:44:22,867 - Time - 103 - DEBUG - months as ints [29, 'of', 4, 'twentytwentyfive']
+2025-04-24 16:44:22,867 - Time - 104 - DEBUG - month: 4
+2025-04-24 16:44:22,867 - Time - 91 - DEBUG - year twentytwenty, yfive
+2025-04-24 16:44:50,425 - main - 50 - INFO - teacher input: wilde
+2025-04-24 16:44:50,425 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-04-24 16:44:50,434 - main - 19 - INFO - teacher current position None
+2025-04-24 16:44:50,434 - main - 20 - INFO - teacher class None
+2025-04-24 16:44:50,434 - main - 63 - INFO - place unknown (None, None)
+2025-04-24 16:44:50,980 - main - 81 - INFO - user carry on input ues
+2025-04-24 16:44:50,980 - main - 151 - DEBUG - no space word ues
+2025-04-24 16:44:50,980 - main - 173 - DEBUG - word candidates yes
+2025-04-24 16:44:50,980 - main - 154 - DEBUG - is word positive True
+2025-04-24 16:44:50,981 - main - 173 - DEBUG - word candidates None
+2025-04-24 16:44:50,981 - main - 156 - DEBUG - is word negative False
+2025-04-24 16:44:50,981 - main - 84 - INFO - revised input True
+2025-04-24 16:44:50,981 - main - 29 - INFO - asking second time
+2025-04-24 16:44:51,922 - main - 50 - INFO - teacher input: wilde
+2025-04-24 16:44:51,924 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-04-24 16:44:51,924 - main - 99 - INFO - starting ask period loop
+2025-04-24 16:44:52,818 - main - 101 - INFO - inputed time: 12
+2025-04-24 16:44:52,912 - Period - 24 - DEBUG - split input: [12]
+2025-04-24 16:44:52,912 - Period - 25 - DEBUG - spacless input: 12
+2025-04-24 16:44:52,912 - Period - 26 - DEBUG - list input: ['1', '2']
+2025-04-24 16:44:52,912 - Period - 55 - DEBUG - pm: False, am: False
+2025-04-24 16:44:52,912 - Period - 56 - DEBUG - has period: False
+2025-04-24 16:44:52,912 - Period - 72 - DEBUG - period as int 12
+2025-04-24 16:44:52,912 - Period - 83 - DEBUG - num time found 12
+2025-04-24 16:44:52,912 - Period - 103 - DEBUG - not long enough time unsupported operand type(s) for -: 'NoneType' and 'int'
+2025-04-24 16:44:52,912 - Period - 109 - DEBUG - integer list [12]
+2025-04-24 16:44:52,912 - Period - 121 - DEBUG - concentrated integer list [12]
+2025-04-24 16:44:52,912 - main - 112 - INFO - period: None time: 12.0
+2025-04-24 16:44:52,912 - main - 118 - INFO - starting ask time loop
+2025-04-24 16:45:02,321 - main - 121 - INFO - inputed day: twenty ninth of april twenty twenty four
+2025-04-24 16:45:02,321 - Time - 20 - DEBUG - self.day_input twenty ninth of april twenty twenty four
+2025-04-24 16:45:02,321 - Time - 39 - DEBUG - date of ints []
+2025-04-24 16:45:02,416 - Time - 77 - DEBUG - last bit of word twenty
+2025-04-24 16:45:02,416 - Time - 77 - DEBUG - last bit of word yninth
+2025-04-24 16:45:02,416 - Time - 77 - DEBUG - last bit of word of
+2025-04-24 16:45:02,417 - Time - 77 - DEBUG - last bit of word april
+2025-04-24 16:45:02,417 - Time - 77 - DEBUG - last bit of word twenty
+2025-04-24 16:45:02,417 - Time - 77 - DEBUG - last bit of word twenty
+2025-04-24 16:45:02,417 - Time - 77 - DEBUG - last bit of word tyfour
+2025-04-24 16:45:02,417 - Time - 84 - DEBUG - combined words ['twentyninth', 'of', 'april', 'twentytwentyfour']
+2025-04-24 16:45:02,417 - Time - 91 - DEBUG - year twentyninth, 
+2025-04-24 16:45:02,417 - Time - 103 - DEBUG - months as ints [29, 'of', 'april', 'twentytwentyfour']
+2025-04-24 16:45:02,417 - Time - 104 - DEBUG - month: None
+2025-04-24 16:45:02,417 - Time - 91 - DEBUG - year of, 
+2025-04-24 16:45:02,417 - Time - 103 - DEBUG - months as ints [29, 'of', 'april', 'twentytwentyfour']
+2025-04-24 16:45:02,417 - Time - 104 - DEBUG - month: None
+2025-04-24 16:45:02,417 - Time - 91 - DEBUG - year april, 
+2025-04-24 16:45:02,417 - Time - 103 - DEBUG - months as ints [29, 'of', 4, 'twentytwentyfour']
+2025-04-24 16:45:02,417 - Time - 104 - DEBUG - month: 4
+2025-04-24 16:45:02,417 - Time - 91 - DEBUG - year twentytwenty, yfour
+2025-04-24 16:45:02,417 - Time - 103 - DEBUG - months as ints [29, 'of', 4, 4]
+2025-04-24 16:45:02,417 - Time - 104 - DEBUG - month: 4
+2025-04-24 16:45:02,417 - Time - 117 - DEBUG - normal_date_format = True
+2025-04-24 16:45:02,417 - Time - 124 - DEBUG - day: 29
+2025-04-24 16:45:02,417 - Time - 125 - DEBUG - month: 4
+2025-04-24 16:45:02,417 - Time - 126 - DEBUG - year: 4
+2025-04-24 16:45:02,417 - main - 125 - INFO - day: None date: 290404
+2025-04-24 16:45:02,423 - main - 145 - INFO - day: None date: 29/04/2004
+2025-04-24 16:45:02,424 - main - 63 - INFO - place unknown (None, None)
+2025-04-24 16:48:05,395 - main - 50 - INFO - teacher input: wilde
+2025-04-24 16:48:05,396 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-04-24 16:48:05,405 - main - 19 - INFO - teacher current position None
+2025-04-24 16:48:05,405 - main - 20 - INFO - teacher class None
+2025-04-24 16:48:05,405 - main - 63 - INFO - place unknown (None, None)
+2025-04-24 16:48:05,980 - main - 81 - INFO - user carry on input yes
+2025-04-24 16:48:05,980 - main - 151 - DEBUG - no space word yes
+2025-04-24 16:48:05,980 - main - 173 - DEBUG - word candidates yes
+2025-04-24 16:48:05,980 - main - 154 - DEBUG - is word positive True
+2025-04-24 16:48:05,980 - main - 173 - DEBUG - word candidates None
+2025-04-24 16:48:05,981 - main - 156 - DEBUG - is word negative False
+2025-04-24 16:48:05,981 - main - 84 - INFO - revised input True
+2025-04-24 16:48:05,981 - main - 29 - INFO - asking second time
+2025-04-24 16:48:09,740 - main - 50 - INFO - teacher input: wilde
+2025-04-24 16:48:09,740 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-04-24 16:48:09,740 - main - 99 - INFO - starting ask period loop
+2025-04-24 16:48:11,014 - main - 101 - INFO - inputed time: 12
+2025-04-24 16:48:11,109 - Period - 24 - DEBUG - split input: [12]
+2025-04-24 16:48:11,109 - Period - 25 - DEBUG - spacless input: 12
+2025-04-24 16:48:11,109 - Period - 26 - DEBUG - list input: ['1', '2']
+2025-04-24 16:48:11,109 - Period - 55 - DEBUG - pm: False, am: False
+2025-04-24 16:48:11,109 - Period - 56 - DEBUG - has period: False
+2025-04-24 16:48:11,109 - Period - 72 - DEBUG - period as int 12
+2025-04-24 16:48:11,109 - Period - 83 - DEBUG - num time found 12
+2025-04-24 16:48:11,109 - Period - 103 - DEBUG - not long enough time unsupported operand type(s) for -: 'NoneType' and 'int'
+2025-04-24 16:48:11,109 - Period - 109 - DEBUG - integer list [12]
+2025-04-24 16:48:11,109 - Period - 121 - DEBUG - concentrated integer list [12]
+2025-04-24 16:48:11,109 - main - 112 - INFO - period: None time: 12.0
+2025-04-24 16:48:11,109 - main - 118 - INFO - starting ask time loop
+2025-04-24 16:48:21,350 - main - 121 - INFO - inputed day: twenty ninth of april twenty thirty nine
+2025-04-24 16:48:21,350 - Time - 20 - DEBUG - self.day_input twenty ninth of april twenty thirty nine
+2025-04-24 16:48:21,350 - Time - 39 - DEBUG - date of ints []
+2025-04-24 16:48:21,447 - Time - 77 - DEBUG - last bit of word twenty
+2025-04-24 16:48:21,447 - Time - 77 - DEBUG - last bit of word yninth
+2025-04-24 16:48:21,447 - Time - 77 - DEBUG - last bit of word of
+2025-04-24 16:48:21,447 - Time - 77 - DEBUG - last bit of word april
+2025-04-24 16:48:21,447 - Time - 77 - DEBUG - last bit of word twenty
+2025-04-24 16:48:21,447 - Time - 77 - DEBUG - last bit of word thirty
+2025-04-24 16:48:21,447 - Time - 77 - DEBUG - last bit of word tynine
+2025-04-24 16:48:21,447 - Time - 84 - DEBUG - combined words ['twentyninth', 'of', 'april', 'twentythirtynine']
+2025-04-24 16:48:21,447 - Time - 91 - DEBUG - year twentyninth, 
+2025-04-24 16:48:21,447 - Time - 105 - DEBUG - months as ints [9, 'of', 'april', 'twentythirtynine']
+2025-04-24 16:48:21,447 - Time - 106 - DEBUG - month: None
+2025-04-24 16:48:21,447 - Time - 91 - DEBUG - year of, 
+2025-04-24 16:48:21,447 - Time - 105 - DEBUG - months as ints [9, 'of', 'april', 'twentythirtynine']
+2025-04-24 16:48:21,447 - Time - 106 - DEBUG - month: None
+2025-04-24 16:48:21,447 - Time - 91 - DEBUG - year april, 
+2025-04-24 16:48:21,447 - Time - 105 - DEBUG - months as ints [9, 'of', 4, 'twentythirtynine']
+2025-04-24 16:48:21,447 - Time - 106 - DEBUG - month: 4
+2025-04-24 16:48:21,447 - Time - 91 - DEBUG - year twentythirty, ynine
+2025-04-24 16:48:21,447 - Time - 105 - DEBUG - months as ints [9, 'of', 4, 'twentythirtynine']
+2025-04-24 16:48:21,447 - Time - 106 - DEBUG - month: 4
+2025-04-24 16:48:21,447 - Time - 119 - DEBUG - normal_date_format = True
+2025-04-24 16:48:21,447 - Time - 126 - DEBUG - day: 9
+2025-04-24 16:48:21,447 - Time - 127 - DEBUG - month: 4
+2025-04-24 16:48:21,447 - Time - 128 - DEBUG - year: 25
+2025-04-24 16:48:21,447 - main - 125 - INFO - day: None date: 90425
+2025-04-24 16:48:21,453 - main - 145 - INFO - day: None date: 09/04/2025
+2025-04-24 16:48:21,454 - main - 67 - INFO - location known ('JP11', '12IBCOM3')
+2025-04-24 16:48:37,823 - main - 50 - INFO - teacher input: wilde
+2025-04-24 16:48:37,823 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-04-24 16:48:37,832 - main - 19 - INFO - teacher current position None
+2025-04-24 16:48:37,832 - main - 20 - INFO - teacher class None
+2025-04-24 16:48:37,832 - main - 63 - INFO - place unknown (None, None)
+2025-04-24 16:48:38,324 - main - 81 - INFO - user carry on input ues
+2025-04-24 16:48:38,324 - main - 151 - DEBUG - no space word ues
+2025-04-24 16:48:38,325 - main - 173 - DEBUG - word candidates yes
+2025-04-24 16:48:38,325 - main - 154 - DEBUG - is word positive True
+2025-04-24 16:48:38,325 - main - 173 - DEBUG - word candidates None
+2025-04-24 16:48:38,325 - main - 156 - DEBUG - is word negative False
+2025-04-24 16:48:38,326 - main - 84 - INFO - revised input True
+2025-04-24 16:48:38,326 - main - 29 - INFO - asking second time
+2025-04-24 16:48:39,559 - main - 50 - INFO - teacher input: wilde
+2025-04-24 16:48:39,559 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-04-24 16:48:39,559 - main - 99 - INFO - starting ask period loop
+2025-04-24 16:48:44,226 - main - 101 - INFO - inputed time: 12
+2025-04-24 16:48:44,318 - Period - 24 - DEBUG - split input: [12]
+2025-04-24 16:48:44,318 - Period - 25 - DEBUG - spacless input: 12
+2025-04-24 16:48:44,318 - Period - 26 - DEBUG - list input: ['1', '2']
+2025-04-24 16:48:44,318 - Period - 55 - DEBUG - pm: False, am: False
+2025-04-24 16:48:44,318 - Period - 56 - DEBUG - has period: False
+2025-04-24 16:48:44,318 - Period - 72 - DEBUG - period as int 12
+2025-04-24 16:48:44,318 - Period - 83 - DEBUG - num time found 12
+2025-04-24 16:48:44,318 - Period - 103 - DEBUG - not long enough time unsupported operand type(s) for -: 'NoneType' and 'int'
+2025-04-24 16:48:44,318 - Period - 109 - DEBUG - integer list [12]
+2025-04-24 16:48:44,319 - Period - 121 - DEBUG - concentrated integer list [12]
+2025-04-24 16:48:44,319 - main - 112 - INFO - period: None time: 12.0
+2025-04-24 16:48:44,319 - main - 118 - INFO - starting ask time loop
+2025-04-24 16:48:51,324 - main - 121 - INFO - inputed day: twenty ninth of april
+2025-04-24 16:48:51,324 - Time - 20 - DEBUG - self.day_input twenty ninth of april
+2025-04-24 16:48:51,324 - Time - 39 - DEBUG - date of ints []
+2025-04-24 16:48:51,418 - Time - 77 - DEBUG - last bit of word twenty
+2025-04-24 16:48:51,419 - Time - 77 - DEBUG - last bit of word yninth
+2025-04-24 16:48:51,419 - Time - 77 - DEBUG - last bit of word of
+2025-04-24 16:48:51,419 - Time - 77 - DEBUG - last bit of word april
+2025-04-24 16:48:51,419 - Time - 84 - DEBUG - combined words ['twentyninth', 'of', 'april']
+2025-04-24 16:48:51,419 - Time - 91 - DEBUG - year twentyninth, 
+2025-04-24 16:48:51,419 - Time - 105 - DEBUG - months as ints [9, 'of', 'april']
+2025-04-24 16:48:51,419 - Time - 106 - DEBUG - month: None
+2025-04-24 16:48:51,420 - Time - 91 - DEBUG - year of, 
+2025-04-24 16:48:51,420 - Time - 105 - DEBUG - months as ints [9, 'of', 'april']
+2025-04-24 16:48:51,420 - Time - 106 - DEBUG - month: None
+2025-04-24 16:48:51,420 - Time - 91 - DEBUG - year april, 
+2025-04-24 16:48:51,420 - Time - 105 - DEBUG - months as ints [9, 'of', 4]
+2025-04-24 16:48:51,420 - Time - 106 - DEBUG - month: 4
+2025-04-24 16:48:51,420 - Time - 119 - DEBUG - normal_date_format = True
+2025-04-24 16:48:51,420 - Time - 126 - DEBUG - day: 9
+2025-04-24 16:48:51,420 - Time - 127 - DEBUG - month: 4
+2025-04-24 16:48:51,420 - Time - 128 - DEBUG - year: 25
+2025-04-24 16:48:51,421 - main - 125 - INFO - day: None date: 90425
+2025-04-24 16:48:51,426 - main - 145 - INFO - day: None date: 09/04/2025
+2025-04-24 16:48:51,428 - main - 67 - INFO - location known ('JP11', '12IBCOM3')
+2025-04-24 16:48:56,054 - main - 50 - INFO - teacher input: wilde
+2025-04-24 16:48:56,055 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-04-24 16:48:56,064 - main - 19 - INFO - teacher current position None
+2025-04-24 16:48:56,064 - main - 20 - INFO - teacher class None
+2025-04-24 16:48:56,064 - main - 63 - INFO - place unknown (None, None)
+2025-04-24 16:48:57,236 - main - 81 - INFO - user carry on input yes
+2025-04-24 16:48:57,237 - main - 151 - DEBUG - no space word yes
+2025-04-24 16:48:57,237 - main - 173 - DEBUG - word candidates yes
+2025-04-24 16:48:57,237 - main - 154 - DEBUG - is word positive True
+2025-04-24 16:48:57,238 - main - 173 - DEBUG - word candidates None
+2025-04-24 16:48:57,238 - main - 156 - DEBUG - is word negative False
+2025-04-24 16:48:57,238 - main - 84 - INFO - revised input True
+2025-04-24 16:48:57,238 - main - 29 - INFO - asking second time
+2025-04-24 16:48:57,899 - main - 50 - INFO - teacher input: wilde
+2025-04-24 16:48:57,899 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-04-24 16:48:57,899 - main - 99 - INFO - starting ask period loop
+2025-04-24 16:48:58,217 - main - 101 - INFO - inputed time: 12
+2025-04-24 16:48:58,316 - Period - 24 - DEBUG - split input: [12]
+2025-04-24 16:48:58,316 - Period - 25 - DEBUG - spacless input: 12
+2025-04-24 16:48:58,316 - Period - 26 - DEBUG - list input: ['1', '2']
+2025-04-24 16:48:58,316 - Period - 55 - DEBUG - pm: False, am: False
+2025-04-24 16:48:58,316 - Period - 56 - DEBUG - has period: False
+2025-04-24 16:48:58,316 - Period - 72 - DEBUG - period as int 12
+2025-04-24 16:48:58,316 - Period - 83 - DEBUG - num time found 12
+2025-04-24 16:48:58,316 - Period - 103 - DEBUG - not long enough time unsupported operand type(s) for -: 'NoneType' and 'int'
+2025-04-24 16:48:58,317 - Period - 109 - DEBUG - integer list [12]
+2025-04-24 16:48:58,317 - Period - 121 - DEBUG - concentrated integer list [12]
+2025-04-24 16:48:58,317 - main - 112 - INFO - period: None time: 12.0
+2025-04-24 16:48:58,317 - main - 118 - INFO - starting ask time loop
+2025-04-24 16:49:08,069 - main - 121 - INFO - inputed day: twenty ninth of april twenty thirty one
+2025-04-24 16:49:08,069 - Time - 20 - DEBUG - self.day_input twenty ninth of april twenty thirty one
+2025-04-24 16:49:08,069 - Time - 39 - DEBUG - date of ints []
+2025-04-24 16:49:08,162 - Time - 77 - DEBUG - last bit of word twenty
+2025-04-24 16:49:08,162 - Time - 77 - DEBUG - last bit of word yninth
+2025-04-24 16:49:08,162 - Time - 77 - DEBUG - last bit of word of
+2025-04-24 16:49:08,162 - Time - 77 - DEBUG - last bit of word april
+2025-04-24 16:49:08,162 - Time - 77 - DEBUG - last bit of word twenty
+2025-04-24 16:49:08,162 - Time - 77 - DEBUG - last bit of word thirty
+2025-04-24 16:49:08,162 - Time - 77 - DEBUG - last bit of word rtyone
+2025-04-24 16:49:08,162 - Time - 84 - DEBUG - combined words ['twentyninth', 'of', 'april', 'twentythirtyone']
+2025-04-24 16:49:08,162 - Time - 91 - DEBUG - year twentyninth, 
+2025-04-24 16:49:08,162 - Time - 105 - DEBUG - months as ints [9, 'of', 'april', 'twentythirtyone']
+2025-04-24 16:49:08,162 - Time - 106 - DEBUG - month: None
+2025-04-24 16:49:08,162 - Time - 91 - DEBUG - year of, 
+2025-04-24 16:49:08,162 - Time - 105 - DEBUG - months as ints [9, 'of', 'april', 'twentythirtyone']
+2025-04-24 16:49:08,162 - Time - 106 - DEBUG - month: None
+2025-04-24 16:49:08,162 - Time - 91 - DEBUG - year april, 
+2025-04-24 16:49:08,162 - Time - 105 - DEBUG - months as ints [9, 'of', 4, 'twentythirtyone']
+2025-04-24 16:49:08,162 - Time - 106 - DEBUG - month: 4
+2025-04-24 16:49:08,162 - Time - 91 - DEBUG - year twentythirty, yone
+2025-04-24 16:49:08,162 - Time - 105 - DEBUG - months as ints [9, 'of', 4, 'twentythirtyone']
+2025-04-24 16:49:08,162 - Time - 106 - DEBUG - month: 4
+2025-04-24 16:49:08,162 - Time - 119 - DEBUG - normal_date_format = True
+2025-04-24 16:49:08,163 - Time - 126 - DEBUG - day: 9
+2025-04-24 16:49:08,163 - Time - 127 - DEBUG - month: 4
+2025-04-24 16:49:08,163 - Time - 128 - DEBUG - year: 25
+2025-04-24 16:49:08,163 - main - 125 - INFO - day: None date: 90425
+2025-04-24 16:49:08,168 - main - 145 - INFO - day: None date: 09/04/2025
+2025-04-24 16:49:08,169 - main - 67 - INFO - location known ('JP11', '12IBCOM3')
+2025-04-24 16:50:17,019 - main - 50 - INFO - teacher input: wilde
+2025-04-24 16:50:17,019 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-04-24 16:50:17,027 - main - 19 - INFO - teacher current position None
+2025-04-24 16:50:17,027 - main - 20 - INFO - teacher class None
+2025-04-24 16:50:17,028 - main - 63 - INFO - place unknown (None, None)
+2025-04-24 16:50:17,598 - main - 81 - INFO - user carry on input yes
+2025-04-24 16:50:17,598 - main - 151 - DEBUG - no space word yes
+2025-04-24 16:50:17,599 - main - 173 - DEBUG - word candidates yes
+2025-04-24 16:50:17,599 - main - 154 - DEBUG - is word positive True
+2025-04-24 16:50:17,599 - main - 173 - DEBUG - word candidates None
+2025-04-24 16:50:17,599 - main - 156 - DEBUG - is word negative False
+2025-04-24 16:50:17,599 - main - 84 - INFO - revised input True
+2025-04-24 16:50:17,600 - main - 29 - INFO - asking second time
+2025-04-24 16:50:18,572 - main - 50 - INFO - teacher input: wilde
+2025-04-24 16:50:18,573 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-04-24 16:50:18,573 - main - 99 - INFO - starting ask period loop
+2025-04-24 16:50:19,269 - main - 101 - INFO - inputed time: 12
+2025-04-24 16:50:19,360 - Period - 24 - DEBUG - split input: [12]
+2025-04-24 16:50:19,361 - Period - 25 - DEBUG - spacless input: 12
+2025-04-24 16:50:19,361 - Period - 26 - DEBUG - list input: ['1', '2']
+2025-04-24 16:50:19,361 - Period - 55 - DEBUG - pm: False, am: False
+2025-04-24 16:50:19,361 - Period - 56 - DEBUG - has period: False
+2025-04-24 16:50:19,361 - Period - 72 - DEBUG - period as int 12
+2025-04-24 16:50:19,361 - Period - 83 - DEBUG - num time found 12
+2025-04-24 16:50:19,361 - Period - 103 - DEBUG - not long enough time unsupported operand type(s) for -: 'NoneType' and 'int'
+2025-04-24 16:50:19,361 - Period - 109 - DEBUG - integer list [12]
+2025-04-24 16:50:19,361 - Period - 121 - DEBUG - concentrated integer list [12]
+2025-04-24 16:50:19,361 - main - 112 - INFO - period: None time: 12.0
+2025-04-24 16:50:19,362 - main - 118 - INFO - starting ask time loop
+2025-04-24 16:50:31,110 - main - 121 - INFO - inputed day: twenty ninth of april twenty thirty one
+2025-04-24 16:50:31,110 - Time - 20 - DEBUG - self.day_input twenty ninth of april twenty thirty one
+2025-04-24 16:50:31,110 - Time - 39 - DEBUG - date of ints []
+2025-04-24 16:50:31,202 - Time - 77 - DEBUG - last bit of word twenty
+2025-04-24 16:50:31,202 - Time - 77 - DEBUG - last bit of word yninth
+2025-04-24 16:50:31,202 - Time - 77 - DEBUG - last bit of word of
+2025-04-24 16:50:31,202 - Time - 77 - DEBUG - last bit of word april
+2025-04-24 16:50:31,202 - Time - 77 - DEBUG - last bit of word twenty
+2025-04-24 16:50:31,203 - Time - 77 - DEBUG - last bit of word thirty
+2025-04-24 16:50:31,203 - Time - 77 - DEBUG - last bit of word rtyone
+2025-04-24 16:50:31,203 - Time - 84 - DEBUG - combined words ['twentyninth', 'of', 'april', 'twentythirtyone']
+2025-04-24 16:50:31,203 - Time - 91 - DEBUG - start of j = twenty
+2025-04-24 16:50:31,203 - Time - 93 - DEBUG - year twentyninth, 
+2025-04-24 16:50:31,203 - Time - 106 - DEBUG - months as ints [9, 'of', 'april', 'twentythirtyone']
+2025-04-24 16:50:31,203 - Time - 107 - DEBUG - month: None
+2025-04-24 16:50:31,203 - Time - 91 - DEBUG - start of j = of
+2025-04-24 16:50:31,203 - Time - 106 - DEBUG - months as ints [9, 'of', 'april', 'twentythirtyone']
+2025-04-24 16:50:31,203 - Time - 107 - DEBUG - month: None
+2025-04-24 16:50:31,203 - Time - 91 - DEBUG - start of j = april
+2025-04-24 16:50:31,204 - Time - 106 - DEBUG - months as ints [9, 'of', 4, 'twentythirtyone']
+2025-04-24 16:50:31,204 - Time - 107 - DEBUG - month: 4
+2025-04-24 16:50:31,204 - Time - 91 - DEBUG - start of j = twenty
+2025-04-24 16:50:31,204 - Time - 93 - DEBUG - year twentythirty, yone
+2025-04-24 16:50:31,204 - Time - 106 - DEBUG - months as ints [9, 'of', 4, 'twentythirtyone']
+2025-04-24 16:50:31,204 - Time - 107 - DEBUG - month: 4
+2025-04-24 16:50:31,204 - Time - 120 - DEBUG - normal_date_format = True
+2025-04-24 16:50:31,204 - Time - 127 - DEBUG - day: 9
+2025-04-24 16:50:31,204 - Time - 128 - DEBUG - month: 4
+2025-04-24 16:50:31,205 - Time - 129 - DEBUG - year: 25
+2025-04-24 16:50:31,205 - main - 125 - INFO - day: None date: 90425
+2025-04-24 16:50:31,210 - main - 145 - INFO - day: None date: 09/04/2025
+2025-04-24 16:50:31,211 - main - 67 - INFO - location known ('JP11', '12IBCOM3')
+2025-04-24 16:51:29,200 - main - 50 - INFO - teacher input: wilde
+2025-04-24 16:51:29,201 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-04-24 16:51:29,210 - main - 19 - INFO - teacher current position None
+2025-04-24 16:51:29,211 - main - 20 - INFO - teacher class None
+2025-04-24 16:51:29,211 - main - 63 - INFO - place unknown (None, None)
+2025-04-24 16:51:29,726 - main - 81 - INFO - user carry on input yes
+2025-04-24 16:51:29,726 - main - 151 - DEBUG - no space word yes
+2025-04-24 16:51:29,726 - main - 173 - DEBUG - word candidates yes
+2025-04-24 16:51:29,726 - main - 154 - DEBUG - is word positive True
+2025-04-24 16:51:29,727 - main - 173 - DEBUG - word candidates None
+2025-04-24 16:51:29,727 - main - 156 - DEBUG - is word negative False
+2025-04-24 16:51:29,727 - main - 84 - INFO - revised input True
+2025-04-24 16:51:29,728 - main - 29 - INFO - asking second time
+2025-04-24 16:51:30,569 - main - 50 - INFO - teacher input: wilde
+2025-04-24 16:51:30,570 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-04-24 16:51:30,570 - main - 99 - INFO - starting ask period loop
+2025-04-24 16:51:31,138 - main - 101 - INFO - inputed time: 12
+2025-04-24 16:51:31,234 - Period - 24 - DEBUG - split input: [12]
+2025-04-24 16:51:31,235 - Period - 25 - DEBUG - spacless input: 12
+2025-04-24 16:51:31,235 - Period - 26 - DEBUG - list input: ['1', '2']
+2025-04-24 16:51:31,235 - Period - 55 - DEBUG - pm: False, am: False
+2025-04-24 16:51:31,235 - Period - 56 - DEBUG - has period: False
+2025-04-24 16:51:31,235 - Period - 72 - DEBUG - period as int 12
+2025-04-24 16:51:31,235 - Period - 83 - DEBUG - num time found 12
+2025-04-24 16:51:31,235 - Period - 103 - DEBUG - not long enough time unsupported operand type(s) for -: 'NoneType' and 'int'
+2025-04-24 16:51:31,235 - Period - 109 - DEBUG - integer list [12]
+2025-04-24 16:51:31,236 - Period - 121 - DEBUG - concentrated integer list [12]
+2025-04-24 16:51:31,236 - main - 112 - INFO - period: None time: 12.0
+2025-04-24 16:51:31,236 - main - 118 - INFO - starting ask time loop
+2025-04-24 16:51:38,029 - main - 121 - INFO - inputed day: twenty ninth of april twenth thirty one
+2025-04-24 16:51:38,030 - Time - 20 - DEBUG - self.day_input twenty ninth of april twenth thirty one
+2025-04-24 16:51:38,030 - Time - 39 - DEBUG - date of ints []
+2025-04-24 16:51:38,126 - Time - 77 - DEBUG - last bit of word twenty
+2025-04-24 16:51:38,126 - Time - 77 - DEBUG - last bit of word yninth
+2025-04-24 16:51:38,126 - Time - 77 - DEBUG - last bit of word of
+2025-04-24 16:51:38,126 - Time - 77 - DEBUG - last bit of word april
+2025-04-24 16:51:38,126 - Time - 77 - DEBUG - last bit of word twenty
+2025-04-24 16:51:38,126 - Time - 77 - DEBUG - last bit of word thirty
+2025-04-24 16:51:38,126 - Time - 77 - DEBUG - last bit of word rtyone
+2025-04-24 16:51:38,126 - Time - 84 - DEBUG - combined words ['twentyninth', 'of', 'april', 'twentythirtyone']
+2025-04-24 16:51:38,127 - Time - 91 - DEBUG - start of j = twenty
+2025-04-24 16:51:38,127 - Time - 93 - DEBUG - year twenty, ninth
+2025-04-24 16:51:38,127 - Time - 97 - DEBUG - year as num 9
+2025-04-24 16:51:38,127 - Time - 107 - DEBUG - months as ints [9, 'of', 'april', 'twentythirtyone']
+2025-04-24 16:51:38,127 - Time - 108 - DEBUG - month: None
+2025-04-24 16:51:38,127 - Time - 91 - DEBUG - start of j = of
+2025-04-24 16:51:38,127 - Time - 107 - DEBUG - months as ints [9, 'of', 'april', 'twentythirtyone']
+2025-04-24 16:51:38,127 - Time - 108 - DEBUG - month: None
+2025-04-24 16:51:38,127 - Time - 91 - DEBUG - start of j = april
+2025-04-24 16:51:38,127 - Time - 107 - DEBUG - months as ints [9, 'of', 4, 'twentythirtyone']
+2025-04-24 16:51:38,128 - Time - 108 - DEBUG - month: 4
+2025-04-24 16:51:38,128 - Time - 91 - DEBUG - start of j = twenty
+2025-04-24 16:51:38,128 - Time - 93 - DEBUG - year twenty, thirtyone
+2025-04-24 16:51:38,128 - Time - 97 - DEBUG - year as num twentythirtyone
+2025-04-24 16:51:38,128 - Time - 107 - DEBUG - months as ints [9, 'of', 4, 'twentythirtyone']
+2025-04-24 16:51:38,128 - Time - 108 - DEBUG - month: 4
+2025-04-24 16:51:38,128 - Time - 121 - DEBUG - normal_date_format = True
+2025-04-24 16:51:38,128 - Time - 128 - DEBUG - day: 9
+2025-04-24 16:51:38,128 - Time - 129 - DEBUG - month: 4
+2025-04-24 16:51:38,128 - Time - 130 - DEBUG - year: 25
+2025-04-24 16:51:38,128 - main - 125 - INFO - day: None date: 90425
+2025-04-24 16:51:38,134 - main - 145 - INFO - day: None date: 09/04/2025
+2025-04-24 16:51:38,135 - main - 67 - INFO - location known ('JP11', '12IBCOM3')
+2025-04-24 16:52:48,200 - main - 50 - INFO - teacher input: wilde
+2025-04-24 16:52:48,202 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-04-24 16:52:48,211 - main - 19 - INFO - teacher current position None
+2025-04-24 16:52:48,211 - main - 20 - INFO - teacher class None
+2025-04-24 16:52:48,211 - main - 63 - INFO - place unknown (None, None)
+2025-04-24 16:52:48,864 - main - 81 - INFO - user carry on input ues
+2025-04-24 16:52:48,865 - main - 151 - DEBUG - no space word ues
+2025-04-24 16:52:48,865 - main - 173 - DEBUG - word candidates yes
+2025-04-24 16:52:48,865 - main - 154 - DEBUG - is word positive True
+2025-04-24 16:52:48,866 - main - 173 - DEBUG - word candidates None
+2025-04-24 16:52:48,866 - main - 156 - DEBUG - is word negative False
+2025-04-24 16:52:48,866 - main - 84 - INFO - revised input True
+2025-04-24 16:52:48,867 - main - 29 - INFO - asking second time
+2025-04-24 16:52:50,648 - main - 50 - INFO - teacher input: wilde
+2025-04-24 16:52:50,648 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-04-24 16:52:50,649 - main - 99 - INFO - starting ask period loop
+2025-04-24 16:52:51,982 - main - 101 - INFO - inputed time: 12
+2025-04-24 16:52:52,076 - Period - 24 - DEBUG - split input: [12]
+2025-04-24 16:52:52,077 - Period - 25 - DEBUG - spacless input: 12
+2025-04-24 16:52:52,077 - Period - 26 - DEBUG - list input: ['1', '2']
+2025-04-24 16:52:52,077 - Period - 55 - DEBUG - pm: False, am: False
+2025-04-24 16:52:52,077 - Period - 56 - DEBUG - has period: False
+2025-04-24 16:52:52,077 - Period - 72 - DEBUG - period as int 12
+2025-04-24 16:52:52,077 - Period - 83 - DEBUG - num time found 12
+2025-04-24 16:52:52,077 - Period - 103 - DEBUG - not long enough time unsupported operand type(s) for -: 'NoneType' and 'int'
+2025-04-24 16:52:52,077 - Period - 109 - DEBUG - integer list [12]
+2025-04-24 16:52:52,078 - Period - 121 - DEBUG - concentrated integer list [12]
+2025-04-24 16:52:52,078 - main - 112 - INFO - period: None time: 12.0
+2025-04-24 16:52:52,078 - main - 118 - INFO - starting ask time loop
+2025-04-24 16:53:02,616 - main - 121 - INFO - inputed day: ninth of april twenty twenty three
+2025-04-24 16:53:02,616 - Time - 20 - DEBUG - self.day_input ninth of april twenty twenty three
+2025-04-24 16:53:02,616 - Time - 39 - DEBUG - date of ints []
+2025-04-24 16:53:02,715 - Time - 77 - DEBUG - last bit of word ninth
+2025-04-24 16:53:02,715 - Time - 77 - DEBUG - last bit of word of
+2025-04-24 16:53:02,715 - Time - 77 - DEBUG - last bit of word april
+2025-04-24 16:53:02,715 - Time - 77 - DEBUG - last bit of word twenty
+2025-04-24 16:53:02,715 - Time - 77 - DEBUG - last bit of word twenty
+2025-04-24 16:53:02,715 - Time - 77 - DEBUG - last bit of word ythree
+2025-04-24 16:53:02,715 - Time - 84 - DEBUG - combined words ['ninth', 'of', 'april', 'twentytwentythree']
+2025-04-24 16:53:02,715 - Time - 91 - DEBUG - start of j = ninth
+2025-04-24 16:53:02,716 - Time - 107 - DEBUG - months as ints [9, 'of', 'april', 'twentytwentythree']
+2025-04-24 16:53:02,716 - Time - 108 - DEBUG - month: None
+2025-04-24 16:53:02,716 - Time - 91 - DEBUG - start of j = of
+2025-04-24 16:53:02,716 - Time - 107 - DEBUG - months as ints [9, 'of', 'april', 'twentytwentythree']
+2025-04-24 16:53:02,716 - Time - 108 - DEBUG - month: None
+2025-04-24 16:53:02,716 - Time - 91 - DEBUG - start of j = april
+2025-04-24 16:53:02,716 - Time - 107 - DEBUG - months as ints [9, 'of', 4, 'twentytwentythree']
+2025-04-24 16:53:02,716 - Time - 108 - DEBUG - month: 4
+2025-04-24 16:53:02,716 - Time - 91 - DEBUG - start of j = twenty
+2025-04-24 16:53:02,716 - Time - 93 - DEBUG - year twenty, twentythree
+2025-04-24 16:53:02,716 - Time - 97 - DEBUG - year as num twentytwentythree
+2025-04-24 16:53:02,716 - Time - 107 - DEBUG - months as ints [9, 'of', 4, 'twentytwentythree']
+2025-04-24 16:53:02,716 - Time - 108 - DEBUG - month: 4
+2025-04-24 16:53:02,716 - Time - 121 - DEBUG - normal_date_format = True
+2025-04-24 16:53:02,716 - Time - 128 - DEBUG - day: 9
+2025-04-24 16:53:02,716 - Time - 129 - DEBUG - month: 4
+2025-04-24 16:53:02,716 - Time - 130 - DEBUG - year: 25
+2025-04-24 16:53:02,717 - main - 125 - INFO - day: None date: 90425
+2025-04-24 16:53:02,722 - main - 145 - INFO - day: None date: 09/04/2025
+2025-04-24 16:53:02,723 - main - 67 - INFO - location known ('JP11', '12IBCOM3')

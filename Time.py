@@ -1,5 +1,6 @@
 from spellchecker import SpellChecker
 from config import ClassConfig
+from word2number import w2n
 from logging_config import setup_logger
 logger = setup_logger(__name__)
 
@@ -87,6 +88,14 @@ class Time:
         for i,j in enumerate(self.day_input):
             self.day_input[i] = self.month_list.get(j, self.day_input[i])
             self.day_input[i] = self.numbers_list.get(j, self.day_input[i])
+            logger.debug(f"start of j = {j[:6]}")
+            if j[:6] == "twenty":
+                logger.debug(f"year {j[:6]}, {j[6:]}")
+                for letter in j[:6]:
+                    if letter == y:
+                        j
+                logger.debug(f"year as num {self.day_input[i]}")
+            
             
             # store the month to know date format
             if (self.month is None) and (j in self.month_list):
