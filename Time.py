@@ -35,10 +35,8 @@ class Time:
         # remove all words from list
         self.int_date = [i for i in self.day_input if i.isdigit()]
         try:
-            print(self.int_date)
             # return the date if the inputted date is the right length
             if len(self.int_date) == 6:
-                print("test")
                 self.date = int("".join(self.int_date))
             if len(self.int_date) == 4 and int(self.int_date) != 2025:
                 self.date = int("".join(self.int_date) + "25")

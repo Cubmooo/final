@@ -60,23 +60,28 @@ def ask_teacher(teacher):
 # Prints out information about the teacher        
 def display_teacher(teacher):
     if teacher.location is None:
-        print("location unkown its currently outsie of school hours")
+        logger.info(f"place unknown {teacher.location, teacher.class_code}")
+        print("location unkown its currently outside of school hours")
         return
     if isinstance(teacher.location, str):
+        logger.info(f"location known {teacher.location, teacher.class_code}")
         print(f"Teacher's Location is {teacher.location}")
         print(f"Teacher's Class is {teacher.class_name}")
         print(f"Teacher's Class code is {teacher.class_code}")
     else:
+        logger.info(f"no class {teacher.location, teacher.class_code}")
         print("Teacher does not currently have a class")
         print("The teachers location is unknown")
            
 # Ask if the user would like to terminate the program      
 def ask_continue(confug):
     while True:
-        new_info_input = input("Would you like to pick" +
+        new_info_input = input("Would you like to pick " +
                              "a different teacher or time: ")
+        logger.info(f"user carry on input {new_info_input}")
         # evalute wether the answer was yes or no
         new_info_input = sentiment_finder(config, new_info_input)
+        logger.info(f"revised input {new_info_input}")
         # if unknown repeat answer
         if new_info_input is None:
             print("Input again please")
@@ -91,7 +96,9 @@ def ask_continue(confug):
 def ask_period(period, teacher):
     # repeat until a satasfactory answer is found
     while period.period is None and period.time is None:
+        logger.info("starting ask period loop")
         inputed_time = input("What time of day:")
+        logger.info(f"inputed time: {inputed_time}")
         # add time as an atribute of the period object
         period.add(inputed_time)
         period.num_time()
@@ -102,13 +109,16 @@ def ask_period(period, teacher):
             teacher.get_period()
         elif (period.period is not None):
             teacher.add_time(period.period)
+        logger.info(f"period: {period.period} time: {period.time}")
             
 # ask the user for what time they would like to chose
 def ask_day(time, teacher):
     # repeat until a suitable date or day is found
     while time.day is None and time.date is None:
+        logger.info("starting ask time loop")
         # ask for day then find intended day
         inputed_day = input("What day would you like: ")
+        logger.info(f"inputed day: {inputed_day}")
         time.add(inputed_day)
         time.num_day()
         time.word_day()
@@ -121,14 +131,18 @@ def ask_day(time, teacher):
         elif (time.day is not None):
             time.day = "Day " + str(time.day)
             teacher.add_day(time.day)
+        logger.info(f"day: {time.day} date: {time.date}")
 
 #  Finds if a given input is affirmative or not
 def sentiment_finder(config, word):
     # loads positive spell checker and makes input space insensitive
     word = word.replace(" ","")
+    logger.debug(f"no space word {word}")
     # finds if word is negative of positve
     is_positive = sentiment(word, config.yes_file)
+    logger.debug(f"is word positive {is_positive}")
     is_negative = sentiment(word, config.no_file)
+    logger.debug(f"is word negative {is_negative}")
     # returns if the program should carry on
     if is_positive:
         return True
@@ -145,6 +159,7 @@ def sentiment(word, file):
     
     # compare word to word list and return if the word is in the list   
     candidates = spell.correction(word)
+    logger.debug(f"word candidates {candidates}")
     if candidates and ((word in spell) or (word not in candidates)):
         return True
     else:
@@ -154,6 +169,7 @@ def sentiment(word, file):
 def exit_program():
     print("Thank you for using this program\n" +
           "I hope you found what you needed")
+    logger.info("user exited program")
     exit()
 
 if __name__ == "__main__":
