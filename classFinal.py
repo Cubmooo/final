@@ -18,7 +18,7 @@ def main(config):
     
     # ask if they wish to input another teacher
     ask_continue(config)
-    # 
+    # create objects
     teacher.name = None
     period = Period.Period()
     time = Time.Time()
@@ -119,28 +119,29 @@ def ask_day(time, teacher):
 def sentiment_finder(config, word):
     # loads positive spell checker and makes input space insensitive
     word = word.replace(" ","")
+    # finds if word is negative of positve
+    is_positive = sentiment(word, config.yes_file)
+    is_negative = sentiment(word, config.no_file)
+    # returns if the program should carry on
+    if is_positive:
+        return True
+    elif is_negative:
+        return False
+    return None
+        
+def sentiment(word, file):
+    # loads spell checker and might reduce word Levenshtein distance
     spell = SpellChecker(language = None)
-    spell.word_frequency.load_text_file(config.yes_file)
+    spell.word_frequency.load_text_file(file)
     if len(word) <= 3:
         spell.distance = 1
     
-    # Checks if the word is in the yes list
-    candidates = spell.candidates(word)
+    # compare word to word list and return if the word is in the list   
+    candidates = spell.correction(word)
     if candidates and ((word in spell) or (word not in candidates)):
         return True
     else:
-        # Loads negative spell checker
-        spell = SpellChecker(language = None)
-        spell.word_frequency.load_text_file(config.no_file)
-        if len(word) <= 3:
-            spell.distance = 1    
-        candidates = spell.candidates(word)
-        
-        # checks if word is any no list and returns None if not
-        if candidates and ((word in spell) or (word not in candidates)):
-            return False
-        else:
-            return None
+        return False
 
 # thanks the user and exits the program
 def exit_program():
