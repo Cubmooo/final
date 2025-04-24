@@ -130,6 +130,8 @@ def ask_day(time, teacher):
                 time.date = datetime.strftime(time.date, "%d/%m/%Y")
             except ValueError as e:
                 logger.info(f"date failed {e}")
+                print("Your date could not be understood " + 
+                      "check your spelling or input you date as DD/MM/YY")
                 time.day = None
                 time.date = None
             except Exception as e:

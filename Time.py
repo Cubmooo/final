@@ -71,10 +71,15 @@ class Time:
     
     def combine_number_words(self):   
         # make all two words numbers one e.g. twenty one -> twentyone
-        for i,j in enumerate(self.day_input):
-            if j == "twenty" or j == "thirty":
+        i = 0
+        while i < len(self.day_input):
+            logger.debug(f"last bit of word {self.day_input[i][-6:]}")
+            if (self.day_input[i][-6:] == "twenty"
+                or self.day_input[i][-6:] == "thirty"):
                 self.day_input[i] = self.day_input[i] + self.day_input[i + 1]
                 self.day_input.pop(i + 1)
+            else:
+                i += 1
         logger.debug(f"combined words {self.day_input}")
         
     def convert_words_to_ints(self):
