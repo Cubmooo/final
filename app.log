@@ -1,0 +1,85 @@
+2025-04-24 15:35:27,958 - classFinal - 50 - INFO - teacher input: wilde
+2025-04-24 15:35:27,958 - classFinal - 55 - INFO - teacher known mrs_wilde.csv
+2025-04-24 15:35:27,967 - classFinal - 19 - INFO - teacher current position None
+2025-04-24 15:35:27,967 - classFinal - 20 - INFO - teacher class None
+2025-04-24 15:35:27,967 - classFinal - 63 - INFO - place unknown (None, None)
+2025-04-24 15:35:28,881 - classFinal - 81 - INFO - user carry on input ues
+2025-04-24 15:35:28,881 - classFinal - 140 - DEBUG - no space word ues
+2025-04-24 15:35:28,882 - classFinal - 162 - DEBUG - word candidates yes
+2025-04-24 15:35:28,882 - classFinal - 143 - DEBUG - is word positive True
+2025-04-24 15:35:28,882 - classFinal - 162 - DEBUG - word candidates None
+2025-04-24 15:35:28,883 - classFinal - 145 - DEBUG - is word negative False
+2025-04-24 15:35:28,883 - classFinal - 84 - INFO - revised input True
+2025-04-24 15:35:28,883 - classFinal - 29 - INFO - asking second time
+2025-04-24 15:35:56,226 - classFinal - 50 - INFO - teacher input: wilde
+2025-04-24 15:35:56,227 - classFinal - 55 - INFO - teacher known mrs_wilde.csv
+2025-04-24 15:35:56,227 - classFinal - 99 - INFO - starting ask period loop
+2025-04-24 15:36:05,903 - classFinal - 101 - INFO - inputed time: quarter past 2 
+2025-04-24 15:36:06,002 - Period - 24 - DEBUG - split input: [15, 'past', 2]
+2025-04-24 15:36:06,003 - Period - 25 - DEBUG - spacless input: quarterpast2
+2025-04-24 15:36:06,003 - Period - 26 - DEBUG - list input: ['q', 'u', 'a', 'r', 't', 'e', 'r', 'p', 'a', 's', 't', '2']
+2025-04-24 15:36:06,003 - Period - 55 - DEBUG - pm: False, am: False
+2025-04-24 15:36:06,003 - Period - 56 - DEBUG - has period: False
+2025-04-24 15:36:06,003 - Period - 72 - DEBUG - period as int 2
+2025-04-24 15:36:06,003 - Period - 83 - DEBUG - num time found 2
+2025-04-24 15:36:06,003 - Period - 92 - DEBUG - has to False pos: 1
+2025-04-24 15:36:06,003 - Period - 100 - DEBUG - minutes 15, hours 2, offset 15
+2025-04-24 15:36:06,003 - classFinal - 112 - INFO - period: None time: 2.15
+2025-04-24 15:36:06,003 - classFinal - 118 - INFO - starting ask time loop
+2025-04-24 15:36:11,954 - classFinal - 121 - INFO - inputed day: day 6
+2025-04-24 15:36:11,954 - Time - 19 - DEBUG - self.day_input day 6
+2025-04-24 15:36:11,954 - Time - 38 - DEBUG - date of ints ['6']
+2025-04-24 15:36:11,954 - classFinal - 134 - INFO - day: Day 6 date: None
+2025-04-24 15:36:11,956 - classFinal - 67 - INFO - location known ('JP11', '10DTG2')
+2025-04-24 15:36:42,843 - classFinal - 50 - INFO - teacher input: wilde
+2025-04-24 15:36:42,844 - classFinal - 55 - INFO - teacher known mrs_wilde.csv
+2025-04-24 15:36:42,851 - classFinal - 19 - INFO - teacher current position None
+2025-04-24 15:36:42,851 - classFinal - 20 - INFO - teacher class None
+2025-04-24 15:36:42,852 - classFinal - 63 - INFO - place unknown (None, None)
+2025-04-24 15:36:44,229 - classFinal - 81 - INFO - user carry on input yes
+2025-04-24 15:36:44,229 - classFinal - 140 - DEBUG - no space word yes
+2025-04-24 15:36:44,230 - classFinal - 162 - DEBUG - word candidates yes
+2025-04-24 15:36:44,230 - classFinal - 143 - DEBUG - is word positive True
+2025-04-24 15:36:44,230 - classFinal - 162 - DEBUG - word candidates None
+2025-04-24 15:36:44,230 - classFinal - 145 - DEBUG - is word negative False
+2025-04-24 15:36:44,230 - classFinal - 84 - INFO - revised input True
+2025-04-24 15:36:44,231 - classFinal - 29 - INFO - asking second time
+2025-04-24 15:36:45,886 - classFinal - 50 - INFO - teacher input: wilde
+2025-04-24 15:36:45,886 - classFinal - 55 - INFO - teacher known mrs_wilde.csv
+2025-04-24 15:36:45,886 - classFinal - 99 - INFO - starting ask period loop
+2025-04-24 15:36:47,752 - classFinal - 101 - INFO - inputed time: 12
+2025-04-24 15:36:47,850 - Period - 24 - DEBUG - split input: [12]
+2025-04-24 15:36:47,850 - Period - 25 - DEBUG - spacless input: 12
+2025-04-24 15:36:47,850 - Period - 26 - DEBUG - list input: ['1', '2']
+2025-04-24 15:36:47,850 - Period - 55 - DEBUG - pm: False, am: False
+2025-04-24 15:36:47,850 - Period - 56 - DEBUG - has period: False
+2025-04-24 15:36:47,850 - Period - 72 - DEBUG - period as int 12
+2025-04-24 15:36:47,850 - Period - 83 - DEBUG - num time found 12
+2025-04-24 15:38:30,814 - classFinal - 50 - INFO - teacher input: wilde
+2025-04-24 15:38:30,815 - classFinal - 55 - INFO - teacher known mrs_wilde.csv
+2025-04-24 15:38:30,823 - classFinal - 19 - INFO - teacher current position None
+2025-04-24 15:38:30,823 - classFinal - 20 - INFO - teacher class None
+2025-04-24 15:38:30,823 - classFinal - 63 - INFO - place unknown (None, None)
+2025-04-24 15:38:32,948 - classFinal - 81 - INFO - user carry on input yes
+2025-04-24 15:38:32,948 - classFinal - 140 - DEBUG - no space word yes
+2025-04-24 15:38:32,949 - classFinal - 162 - DEBUG - word candidates yes
+2025-04-24 15:38:32,949 - classFinal - 143 - DEBUG - is word positive True
+2025-04-24 15:38:32,949 - classFinal - 162 - DEBUG - word candidates None
+2025-04-24 15:38:32,949 - classFinal - 145 - DEBUG - is word negative False
+2025-04-24 15:38:32,949 - classFinal - 84 - INFO - revised input True
+2025-04-24 15:38:32,950 - classFinal - 29 - INFO - asking second time
+2025-04-24 15:38:34,612 - classFinal - 50 - INFO - teacher input: wilde
+2025-04-24 15:38:34,613 - classFinal - 55 - INFO - teacher known mrs_wilde.csv
+2025-04-24 15:38:34,613 - classFinal - 99 - INFO - starting ask period loop
+2025-04-24 15:38:39,333 - classFinal - 101 - INFO - inputed time: `12
+2025-04-24 15:38:39,492 - Period - 24 - DEBUG - split input: [None]
+2025-04-24 15:38:39,493 - Period - 25 - DEBUG - spacless input: `12
+2025-04-24 15:38:39,493 - Period - 26 - DEBUG - list input: ['`', '1', '2']
+2025-04-24 15:38:39,493 - Period - 55 - DEBUG - pm: False, am: False
+2025-04-24 15:38:39,493 - Period - 56 - DEBUG - has period: False
+2025-04-24 15:38:39,493 - Period - 72 - DEBUG - period as int 12
+2025-04-24 15:38:39,493 - Period - 83 - DEBUG - num time found 12
+2025-04-24 15:38:39,493 - Period - 103 - DEBUG - not long enough time unsupported operand type(s) for -: 'NoneType' and 'int'
+2025-04-24 15:38:39,493 - Period - 109 - DEBUG - integer list []
+2025-04-24 15:38:39,493 - Period - 121 - DEBUG - concentrated integer list []
+2025-04-24 15:38:39,493 - Period - 127 - CRITICAL - unkown error

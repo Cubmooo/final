@@ -99,7 +99,8 @@ class Period:
             self.time = hours + offset / 100
             logger.debug(f"minutes {minutes}, hours {hours}, offset {offset}")
             return
-        except IndexError:
+        except (IndexError, TypeError) as e:
+            logger.debug(f"not long enough time {e}")
             pass
         
         # remove all words from input
