@@ -1,1 +1,1 @@
-.
+ogger.info(f"teacher known {teacher.name}")

@@ -37,12 +37,14 @@ class Time:
         # remove all words from list
         self.int_date = [i for i in self.day_input if i.isdigit()]
         logger.debug(f"date of ints {self.int_date}")
+        logger.debug(f"len ^ {len(self.int_date)}")
+        logger.debug(f"does date = 2025 {int("".join(self.int_date)) != 2025}")
         try:
             # return the date if the inputted date is the right length
             if len(self.int_date) == 6:
                 logger.debug("int date length 6")
                 self.date = int("".join(self.int_date))
-            elif len(self.int_date) == 4 and int(self.int_date) != 2025:
+            if len(self.int_date) == 4 and int("".join(self.int_date)) != 2025:
                 logger.debug("int date length 4")
                 self.date = int("".join(self.int_date) + "25")
             # return the school day if the input is one digit long
@@ -74,11 +76,19 @@ class Time:
         # make all two words numbers one e.g. twenty one -> twentyone
         i = 0
         while i < len(self.day_input):
-            logger.debug(f"last bit of word {self.day_input[i][-6:]}")
-            if (self.day_input[i][-6:] == "twenty"
-                or self.day_input[i][-6:] == "thirty"):
-                self.day_input[i] = self.day_input[i] + self.day_input[i + 1]
-                self.day_input.pop(i + 1)
+            try:
+                if (self.day_input[i][-6:] == "twenty"
+                    or self.day_input[i][-6:] == "thirty"):
+                    self.day_input[i] = self.day_input[i] + self.day_input[i + 1]
+                    self.day_input.pop(i + 1)
+            except TypeError as e:
+                logger.debug(f"day input empty {e}")
+            except IndexError as e:
+                logger.debug(f"year not fully stated {e}")
+                break
+            except Exception as e:
+                logger.error("unknown error")
+                raise
             else:
                 i += 1
         logger.debug(f"combined words {self.day_input}")
@@ -86,26 +96,36 @@ class Time:
     def convert_words_to_ints(self):
         # replace all months and numbers with ints
         for i,j in enumerate(self.day_input):
+            logger.debug(f"day inout {self.day_input}")
             self.day_input[i] = self.month_list.get(j, self.day_input[i])
+            logger.debug(f"day inout {self.day_input}")
             self.day_input[i] = self.numbers_list.get(j, self.day_input[i])
+            logger.debug(f"day inout {self.day_input}")
             logger.debug(f"start of j = {j[:6]}")
-            if j[:6] == "twenty":
-                logger.debug(f"year {j[:6]}, {j[6:]}")
-                for letter in j[:6]:
-                    if letter == y:
-                        j
-                logger.debug(f"year as num {self.day_input[i]}")
+            try:
+                if self.day_input[i][:6] == "twenty":
+                    j = j[6:]
+                    logger.debug(f"year {j}")
+                    j = j.replace("y", "y ")
+                    logger.debug(f"year {j}")
+                    j = w2n.word_to_num(j)
+                    logger.debug(f"year as num {j}")
+                    self.day_input[i] = j
+            except (TypeError, ValueError) as e:
+                logger.debug(f"year failed {e}")
+                pass
             
             
             # store the month to know date format
             if (self.month is None) and (j in self.month_list):
-                self.month = self.month_list[j]
+                self.month = self.month_list[j] 
             
             # replace all typed digits with ints    
             if isinstance(j, str) and j.isdigit():
                 self.day_input[i] = int(j)
             logger.debug(f"months as ints {self.day_input}")
             logger.debug(f"month: {self.month}")
+            
     def convert_digits_to_ints(self):
         # coverts all items of list into ints
         self.day_input = [
