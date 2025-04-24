@@ -32,10 +32,7 @@ class Period:
                 str[i] = 15
             if word == "half":
                 str[i] = 30
-            try:
-                str[i] = w2n.word_to_num(word)
-            except:
-                pass
+            str[i] = w2n.word_to_num(word) if str[i].isdigit() else word
         return str
     
     # find the time if written in a hour minute format    

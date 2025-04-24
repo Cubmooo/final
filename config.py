@@ -18,4 +18,3 @@ class ClassConfig:
             raise FileNotFoundError(f"Configuration file not found at: {config_path}")
         except json.JSONDecodeError:
             raise ValueError(f"Invalid JSON in configuration file: {config_path}")
-    

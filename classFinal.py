@@ -5,6 +5,8 @@ from config import ClassConfig
 import Teacher
 import Period
 import Time
+from logging_config import setup_logger
+logger = setup_logger(__name__)
 
 
 def main(config):
