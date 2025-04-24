@@ -18,20 +18,22 @@ def main(config):
     
     # ask if they wish to input another teacher
     ask_continue(config)
-    
-    # Remove old teacher and ask for new one
+    # 
     teacher.name = None
+    period = Period.Period()
+    time = Time.Time()
+    ask_second_time(teacher, period, time)
+    
+    
+def ask_second_time(teacher,period,time):
+    #ask users for what teacher they want
     ask_teacher(teacher)
     
-    # create period object and user for what period they want.    
-    period = Period.Period()
+    # ask user for desired time of day
     ask_period(period, teacher)
     
-    # Creates time object and asks user for their desired time    
-    time = Time.Time()
+    # asks user for desired day
     ask_day(time, teacher)
-    print(time.date)
-    print(time.day)
     
     # Gets and displays teacher position based on new information
     teacher.current_position()
@@ -101,17 +103,8 @@ def ask_day(time, teacher):
         # ask for day then find intended day
         inputed_day = input("What day would you like: ")
         time.add(inputed_day)
-        print(time.date)
-        print(time.day)
-        print(time.day_input)
         time.num_day()
-        print(time.date)
-        print(time.day)
-        print(time.day_input)
         time.word_day()
-        print(time.date)
-        print(time.day)
-        print(time.day_input)
         # add time as a period as an attribute of Teacher
         if (time.day is None) and (time.date is not None):
             time.date = datetime.strptime(str(time.date), "%m%d%y")
