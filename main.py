@@ -120,8 +120,8 @@ def ask_day(time, teacher):
         inputed_day = input("What day would you like: ")
         logger.info(f"inputed day: {inputed_day}")
         time.add(inputed_day)
-        time.num_day()
         time.word_day()
+        time.num_day()
         logger.info(f"day: {time.day} date: {time.date}")
         # add time as a period as an attribute of Teacher
         if (time.day is None) and (time.date is not None):
