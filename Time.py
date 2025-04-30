@@ -12,6 +12,7 @@ class Time:
         self.day = None
         self.date = None
         self.year_list = None
+        self.has_day = False
         self.config = ClassConfig()
         self.month_list = self.file_to_dict(self.config.months_file)
         self.numbers_list = self.file_to_dict(self.config.numbers_file)
@@ -101,7 +102,11 @@ class Time:
         self.compare_date()
         
     def digit_to_num(self):
+        if "day" in self.list_input:
+            self.has_day = True
         self.list_input = [int(i) for i in self.list_input if isinstance(i, str) and i.isdigit()]
+        if self.has_day and len(self.list_input) == 1:
+            self.day = self.list_input[0]
         logger.debug(f"num list: {self.list_input}")
         
     def compare_date(self):
@@ -134,24 +139,3 @@ class Time:
         logger.debug(f"info{self.month_day:02d}:{self.month:02d}:{self.year % 100}")
         self.date = f"{self.month_day:02d}{self.month:02d}{self.year % 100}"
         logger.info(f"date: {self.date}")
-
-    """
-    def convert_words_to_nums(self):
-        
-        for i,j in self.enumerate(self.list_input):
-            self.list_input[i] = self.month_list.get(j, self.list_input[i])
-            if i = number
-                self.month_day = i
-            if i = month
-                self.month = i
-            if i = year
-                self.year = i
-                
-        if loc(month) = 0
-            day = self.list_input[1]
-        else
-            day = [0] and month = [1]
-        
-        
-        year = month pos + 1 or day pos + 1
-        """

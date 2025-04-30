@@ -6648,3 +6648,226 @@
 2025-04-30 23:24:08,367 - main - 125 - INFO - day: None date: 290425
 2025-04-30 23:24:08,373 - main - 145 - INFO - day: None date: 29/04/2025
 2025-04-30 23:24:08,375 - main - 67 - INFO - location known ('JP11', '12COM7')
+2025-04-30 23:25:02,204 - main - 50 - INFO - teacher input: wilde
+2025-04-30 23:25:02,205 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-04-30 23:25:02,215 - main - 19 - INFO - teacher current position None
+2025-04-30 23:25:02,215 - main - 20 - INFO - teacher class None
+2025-04-30 23:25:02,215 - main - 63 - INFO - place unknown (None, None)
+2025-04-30 23:25:02,879 - main - 81 - INFO - user carry on input yes
+2025-04-30 23:25:02,879 - main - 151 - DEBUG - no space word yes
+2025-04-30 23:25:02,880 - main - 173 - DEBUG - word candidates yes
+2025-04-30 23:25:02,880 - main - 154 - DEBUG - is word positive True
+2025-04-30 23:25:02,880 - main - 173 - DEBUG - word candidates None
+2025-04-30 23:25:02,880 - main - 156 - DEBUG - is word negative False
+2025-04-30 23:25:02,881 - main - 84 - INFO - revised input True
+2025-04-30 23:25:02,881 - main - 29 - INFO - asking second time
+2025-04-30 23:25:03,943 - main - 50 - INFO - teacher input: wilde
+2025-04-30 23:25:03,944 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-04-30 23:25:03,944 - main - 99 - INFO - starting ask period loop
+2025-04-30 23:25:08,149 - main - 101 - INFO - inputed time: period 4
+2025-04-30 23:25:08,243 - Period - 24 - DEBUG - split input: ['period', 4]
+2025-04-30 23:25:08,272 - Period - 25 - DEBUG - spacless input: period4
+2025-04-30 23:25:08,272 - Period - 26 - DEBUG - list input: ['p', 'e', 'r', 'i', 'o', 'd', '4']
+2025-04-30 23:25:08,272 - Period - 55 - DEBUG - pm: False, am: False
+2025-04-30 23:25:08,272 - Period - 56 - DEBUG - has period: True
+2025-04-30 23:25:08,272 - Period - 63 - DEBUG -  period: 4
+2025-04-30 23:25:08,272 - Period - 103 - DEBUG - not long enough time unsupported operand type(s) for -: 'NoneType' and 'int'
+2025-04-30 23:25:08,272 - Period - 109 - DEBUG - integer list [4]
+2025-04-30 23:25:08,273 - Period - 121 - DEBUG - concentrated integer list [4]
+2025-04-30 23:25:08,273 - main - 112 - INFO - period: 4 time: 4.0
+2025-04-30 23:25:08,273 - main - 118 - INFO - starting ask time loop
+2025-04-30 23:25:10,140 - main - 121 - INFO - inputed day: day 6
+2025-04-30 23:25:10,140 - Time - 23 - DEBUG - self.day_input day 6
+2025-04-30 23:25:10,140 - Time - 47 - DEBUG - i, input (0, ['day', '6'])
+2025-04-30 23:25:10,140 - Time - 47 - DEBUG - i, input (1, ['day', '6'])
+2025-04-30 23:25:10,140 - Time - 60 - DEBUG - contracted: ['day', '6']
+2025-04-30 23:25:10,140 - Time - 67 - DEBUG - input ['day', '6']
+2025-04-30 23:25:10,140 - Time - 68 - DEBUG - month:None
+2025-04-30 23:25:10,140 - Time - 67 - DEBUG - input ['day', '6']
+2025-04-30 23:25:10,140 - Time - 68 - DEBUG - month:None
+2025-04-30 23:25:10,141 - Time - 75 - DEBUG - input ['day', '6']
+2025-04-30 23:25:10,141 - Time - 76 - DEBUG - day:None
+2025-04-30 23:25:10,141 - Time - 75 - DEBUG - input ['day', '6']
+2025-04-30 23:25:10,141 - Time - 76 - DEBUG - day:None
+2025-04-30 23:25:10,141 - Time - 88 - DEBUG - list not split
+2025-04-30 23:25:10,141 - Time - 105 - DEBUG - num list: [6]
+2025-04-30 23:25:10,141 - main - 125 - INFO - day: None date: None
+2025-04-30 23:25:10,141 - main - 145 - INFO - day: None date: None
+2025-04-30 23:25:10,141 - main - 118 - INFO - starting ask time loop
+2025-04-30 23:25:20,161 - main - 121 - INFO - inputed day: day 6
+2025-04-30 23:25:20,162 - Time - 23 - DEBUG - self.day_input day 6
+2025-04-30 23:25:20,162 - Time - 47 - DEBUG - i, input (0, ['day', '6'])
+2025-04-30 23:25:20,162 - Time - 47 - DEBUG - i, input (1, ['day', '6'])
+2025-04-30 23:25:20,162 - Time - 60 - DEBUG - contracted: ['day', '6']
+2025-04-30 23:25:20,162 - Time - 67 - DEBUG - input ['day', '6']
+2025-04-30 23:25:20,162 - Time - 68 - DEBUG - month:None
+2025-04-30 23:25:20,162 - Time - 67 - DEBUG - input ['day', '6']
+2025-04-30 23:25:20,162 - Time - 68 - DEBUG - month:None
+2025-04-30 23:25:20,162 - Time - 75 - DEBUG - input ['day', '6']
+2025-04-30 23:25:20,162 - Time - 76 - DEBUG - day:None
+2025-04-30 23:25:20,162 - Time - 75 - DEBUG - input ['day', '6']
+2025-04-30 23:25:20,162 - Time - 76 - DEBUG - day:None
+2025-04-30 23:25:20,162 - Time - 88 - DEBUG - list not split
+2025-04-30 23:25:20,162 - Time - 105 - DEBUG - num list: [6]
+2025-04-30 23:25:20,162 - main - 125 - INFO - day: None date: None
+2025-04-30 23:25:20,162 - main - 145 - INFO - day: None date: None
+2025-04-30 23:25:20,162 - main - 118 - INFO - starting ask time loop
+2025-04-30 23:28:18,318 - main - 50 - INFO - teacher input: wilde
+2025-04-30 23:28:18,319 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-04-30 23:28:18,327 - main - 19 - INFO - teacher current position None
+2025-04-30 23:28:18,327 - main - 20 - INFO - teacher class None
+2025-04-30 23:28:18,327 - main - 63 - INFO - place unknown (None, None)
+2025-04-30 23:28:18,856 - main - 81 - INFO - user carry on input ues
+2025-04-30 23:28:18,856 - main - 151 - DEBUG - no space word ues
+2025-04-30 23:28:18,857 - main - 173 - DEBUG - word candidates yes
+2025-04-30 23:28:18,857 - main - 154 - DEBUG - is word positive True
+2025-04-30 23:28:18,857 - main - 173 - DEBUG - word candidates None
+2025-04-30 23:28:18,857 - main - 156 - DEBUG - is word negative False
+2025-04-30 23:28:18,857 - main - 84 - INFO - revised input True
+2025-04-30 23:28:18,858 - main - 29 - INFO - asking second time
+2025-04-30 23:28:19,470 - main - 50 - INFO - teacher input: wilde
+2025-04-30 23:28:19,471 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-04-30 23:28:19,471 - main - 99 - INFO - starting ask period loop
+2025-04-30 23:28:20,216 - main - 101 - INFO - inputed time: 12
+2025-04-30 23:28:20,309 - Period - 24 - DEBUG - split input: [12]
+2025-04-30 23:28:20,310 - Period - 25 - DEBUG - spacless input: 12
+2025-04-30 23:28:20,310 - Period - 26 - DEBUG - list input: ['1', '2']
+2025-04-30 23:28:20,310 - Period - 55 - DEBUG - pm: False, am: False
+2025-04-30 23:28:20,310 - Period - 56 - DEBUG - has period: False
+2025-04-30 23:28:20,310 - Period - 72 - DEBUG - period as int 12
+2025-04-30 23:28:20,310 - Period - 83 - DEBUG - num time found 12
+2025-04-30 23:28:20,310 - Period - 103 - DEBUG - not long enough time unsupported operand type(s) for -: 'NoneType' and 'int'
+2025-04-30 23:28:20,310 - Period - 109 - DEBUG - integer list [12]
+2025-04-30 23:28:20,310 - Period - 121 - DEBUG - concentrated integer list [12]
+2025-04-30 23:28:20,310 - main - 112 - INFO - period: None time: 12.0
+2025-04-30 23:28:20,310 - main - 118 - INFO - starting ask time loop
+2025-04-30 23:28:21,341 - main - 121 - INFO - inputed day: day 6
+2025-04-30 23:28:21,341 - Time - 24 - DEBUG - self.day_input day 6
+2025-04-30 23:28:21,341 - Time - 48 - DEBUG - i, input (0, ['day', '6'])
+2025-04-30 23:28:21,341 - Time - 48 - DEBUG - i, input (1, ['day', '6'])
+2025-04-30 23:28:21,341 - Time - 61 - DEBUG - contracted: ['day', '6']
+2025-04-30 23:28:21,342 - Time - 68 - DEBUG - input ['day', '6']
+2025-04-30 23:28:21,342 - Time - 69 - DEBUG - month:None
+2025-04-30 23:28:21,342 - Time - 68 - DEBUG - input ['day', '6']
+2025-04-30 23:28:21,342 - Time - 69 - DEBUG - month:None
+2025-04-30 23:28:21,342 - Time - 76 - DEBUG - input ['day', '6']
+2025-04-30 23:28:21,342 - Time - 77 - DEBUG - day:None
+2025-04-30 23:28:21,342 - Time - 76 - DEBUG - input ['day', '6']
+2025-04-30 23:28:21,342 - Time - 77 - DEBUG - day:None
+2025-04-30 23:28:21,342 - Time - 89 - DEBUG - list not split
+2025-04-30 23:28:21,342 - Time - 110 - DEBUG - num list: [6]
+2025-04-30 23:28:21,342 - main - 125 - INFO - day: 6 date: None
+2025-04-30 23:28:21,342 - main - 145 - INFO - day: Day 6 date: None
+2025-04-30 23:28:21,344 - main - 67 - INFO - location known ('JP11', '12IBCOM3')
+2025-04-30 23:28:27,927 - main - 50 - INFO - teacher input: wilde
+2025-04-30 23:28:27,928 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-04-30 23:28:27,936 - main - 19 - INFO - teacher current position None
+2025-04-30 23:28:27,937 - main - 20 - INFO - teacher class None
+2025-04-30 23:28:27,937 - main - 63 - INFO - place unknown (None, None)
+2025-04-30 23:28:28,522 - main - 81 - INFO - user carry on input yes
+2025-04-30 23:28:28,522 - main - 151 - DEBUG - no space word yes
+2025-04-30 23:28:28,522 - main - 173 - DEBUG - word candidates yes
+2025-04-30 23:28:28,523 - main - 154 - DEBUG - is word positive True
+2025-04-30 23:28:28,523 - main - 173 - DEBUG - word candidates None
+2025-04-30 23:28:28,523 - main - 156 - DEBUG - is word negative False
+2025-04-30 23:28:28,523 - main - 84 - INFO - revised input True
+2025-04-30 23:28:28,523 - main - 29 - INFO - asking second time
+2025-04-30 23:28:29,665 - main - 50 - INFO - teacher input: wikde
+2025-04-30 23:28:29,666 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-04-30 23:28:29,666 - main - 99 - INFO - starting ask period loop
+2025-04-30 23:28:30,749 - main - 101 - INFO - inputed time: 12
+2025-04-30 23:28:30,852 - Period - 24 - DEBUG - split input: [12]
+2025-04-30 23:28:30,852 - Period - 25 - DEBUG - spacless input: 12
+2025-04-30 23:28:30,852 - Period - 26 - DEBUG - list input: ['1', '2']
+2025-04-30 23:28:30,852 - Period - 55 - DEBUG - pm: False, am: False
+2025-04-30 23:28:30,853 - Period - 56 - DEBUG - has period: False
+2025-04-30 23:28:30,853 - Period - 72 - DEBUG - period as int 12
+2025-04-30 23:28:30,853 - Period - 83 - DEBUG - num time found 12
+2025-04-30 23:28:30,853 - Period - 103 - DEBUG - not long enough time unsupported operand type(s) for -: 'NoneType' and 'int'
+2025-04-30 23:28:30,853 - Period - 109 - DEBUG - integer list [12]
+2025-04-30 23:28:30,853 - Period - 121 - DEBUG - concentrated integer list [12]
+2025-04-30 23:28:30,853 - main - 112 - INFO - period: None time: 12.0
+2025-04-30 23:28:30,853 - main - 118 - INFO - starting ask time loop
+2025-04-30 23:28:33,067 - main - 121 - INFO - inputed day: day 8
+2025-04-30 23:28:33,068 - Time - 24 - DEBUG - self.day_input day 8
+2025-04-30 23:28:33,068 - Time - 48 - DEBUG - i, input (0, ['day', '8'])
+2025-04-30 23:28:33,068 - Time - 48 - DEBUG - i, input (1, ['day', '8'])
+2025-04-30 23:28:33,068 - Time - 61 - DEBUG - contracted: ['day', '8']
+2025-04-30 23:28:33,068 - Time - 68 - DEBUG - input ['day', '8']
+2025-04-30 23:28:33,068 - Time - 69 - DEBUG - month:None
+2025-04-30 23:28:33,068 - Time - 68 - DEBUG - input ['day', '8']
+2025-04-30 23:28:33,068 - Time - 69 - DEBUG - month:None
+2025-04-30 23:28:33,068 - Time - 76 - DEBUG - input ['day', '8']
+2025-04-30 23:28:33,068 - Time - 77 - DEBUG - day:None
+2025-04-30 23:28:33,068 - Time - 76 - DEBUG - input ['day', '8']
+2025-04-30 23:28:33,068 - Time - 77 - DEBUG - day:None
+2025-04-30 23:28:33,068 - Time - 89 - DEBUG - list not split
+2025-04-30 23:28:33,068 - Time - 110 - DEBUG - num list: [8]
+2025-04-30 23:28:33,069 - main - 125 - INFO - day: 8 date: None
+2025-04-30 23:28:33,069 - main - 145 - INFO - day: Day 8 date: None
+2025-04-30 23:28:33,070 - main - 63 - INFO - place unknown (None, None)
+2025-04-30 23:29:08,938 - main - 50 - INFO - teacher input: wilde
+2025-04-30 23:29:08,939 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-04-30 23:29:08,947 - main - 19 - INFO - teacher current position None
+2025-04-30 23:29:08,948 - main - 20 - INFO - teacher class None
+2025-04-30 23:29:08,948 - main - 63 - INFO - place unknown (None, None)
+2025-04-30 23:29:09,459 - main - 81 - INFO - user carry on input yes
+2025-04-30 23:29:09,459 - main - 151 - DEBUG - no space word yes
+2025-04-30 23:29:09,459 - main - 173 - DEBUG - word candidates yes
+2025-04-30 23:29:09,460 - main - 154 - DEBUG - is word positive True
+2025-04-30 23:29:09,460 - main - 173 - DEBUG - word candidates None
+2025-04-30 23:29:09,460 - main - 156 - DEBUG - is word negative False
+2025-04-30 23:29:09,460 - main - 84 - INFO - revised input True
+2025-04-30 23:29:09,461 - main - 29 - INFO - asking second time
+2025-04-30 23:29:10,107 - main - 50 - INFO - teacher input: wilde
+2025-04-30 23:29:10,108 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-04-30 23:29:10,108 - main - 99 - INFO - starting ask period loop
+2025-04-30 23:29:10,799 - main - 101 - INFO - inputed time: 12
+2025-04-30 23:29:10,891 - Period - 24 - DEBUG - split input: [12]
+2025-04-30 23:29:10,908 - Period - 25 - DEBUG - spacless input: 12
+2025-04-30 23:29:10,908 - Period - 26 - DEBUG - list input: ['1', '2']
+2025-04-30 23:29:10,908 - Period - 55 - DEBUG - pm: False, am: False
+2025-04-30 23:29:10,909 - Period - 56 - DEBUG - has period: False
+2025-04-30 23:29:10,909 - Period - 72 - DEBUG - period as int 12
+2025-04-30 23:29:10,909 - Period - 83 - DEBUG - num time found 12
+2025-04-30 23:29:10,909 - Period - 103 - DEBUG - not long enough time unsupported operand type(s) for -: 'NoneType' and 'int'
+2025-04-30 23:29:10,909 - Period - 109 - DEBUG - integer list [12]
+2025-04-30 23:29:10,909 - Period - 121 - DEBUG - concentrated integer list [12]
+2025-04-30 23:29:10,909 - main - 112 - INFO - period: None time: 12.0
+2025-04-30 23:29:10,910 - main - 118 - INFO - starting ask time loop
+2025-04-30 23:29:12,755 - main - 121 - INFO - inputed day: Day 6
+2025-04-30 23:29:12,755 - Time - 24 - DEBUG - self.day_input Day 6
+2025-04-30 23:29:12,755 - Time - 48 - DEBUG - i, input (0, ['Day', '6'])
+2025-04-30 23:29:12,755 - Time - 48 - DEBUG - i, input (1, ['Day', '6'])
+2025-04-30 23:29:12,756 - Time - 61 - DEBUG - contracted: ['Day', '6']
+2025-04-30 23:29:12,756 - Time - 68 - DEBUG - input ['Day', '6']
+2025-04-30 23:29:12,756 - Time - 69 - DEBUG - month:None
+2025-04-30 23:29:12,756 - Time - 68 - DEBUG - input ['Day', '6']
+2025-04-30 23:29:12,756 - Time - 69 - DEBUG - month:None
+2025-04-30 23:29:12,756 - Time - 76 - DEBUG - input ['Day', '6']
+2025-04-30 23:29:12,756 - Time - 77 - DEBUG - day:None
+2025-04-30 23:29:12,756 - Time - 76 - DEBUG - input ['Day', '6']
+2025-04-30 23:29:12,756 - Time - 77 - DEBUG - day:None
+2025-04-30 23:29:12,756 - Time - 89 - DEBUG - list not split
+2025-04-30 23:29:12,756 - Time - 110 - DEBUG - num list: [6]
+2025-04-30 23:29:12,756 - main - 125 - INFO - day: None date: None
+2025-04-30 23:29:12,756 - main - 145 - INFO - day: None date: None
+2025-04-30 23:29:12,756 - main - 118 - INFO - starting ask time loop
+2025-04-30 23:29:14,561 - main - 121 - INFO - inputed day: day 6
+2025-04-30 23:29:14,562 - Time - 24 - DEBUG - self.day_input day 6
+2025-04-30 23:29:14,562 - Time - 48 - DEBUG - i, input (0, ['day', '6'])
+2025-04-30 23:29:14,562 - Time - 48 - DEBUG - i, input (1, ['day', '6'])
+2025-04-30 23:29:14,562 - Time - 61 - DEBUG - contracted: ['day', '6']
+2025-04-30 23:29:14,562 - Time - 68 - DEBUG - input ['day', '6']
+2025-04-30 23:29:14,562 - Time - 69 - DEBUG - month:None
+2025-04-30 23:29:14,562 - Time - 68 - DEBUG - input ['day', '6']
+2025-04-30 23:29:14,562 - Time - 69 - DEBUG - month:None
+2025-04-30 23:29:14,562 - Time - 76 - DEBUG - input ['day', '6']
+2025-04-30 23:29:14,562 - Time - 77 - DEBUG - day:None
+2025-04-30 23:29:14,562 - Time - 76 - DEBUG - input ['day', '6']
+2025-04-30 23:29:14,562 - Time - 77 - DEBUG - day:None
+2025-04-30 23:29:14,562 - Time - 89 - DEBUG - list not split
+2025-04-30 23:29:14,562 - Time - 110 - DEBUG - num list: [6]
+2025-04-30 23:29:14,562 - main - 125 - INFO - day: 6 date: None
+2025-04-30 23:29:14,562 - main - 145 - INFO - day: Day 6 date: None
+2025-04-30 23:29:14,563 - main - 67 - INFO - location known ('JP11', '12IBCOM3')
