@@ -13,7 +13,7 @@ def main(config):
     # creates teacher object then ask for teacher location
     teacher = Teacher.Teacher()
     ask_teacher(teacher)
-    # Get and displaycurrent position of teacher
+    # Get and display current position of teacher
     teacher.get_current_time()
     teacher.current_position()
     logger.info(f"teacher current position {teacher.location}")
@@ -61,7 +61,7 @@ def ask_teacher(teacher):
 def display_teacher(teacher):
     if teacher.location is None:
         logger.info(f"place unknown {teacher.location, teacher.class_code}")
-        print("location unkown its currently outside of school hours")
+        print("location unknown its currently outside of school hours")
         return
     if isinstance(teacher.location, str):
         logger.info(f"location known {teacher.location, teacher.class_code}")
@@ -79,7 +79,7 @@ def ask_continue(confug):
         new_info_input = input("Would you like to pick " +
                              "a different teacher or time: ")
         logger.info(f"user carry on input {new_info_input}")
-        # evalute wether the answer was yes or no
+        # evaluate wether the answer was yes or no
         new_info_input = sentiment_finder(config, new_info_input)
         logger.info(f"revised input {new_info_input}")
         # if unknown repeat answer

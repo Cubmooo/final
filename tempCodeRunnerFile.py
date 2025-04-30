@@ -1,1 +1,2 @@
-ogger.info(f"teacher known {teacher.name}")
+
+        spell.distance = 1

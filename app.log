@@ -3342,3 +3342,213 @@
 2025-04-24 18:37:33,827 - main - 132 - INFO - date failed unconverted data remains: 5
 2025-04-24 18:37:33,832 - main - 145 - INFO - day: None date: None
 2025-04-24 18:37:33,833 - main - 118 - INFO - starting ask time loop
+2025-04-24 21:05:31,724 - main - 50 - INFO - teacher input: wilde
+2025-04-24 21:05:31,726 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-04-24 21:05:31,757 - main - 19 - INFO - teacher current position None
+2025-04-24 21:05:31,757 - main - 20 - INFO - teacher class None
+2025-04-24 21:05:31,757 - main - 63 - INFO - place unknown (None, None)
+2025-04-24 21:05:32,312 - main - 81 - INFO - user carry on input ues
+2025-04-24 21:05:32,312 - main - 151 - DEBUG - no space word ues
+2025-04-24 21:05:32,320 - main - 173 - DEBUG - word candidates yes
+2025-04-24 21:05:32,320 - main - 154 - DEBUG - is word positive True
+2025-04-24 21:05:32,321 - main - 173 - DEBUG - word candidates None
+2025-04-24 21:05:32,321 - main - 156 - DEBUG - is word negative False
+2025-04-24 21:05:32,321 - main - 84 - INFO - revised input True
+2025-04-24 21:05:32,323 - main - 29 - INFO - asking second time
+2025-04-24 21:05:33,245 - main - 50 - INFO - teacher input: wilde
+2025-04-24 21:05:33,245 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-04-24 21:05:33,246 - main - 99 - INFO - starting ask period loop
+2025-04-24 21:05:34,465 - main - 101 - INFO - inputed time: 12
+2025-04-24 21:05:34,568 - Period - 24 - DEBUG - split input: [12]
+2025-04-24 21:05:34,568 - Period - 25 - DEBUG - spacless input: 12
+2025-04-24 21:05:34,568 - Period - 26 - DEBUG - list input: ['1', '2']
+2025-04-24 21:05:34,568 - Period - 55 - DEBUG - pm: False, am: False
+2025-04-24 21:05:34,568 - Period - 56 - DEBUG - has period: False
+2025-04-24 21:05:34,568 - Period - 72 - DEBUG - period as int 12
+2025-04-24 21:05:34,568 - Period - 83 - DEBUG - num time found 12
+2025-04-24 21:05:34,569 - Period - 103 - DEBUG - not long enough time unsupported operand type(s) for -: 'NoneType' and 'int'
+2025-04-24 21:05:34,569 - Period - 109 - DEBUG - integer list [12]
+2025-04-24 21:05:34,569 - Period - 121 - DEBUG - concentrated integer list [12]
+2025-04-24 21:05:34,569 - main - 112 - INFO - period: None time: 12.0
+2025-04-24 21:05:34,569 - main - 118 - INFO - starting ask time loop
+2025-04-24 22:42:36,725 - main - 121 - INFO - inputed day: python -u "c:\Users\Joshua Davies\OneDrive - Saint Kentigern\Comp Sci\pyhton\final\main.py"
+2025-04-24 22:42:36,726 - Time - 20 - DEBUG - self.day_input python -u "c:\Users\Joshua Davies\OneDrive - Saint Kentigern\Comp Sci\pyhton\final\main.py"
+2025-04-24 22:42:36,727 - Time - 39 - DEBUG - date of ints []
+2025-04-24 22:42:36,727 - Time - 40 - DEBUG - len ^ 0
+2025-04-24 22:42:53,791 - main - 118 - INFO - starting ask time loop
+2025-04-24 22:43:57,472 - main - 118 - INFO - starting ask time loop
+2025-04-24 22:44:08,421 - main - 121 - INFO - inputed day: twenty ninth of april twenty twenty five
+2025-04-24 22:44:08,421 - Time - 21 - DEBUG - self.day_input twenty ninth of april twenty twenty five
+2025-04-24 22:44:51,377 - main - 118 - INFO - starting ask time loop
+2025-04-24 22:45:01,261 - main - 121 - INFO - inputed day: twenty ninth of april twenty twenty five
+2025-04-24 22:45:01,262 - Time - 21 - DEBUG - self.day_input twenty ninth of april twenty twenty five
+2025-04-24 22:45:01,262 - Time - 57 - DEBUG - contracted: ['twentyninth', 'of', 'april', 'twentytwenty', 'five']
+2025-04-24 22:47:05,078 - main - 118 - INFO - starting ask time loop
+2025-04-24 22:47:14,334 - main - 121 - INFO - inputed day: twenty twenty four
+2025-04-24 22:47:14,334 - Time - 21 - DEBUG - self.day_input twenty twenty four
+2025-04-24 22:47:14,334 - Time - 57 - DEBUG - contracted: ['twentytwenty', 'four']
+2025-04-24 22:48:03,978 - main - 118 - INFO - starting ask time loop
+2025-04-24 22:48:05,617 - main - 121 - INFO - inputed day: wilde
+2025-04-24 22:48:05,617 - Time - 21 - DEBUG - self.day_input wilde
+2025-04-24 22:48:05,617 - Time - 42 - DEBUG - i, input (0, ['wilde'])
+2025-04-24 22:48:05,617 - Time - 58 - DEBUG - contracted: ['wilde']
+2025-04-24 22:48:14,800 - main - 118 - INFO - starting ask time loop
+2025-04-24 22:48:17,905 - main - 121 - INFO - inputed day: twenty twenty five
+2025-04-24 22:48:17,905 - Time - 21 - DEBUG - self.day_input twenty twenty five
+2025-04-24 22:48:17,905 - Time - 42 - DEBUG - i, input (0, ['twenty', 'twenty', 'five'])
+2025-04-24 22:48:17,905 - Time - 42 - DEBUG - i, input (1, ['twentytwenty', 'five'])
+2025-04-24 22:48:17,906 - Time - 58 - DEBUG - contracted: ['twentytwenty', 'five']
+2025-04-24 22:50:14,442 - main - 118 - INFO - starting ask time loop
+2025-04-24 22:50:19,503 - main - 121 - INFO - inputed day: twenty twenty five
+2025-04-24 22:50:19,504 - Time - 21 - DEBUG - self.day_input twenty twenty five
+2025-04-24 22:50:19,504 - Time - 42 - DEBUG - i, input (0, ['twenty', 'twenty', 'five'])
+2025-04-24 22:50:19,504 - Time - 42 - DEBUG - i, input (0, ['twentytwenty', 'five'])
+2025-04-24 22:50:19,504 - Time - 42 - DEBUG - i, input (0, ['twentytwentyfive'])
+2025-04-24 22:50:19,504 - Time - 42 - DEBUG - i, input (0, ['twentytwentyfive'])
+2025-04-24 22:50:19,504 - Time - 42 - DEBUG - i, input (0, ['twentytwentyfive'])
+2025-04-24 22:50:19,504 - Time - 42 - DEBUG - i, input (0, ['twentytwentyfive'])
+2025-04-24 22:50:19,504 - Time - 42 - DEBUG - i, input (0, ['twentytwentyfive'])
+2025-04-24 22:50:19,505 - Time - 42 - DEBUG - i, input (0, ['twentytwentyfive'])
+2025-04-24 22:50:19,505 - Time - 42 - DEBUG - i, input (0, ['twentytwentyfive'])
+2025-04-24 22:50:19,505 - Time - 42 - DEBUG - i, input (0, ['twentytwentyfive'])
+2025-04-24 22:50:19,505 - Time - 42 - DEBUG - i, input (0, ['twentytwentyfive'])
+2025-04-24 22:50:19,505 - Time - 42 - DEBUG - i, input (0, ['twentytwentyfive'])
+2025-04-24 22:50:19,505 - Time - 42 - DEBUG - i, input (0, ['twentytwentyfive'])
+2025-04-24 22:50:19,505 - Time - 42 - DEBUG - i, input (0, ['twentytwentyfive'])
+2025-04-24 22:50:19,505 - Time - 42 - DEBUG - i, input (0, ['twentytwentyfive'])
+2025-04-24 22:50:19,506 - Time - 42 - DEBUG - i, input (0, ['twentytwentyfive'])
+2025-04-24 22:50:19,506 - Time - 42 - DEBUG - i, input (0, ['twentytwentyfive'])
+2025-04-24 22:50:19,506 - Time - 42 - DEBUG - i, input (0, ['twentytwentyfive'])
+2025-04-24 22:50:19,506 - Time - 42 - DEBUG - i, input (0, ['twentytwentyfive'])
+2025-04-24 22:50:19,506 - Time - 42 - DEBUG - i, input (0, ['twentytwentyfive'])
+2025-04-24 22:50:19,506 - Time - 42 - DEBUG - i, input (0, ['twentytwentyfive'])
+2025-04-24 22:50:19,506 - Time - 42 - DEBUG - i, input (0, ['twentytwentyfive'])
+2025-04-24 22:50:19,507 - Time - 42 - DEBUG - i, input (0, ['twentytwentyfive'])
+2025-04-24 22:50:19,507 - Time - 42 - DEBUG - i, input (0, ['twentytwentyfive'])
+2025-04-24 22:50:19,507 - Time - 42 - DEBUG - i, input (0, ['twentytwentyfive'])
+2025-04-24 22:50:19,507 - Time - 42 - DEBUG - i, input (0, ['twentytwentyfive'])
+2025-04-24 22:50:19,507 - Time - 42 - DEBUG - i, input (0, ['twentytwentyfive'])
+2025-04-24 22:50:19,507 - Time - 42 - DEBUG - i, input (0, ['twentytwentyfive'])
+2025-04-24 22:50:19,507 - Time - 42 - DEBUG - i, input (0, ['twentytwentyfive'])
+2025-04-24 22:50:19,507 - Time - 42 - DEBUG - i, input (0, ['twentytwentyfive'])
+2025-04-24 22:50:19,507 - Time - 42 - DEBUG - i, input (0, ['twentytwentyfive'])
+2025-04-24 22:50:19,507 - Time - 42 - DEBUG - i, input (0, ['twentytwentyfive'])
+2025-04-24 22:51:34,175 - main - 118 - INFO - starting ask time loop
+2025-04-24 22:51:42,277 - main - 121 - INFO - inputed day: twenty ninth of april twenty twenty five
+2025-04-24 22:51:42,277 - Time - 21 - DEBUG - self.day_input twenty ninth of april twenty twenty five
+2025-04-24 22:51:42,278 - Time - 42 - DEBUG - i, input (0, ['twenty', 'ninth', 'of', 'april', 'twenty', 'twenty', 'five'])
+2025-04-24 22:51:42,278 - Time - 42 - DEBUG - i, input (0, ['twentyninth', 'of', 'april', 'twenty', 'twenty', 'five'])
+2025-04-24 22:51:42,278 - Time - 42 - DEBUG - i, input (1, ['twentyninth', 'of', 'april', 'twenty', 'twenty', 'five'])
+2025-04-24 22:51:42,278 - Time - 42 - DEBUG - i, input (2, ['twentyninth', 'of', 'april', 'twenty', 'twenty', 'five'])
+2025-04-24 22:51:42,278 - Time - 42 - DEBUG - i, input (3, ['twentyninth', 'of', 'april', 'twenty', 'twenty', 'five'])
+2025-04-24 22:51:42,278 - Time - 42 - DEBUG - i, input (3, ['twentyninth', 'of', 'april', 'twentytwenty', 'five'])
+2025-04-24 22:51:42,278 - Time - 42 - DEBUG - i, input (3, ['twentyninth', 'of', 'april', 'twentytwentyfive'])
+2025-04-24 22:51:42,278 - Time - 55 - DEBUG - contracted: ['twentyninth', 'of', 'april', 'twentytwentyfive']
+2025-04-29 12:17:07,810 - main - 118 - INFO - starting ask time loop
+2025-04-29 12:50:53,029 - main - 118 - INFO - starting ask time loop
+2025-04-29 12:53:17,615 - main - 50 - INFO - teacher input: wide
+2025-04-29 12:53:17,630 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-04-29 12:53:17,748 - main - 19 - INFO - teacher current position None
+2025-04-29 12:53:17,749 - main - 20 - INFO - teacher class None
+2025-04-29 12:53:17,749 - main - 63 - INFO - place unknown (None, None)
+2025-04-29 12:54:47,579 - main - 81 - INFO - user carry on input ye
+2025-04-29 12:54:47,580 - main - 151 - DEBUG - no space word ye
+2025-04-29 12:54:47,604 - main - 173 - DEBUG - word candidates aye
+2025-04-29 12:54:47,605 - main - 154 - DEBUG - is word positive False
+2025-04-29 12:54:47,625 - main - 173 - DEBUG - word candidates None
+2025-04-29 12:54:47,625 - main - 156 - DEBUG - is word negative False
+2025-04-29 12:54:47,626 - main - 84 - INFO - revised input None
+2025-04-29 12:54:49,605 - main - 81 - INFO - user carry on input yes
+2025-04-29 12:54:49,605 - main - 151 - DEBUG - no space word yes
+2025-04-29 12:54:49,606 - main - 173 - DEBUG - word candidates yes
+2025-04-29 12:54:49,606 - main - 154 - DEBUG - is word positive True
+2025-04-29 12:54:49,607 - main - 173 - DEBUG - word candidates None
+2025-04-29 12:54:49,608 - main - 156 - DEBUG - is word negative False
+2025-04-29 12:54:49,608 - main - 84 - INFO - revised input True
+2025-04-29 12:54:49,642 - main - 29 - INFO - asking second time
+2025-04-29 12:54:52,772 - main - 50 - INFO - teacher input: wilde
+2025-04-29 12:54:52,774 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-04-29 12:54:52,775 - main - 99 - INFO - starting ask period loop
+2025-04-29 12:55:05,090 - main - 101 - INFO - inputed time: 0857
+2025-04-29 12:55:05,330 - Period - 24 - DEBUG - split input: [857]
+2025-04-29 12:55:05,331 - Period - 25 - DEBUG - spacless input: 0857
+2025-04-29 12:55:05,331 - Period - 26 - DEBUG - list input: ['0', '8', '5', '7']
+2025-04-29 12:55:05,331 - Period - 55 - DEBUG - pm: False, am: False
+2025-04-29 12:55:05,332 - Period - 56 - DEBUG - has period: False
+2025-04-29 12:55:05,332 - Period - 72 - DEBUG - period as int 857
+2025-04-29 12:55:05,332 - Period - 83 - DEBUG - num time found 8.57
+2025-04-29 12:55:05,333 - Period - 103 - DEBUG - not long enough time unsupported operand type(s) for -: 'NoneType' and 'int'
+2025-04-29 12:55:05,333 - Period - 109 - DEBUG - integer list [857]
+2025-04-29 12:55:05,333 - Period - 121 - DEBUG - concentrated integer list [857]
+2025-04-29 12:55:05,333 - main - 112 - INFO - period: None time: 857.0
+2025-04-29 12:55:05,333 - main - 118 - INFO - starting ask time loop
+2025-04-29 14:34:28,239 - main - 50 - INFO - teacher input: mrs nigger
+2025-04-29 14:34:28,325 - main - 58 - INFO - teacher unknown input: mrs nigger
+2025-04-29 14:34:31,905 - main - 50 - INFO - teacher input: wilde
+2025-04-29 14:34:31,907 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-04-29 14:34:32,021 - main - 19 - INFO - teacher current position nan
+2025-04-29 14:34:32,022 - main - 20 - INFO - teacher class nan
+2025-04-29 14:34:32,023 - main - 72 - INFO - no class (nan, nan)
+2025-04-29 14:34:40,590 - main - 81 - INFO - user carry on input 3oclock
+2025-04-29 14:34:40,591 - main - 151 - DEBUG - no space word 3oclock
+2025-04-29 14:34:40,749 - main - 173 - DEBUG - word candidates None
+2025-04-29 14:34:40,750 - main - 154 - DEBUG - is word positive False
+2025-04-29 14:34:40,894 - main - 173 - DEBUG - word candidates None
+2025-04-29 14:34:40,895 - main - 156 - DEBUG - is word negative False
+2025-04-29 14:34:40,895 - main - 84 - INFO - revised input None
+2025-04-29 14:34:46,746 - main - 81 - INFO - user carry on input 3 o clock
+2025-04-29 14:34:46,747 - main - 151 - DEBUG - no space word 3oclock
+2025-04-29 14:34:46,953 - main - 173 - DEBUG - word candidates None
+2025-04-29 14:34:46,954 - main - 154 - DEBUG - is word positive False
+2025-04-29 14:34:47,059 - main - 173 - DEBUG - word candidates None
+2025-04-29 14:34:47,060 - main - 156 - DEBUG - is word negative False
+2025-04-29 14:34:47,060 - main - 84 - INFO - revised input None
+2025-04-29 14:34:51,437 - main - 81 - INFO - user carry on input 3:45
+2025-04-29 14:34:51,437 - main - 151 - DEBUG - no space word 3:45
+2025-04-29 14:34:51,512 - main - 173 - DEBUG - word candidates None
+2025-04-29 14:34:51,513 - main - 154 - DEBUG - is word positive False
+2025-04-29 14:34:51,560 - main - 173 - DEBUG - word candidates None
+2025-04-29 14:34:51,560 - main - 156 - DEBUG - is word negative False
+2025-04-29 14:34:51,561 - main - 84 - INFO - revised input None
+2025-04-29 14:34:58,117 - main - 81 - INFO - user carry on input 3556
+2025-04-29 14:34:58,119 - main - 151 - DEBUG - no space word 3556
+2025-04-29 14:34:58,120 - main - 173 - DEBUG - word candidates 3556
+2025-04-29 14:34:58,121 - main - 154 - DEBUG - is word positive False
+2025-04-29 14:34:58,121 - main - 173 - DEBUG - word candidates 3556
+2025-04-29 14:34:58,122 - main - 156 - DEBUG - is word negative False
+2025-04-29 14:34:58,123 - main - 84 - INFO - revised input None
+2025-04-29 14:35:01,537 - main - 81 - INFO - user carry on input nigger
+2025-04-29 14:35:01,538 - main - 151 - DEBUG - no space word nigger
+2025-04-29 14:35:01,670 - main - 173 - DEBUG - word candidates None
+2025-04-29 14:35:01,671 - main - 154 - DEBUG - is word positive False
+2025-04-29 14:35:01,750 - main - 173 - DEBUG - word candidates None
+2025-04-29 14:35:01,750 - main - 156 - DEBUG - is word negative False
+2025-04-29 14:35:01,750 - main - 84 - INFO - revised input None
+2025-04-29 14:35:04,095 - main - 81 - INFO - user carry on input yes
+2025-04-29 14:35:04,095 - main - 151 - DEBUG - no space word yes
+2025-04-29 14:35:04,096 - main - 173 - DEBUG - word candidates yes
+2025-04-29 14:35:04,097 - main - 154 - DEBUG - is word positive True
+2025-04-29 14:35:04,098 - main - 173 - DEBUG - word candidates None
+2025-04-29 14:35:04,099 - main - 156 - DEBUG - is word negative False
+2025-04-29 14:35:04,099 - main - 84 - INFO - revised input True
+2025-04-29 14:35:04,147 - main - 29 - INFO - asking second time
+2025-04-29 14:35:18,335 - main - 50 - INFO - teacher input: anca wilde
+2025-04-29 14:35:18,363 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-04-29 14:35:18,363 - main - 99 - INFO - starting ask period loop
+2025-04-29 14:35:24,048 - main - 101 - INFO - inputed time: 4 o clock
+2025-04-29 14:35:24,272 - Period - 24 - DEBUG - split input: [4, 'o', 'clock']
+2025-04-29 14:35:24,272 - Period - 25 - DEBUG - spacless input: 4oclock
+2025-04-29 14:35:24,272 - Period - 26 - DEBUG - list input: ['4', 'o', 'c', 'l', 'o', 'c', 'k']
+2025-04-29 14:35:24,272 - Period - 55 - DEBUG - pm: False, am: False
+2025-04-29 14:35:24,272 - Period - 56 - DEBUG - has period: False
+2025-04-29 14:35:24,272 - Period - 72 - DEBUG - period as int 4
+2025-04-29 14:35:24,272 - Period - 83 - DEBUG - num time found 4
+2025-04-29 14:35:24,272 - Period - 103 - DEBUG - not long enough time unsupported operand type(s) for -: 'NoneType' and 'int'
+2025-04-29 14:35:24,273 - Period - 109 - DEBUG - integer list [4]
+2025-04-29 14:35:24,273 - Period - 121 - DEBUG - concentrated integer list [4]
+2025-04-29 14:35:24,273 - main - 112 - INFO - period: None time: 4.0
+2025-04-29 14:35:24,273 - main - 118 - INFO - starting ask time loop
+2025-04-29 14:35:28,771 - main - 121 - INFO - inputed day: 8
+2025-04-29 14:35:28,771 - Time - 21 - DEBUG - self.day_input 8
+2025-04-29 14:35:28,772 - Time - 42 - DEBUG - i, input (0, ['8'])
+2025-04-29 14:35:28,772 - Time - 55 - DEBUG - contracted: ['8']
