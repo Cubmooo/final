@@ -4,3 +4,12 @@ mrswilde mrs_wilde.csv
 henryfranck mr_franck.csv
 franck mr_franck.csv
 mrfranck mr_franck.csv
+miriamslow mrs_slow.csv
+slow mrs_slow.csv
+mrsslow mrs_slow.csv
+mrhorsnell mr_horsnell.csv
+horsnell mr_horsnell.csv
+garthhorsnell mr_horsnell.csv
+mrirving mr_irving.csv
+irving mr_irving.csv
+shayneirving mr_irving.csv

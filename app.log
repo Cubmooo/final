@@ -3552,3 +3552,52 @@
 2025-04-29 14:35:28,771 - Time - 21 - DEBUG - self.day_input 8
 2025-04-29 14:35:28,772 - Time - 42 - DEBUG - i, input (0, ['8'])
 2025-04-29 14:35:28,772 - Time - 55 - DEBUG - contracted: ['8']
+2025-04-30 14:05:02,602 - main - 50 - INFO - teacher input: franck
+2025-04-30 14:05:02,611 - main - 55 - INFO - teacher known mr_franck.csv
+2025-04-30 14:05:02,653 - main - 19 - INFO - teacher current position None
+2025-04-30 14:05:02,653 - main - 20 - INFO - teacher class None
+2025-04-30 14:05:02,653 - main - 63 - INFO - place unknown (None, None)
+2025-04-30 14:05:14,027 - main - 81 - INFO - user carry on input yes
+2025-04-30 14:05:14,028 - main - 151 - DEBUG - no space word yes
+2025-04-30 14:05:14,043 - main - 173 - DEBUG - word candidates yes
+2025-04-30 14:05:14,044 - main - 154 - DEBUG - is word positive True
+2025-04-30 14:05:14,053 - main - 173 - DEBUG - word candidates None
+2025-04-30 14:05:14,053 - main - 156 - DEBUG - is word negative False
+2025-04-30 14:05:14,053 - main - 84 - INFO - revised input True
+2025-04-30 14:05:14,073 - main - 29 - INFO - asking second time
+2025-04-30 14:05:17,231 - main - 50 - INFO - teacher input: franck
+2025-04-30 14:05:17,233 - main - 55 - INFO - teacher known mr_franck.csv
+2025-04-30 14:05:17,234 - main - 99 - INFO - starting ask period loop
+2025-04-30 14:05:19,271 - main - 101 - INFO - inputed time: 12
+2025-04-30 14:05:19,409 - Period - 24 - DEBUG - split input: [12]
+2025-04-30 14:05:19,410 - Period - 25 - DEBUG - spacless input: 12
+2025-04-30 14:05:19,410 - Period - 26 - DEBUG - list input: ['1', '2']
+2025-04-30 14:05:19,410 - Period - 55 - DEBUG - pm: False, am: False
+2025-04-30 14:05:19,410 - Period - 56 - DEBUG - has period: False
+2025-04-30 14:05:19,410 - Period - 72 - DEBUG - period as int 12
+2025-04-30 14:05:19,410 - Period - 83 - DEBUG - num time found 12
+2025-04-30 14:05:19,411 - Period - 103 - DEBUG - not long enough time unsupported operand type(s) for -: 'NoneType' and 'int'
+2025-04-30 14:05:19,411 - Period - 109 - DEBUG - integer list [12]
+2025-04-30 14:05:19,411 - Period - 121 - DEBUG - concentrated integer list [12]
+2025-04-30 14:05:19,411 - main - 112 - INFO - period: None time: 12.0
+2025-04-30 14:05:19,411 - main - 118 - INFO - starting ask time loop
+2025-04-30 14:05:22,355 - main - 121 - INFO - inputed day: day 5
+2025-04-30 14:05:22,356 - Time - 21 - DEBUG - self.day_input day 5
+2025-04-30 14:05:22,357 - Time - 42 - DEBUG - i, input (0, ['day', '5'])
+2025-04-30 14:05:22,357 - Time - 42 - DEBUG - i, input (1, ['day', '5'])
+2025-04-30 14:05:22,357 - Time - 55 - DEBUG - contracted: ['day', '5']
+2025-04-30 14:11:12,834 - main - 50 - INFO - teacher input: slow
+2025-04-30 14:11:12,836 - main - 55 - INFO - teacher known mrs_slow.csv
+2025-04-30 14:11:12,860 - main - 19 - INFO - teacher current position None
+2025-04-30 14:11:12,860 - main - 20 - INFO - teacher class None
+2025-04-30 14:11:12,860 - main - 63 - INFO - place unknown (None, None)
+2025-04-30 14:18:05,330 - main - 50 - INFO - teacher input: horsnell
+2025-04-30 14:18:05,333 - main - 55 - INFO - teacher known mr_horsnell.csv
+2025-04-30 14:18:05,356 - main - 19 - INFO - teacher current position None
+2025-04-30 14:18:05,356 - main - 20 - INFO - teacher class None
+2025-04-30 14:18:05,356 - main - 63 - INFO - place unknown (None, None)
+2025-04-30 14:18:19,091 - main - 50 - INFO - teacher input: horsnell
+2025-04-30 14:18:19,092 - main - 55 - INFO - teacher known mr_horsnell.csv
+2025-04-30 14:18:19,103 - main - 19 - INFO - teacher current position None
+2025-04-30 14:18:19,103 - main - 20 - INFO - teacher class None
+2025-04-30 14:18:19,103 - main - 63 - INFO - place unknown (None, None)
