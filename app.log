@@ -6871,3 +6871,430 @@
 2025-04-30 23:29:14,562 - main - 125 - INFO - day: 6 date: None
 2025-04-30 23:29:14,562 - main - 145 - INFO - day: Day 6 date: None
 2025-04-30 23:29:14,563 - main - 67 - INFO - location known ('JP11', '12IBCOM3')
+2025-05-01 14:48:12,966 - main - 50 - INFO - teacher input: wilde
+2025-05-01 14:48:12,979 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-05-01 14:48:13,021 - main - 19 - INFO - teacher current position JP11
+2025-05-01 14:48:13,021 - main - 20 - INFO - teacher class 12COM7
+2025-05-01 14:48:13,021 - main - 67 - INFO - location known ('JP11', '12COM7')
+2025-05-01 14:48:13,915 - main - 81 - INFO - user carry on input yes
+2025-05-01 14:48:13,916 - main - 151 - DEBUG - no space word yes
+2025-05-01 14:48:13,933 - main - 173 - DEBUG - word candidates yes
+2025-05-01 14:48:13,934 - main - 154 - DEBUG - is word positive True
+2025-05-01 14:48:13,943 - main - 173 - DEBUG - word candidates None
+2025-05-01 14:48:13,944 - main - 156 - DEBUG - is word negative False
+2025-05-01 14:48:13,944 - main - 84 - INFO - revised input True
+2025-05-01 14:48:13,963 - main - 29 - INFO - asking second time
+2025-05-01 14:48:14,553 - main - 50 - INFO - teacher input: wilde
+2025-05-01 14:48:14,555 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-05-01 14:48:14,556 - main - 99 - INFO - starting ask period loop
+2025-05-01 14:48:14,896 - main - 101 - INFO - inputed time: 12
+2025-05-01 14:48:15,047 - Period - 24 - DEBUG - split input: [12]
+2025-05-01 14:48:15,047 - Period - 25 - DEBUG - spacless input: 12
+2025-05-01 14:48:15,048 - Period - 26 - DEBUG - list input: ['1', '2']
+2025-05-01 14:48:15,048 - Period - 55 - DEBUG - pm: False, am: False
+2025-05-01 14:48:15,048 - Period - 56 - DEBUG - has period: False
+2025-05-01 14:48:15,048 - Period - 72 - DEBUG - period as int 12
+2025-05-01 14:48:15,048 - Period - 83 - DEBUG - num time found 12
+2025-05-01 14:48:15,049 - Period - 103 - DEBUG - not long enough time unsupported operand type(s) for -: 'NoneType' and 'int'
+2025-05-01 14:48:15,049 - Period - 109 - DEBUG - integer list [12]
+2025-05-01 14:48:15,049 - Period - 121 - DEBUG - concentrated integer list [12]
+2025-05-01 14:48:15,049 - main - 112 - INFO - period: None time: 12.0
+2025-05-01 14:48:15,049 - main - 118 - INFO - starting ask time loop
+2025-05-01 14:48:24,093 - main - 121 - INFO - inputed day: 12th may
+2025-05-01 14:48:24,094 - Time - 24 - DEBUG - self.day_input 12th may
+2025-05-01 14:48:24,095 - Time - 48 - DEBUG - i, input (0, ['12th', 'may'])
+2025-05-01 14:48:24,095 - Time - 48 - DEBUG - i, input (1, ['12th', 'may'])
+2025-05-01 14:48:24,096 - Time - 61 - DEBUG - contracted: ['12th', 'may']
+2025-05-01 14:48:24,096 - Time - 68 - DEBUG - input ['12th', 'may']
+2025-05-01 14:48:24,096 - Time - 69 - DEBUG - month:None
+2025-05-01 14:48:24,097 - Time - 68 - DEBUG - input ['12th', 5]
+2025-05-01 14:48:24,097 - Time - 69 - DEBUG - month:5
+2025-05-01 14:48:24,098 - Time - 76 - DEBUG - input ['12th', 5]
+2025-05-01 14:48:24,098 - Time - 77 - DEBUG - day:None
+2025-05-01 14:48:24,098 - Time - 76 - DEBUG - input ['12th', 5]
+2025-05-01 14:48:24,098 - Time - 77 - DEBUG - day:None
+2025-05-01 14:48:24,098 - Time - 89 - DEBUG - list not split
+2025-05-01 14:48:24,098 - Time - 110 - DEBUG - num list: []
+2025-05-01 14:48:24,099 - main - 125 - INFO - day: None date: None
+2025-05-01 14:48:24,099 - main - 145 - INFO - day: None date: None
+2025-05-01 14:48:24,099 - main - 118 - INFO - starting ask time loop
+2025-05-01 14:54:42,673 - main - 50 - INFO - teacher input: wilde
+2025-05-01 14:54:42,686 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-05-01 14:54:42,740 - main - 19 - INFO - teacher current position JP11
+2025-05-01 14:54:42,741 - main - 20 - INFO - teacher class 12COM7
+2025-05-01 14:54:42,741 - main - 67 - INFO - location known ('JP11', '12COM7')
+2025-05-01 14:54:43,567 - main - 81 - INFO - user carry on input yes
+2025-05-01 14:54:43,568 - main - 151 - DEBUG - no space word yes
+2025-05-01 14:54:43,579 - main - 173 - DEBUG - word candidates yes
+2025-05-01 14:54:43,579 - main - 154 - DEBUG - is word positive True
+2025-05-01 14:54:43,593 - main - 173 - DEBUG - word candidates None
+2025-05-01 14:54:43,593 - main - 156 - DEBUG - is word negative False
+2025-05-01 14:54:43,594 - main - 84 - INFO - revised input True
+2025-05-01 14:54:43,618 - main - 29 - INFO - asking second time
+2025-05-01 14:54:44,308 - main - 50 - INFO - teacher input: wilde
+2025-05-01 14:54:44,309 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-05-01 14:54:44,309 - main - 99 - INFO - starting ask period loop
+2025-05-01 14:54:45,145 - main - 101 - INFO - inputed time: 12
+2025-05-01 14:54:45,308 - Period - 24 - DEBUG - split input: [12]
+2025-05-01 14:54:45,309 - Period - 25 - DEBUG - spacless input: 12
+2025-05-01 14:54:45,309 - Period - 26 - DEBUG - list input: ['1', '2']
+2025-05-01 14:54:45,309 - Period - 55 - DEBUG - pm: False, am: False
+2025-05-01 14:54:45,309 - Period - 56 - DEBUG - has period: False
+2025-05-01 14:54:45,310 - Period - 72 - DEBUG - period as int 12
+2025-05-01 14:54:45,310 - Period - 83 - DEBUG - num time found 12
+2025-05-01 14:54:45,310 - Period - 103 - DEBUG - not long enough time unsupported operand type(s) for -: 'NoneType' and 'int'
+2025-05-01 14:54:45,310 - Period - 109 - DEBUG - integer list [12]
+2025-05-01 14:54:45,311 - Period - 121 - DEBUG - concentrated integer list [12]
+2025-05-01 14:54:45,311 - main - 112 - INFO - period: None time: 12.0
+2025-05-01 14:54:45,311 - main - 118 - INFO - starting ask time loop
+2025-05-01 14:54:48,782 - main - 121 - INFO - inputed day: 12th may
+2025-05-01 14:54:48,783 - Time - 24 - DEBUG - self.day_input 12th may
+2025-05-01 14:54:48,783 - Time - 48 - DEBUG - i, input (0, ['12th', 'may'])
+2025-05-01 14:54:48,783 - Time - 48 - DEBUG - i, input (1, ['12th', 'may'])
+2025-05-01 14:54:48,784 - Time - 61 - DEBUG - contracted: ['12th', 'may']
+2025-05-01 14:54:48,784 - Time - 68 - DEBUG - input ['12th', 'may']
+2025-05-01 14:54:48,784 - Time - 69 - DEBUG - month:None
+2025-05-01 14:54:48,784 - Time - 68 - DEBUG - input ['12th', 5]
+2025-05-01 14:54:48,784 - Time - 69 - DEBUG - month:5
+2025-05-01 14:54:48,785 - Time - 76 - DEBUG - input ['12th', 5]
+2025-05-01 14:54:48,785 - Time - 77 - DEBUG - day:None
+2025-05-01 14:54:48,785 - Time - 76 - DEBUG - input ['12th', 5]
+2025-05-01 14:54:48,785 - Time - 77 - DEBUG - day:None
+2025-05-01 14:54:48,785 - Time - 89 - DEBUG - list not split
+2025-05-01 14:55:22,248 - main - 50 - INFO - teacher input: wilde
+2025-05-01 14:55:22,249 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-05-01 14:55:22,259 - main - 19 - INFO - teacher current position JP11
+2025-05-01 14:55:22,260 - main - 20 - INFO - teacher class 12COM7
+2025-05-01 14:55:22,260 - main - 67 - INFO - location known ('JP11', '12COM7')
+2025-05-01 14:55:22,810 - main - 81 - INFO - user carry on input yes
+2025-05-01 14:55:22,810 - main - 151 - DEBUG - no space word yes
+2025-05-01 14:55:22,811 - main - 173 - DEBUG - word candidates yes
+2025-05-01 14:55:22,811 - main - 154 - DEBUG - is word positive True
+2025-05-01 14:55:22,812 - main - 173 - DEBUG - word candidates None
+2025-05-01 14:55:22,812 - main - 156 - DEBUG - is word negative False
+2025-05-01 14:55:22,812 - main - 84 - INFO - revised input True
+2025-05-01 14:55:22,813 - main - 29 - INFO - asking second time
+2025-05-01 14:55:23,870 - main - 50 - INFO - teacher input: wile
+2025-05-01 14:55:23,871 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-05-01 14:55:23,871 - main - 99 - INFO - starting ask period loop
+2025-05-01 14:55:24,544 - main - 101 - INFO - inputed time: 12
+2025-05-01 14:55:24,679 - Period - 24 - DEBUG - split input: [12]
+2025-05-01 14:55:24,679 - Period - 25 - DEBUG - spacless input: 12
+2025-05-01 14:55:24,679 - Period - 26 - DEBUG - list input: ['1', '2']
+2025-05-01 14:55:24,679 - Period - 55 - DEBUG - pm: False, am: False
+2025-05-01 14:55:24,679 - Period - 56 - DEBUG - has period: False
+2025-05-01 14:55:24,679 - Period - 72 - DEBUG - period as int 12
+2025-05-01 14:55:24,679 - Period - 83 - DEBUG - num time found 12
+2025-05-01 14:55:24,679 - Period - 103 - DEBUG - not long enough time unsupported operand type(s) for -: 'NoneType' and 'int'
+2025-05-01 14:55:24,679 - Period - 109 - DEBUG - integer list [12]
+2025-05-01 14:55:24,679 - Period - 121 - DEBUG - concentrated integer list [12]
+2025-05-01 14:55:24,679 - main - 112 - INFO - period: None time: 12.0
+2025-05-01 14:55:24,679 - main - 118 - INFO - starting ask time loop
+2025-05-01 14:55:27,189 - main - 121 - INFO - inputed day: 12th may
+2025-05-01 14:55:27,189 - Time - 24 - DEBUG - self.day_input 12th may
+2025-05-01 14:55:27,189 - Time - 48 - DEBUG - i, input (0, ['12th', 'may'])
+2025-05-01 14:55:27,189 - Time - 48 - DEBUG - i, input (1, ['12th', 'may'])
+2025-05-01 14:55:27,189 - Time - 61 - DEBUG - contracted: ['12th', 'may']
+2025-05-01 14:55:27,190 - Time - 68 - DEBUG - input ['12th', 'may']
+2025-05-01 14:55:27,190 - Time - 69 - DEBUG - month:None
+2025-05-01 14:55:27,190 - Time - 68 - DEBUG - input ['12th', 5]
+2025-05-01 14:55:27,190 - Time - 69 - DEBUG - month:5
+2025-05-01 14:55:27,190 - Time - 76 - DEBUG - input ['12th', 5]
+2025-05-01 14:55:27,190 - Time - 77 - DEBUG - day:None
+2025-05-01 14:55:27,190 - Time - 76 - DEBUG - input ['12th', 5]
+2025-05-01 14:55:27,190 - Time - 77 - DEBUG - day:None
+2025-05-01 14:55:27,191 - Time - 89 - DEBUG - list not split
+2025-05-01 14:55:52,526 - main - 50 - INFO - teacher input: wilde
+2025-05-01 14:55:52,527 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-05-01 14:55:52,539 - main - 19 - INFO - teacher current position JP11
+2025-05-01 14:55:52,539 - main - 20 - INFO - teacher class 12COM7
+2025-05-01 14:55:52,540 - main - 67 - INFO - location known ('JP11', '12COM7')
+2025-05-01 14:55:53,869 - main - 81 - INFO - user carry on input yes
+2025-05-01 14:55:53,870 - main - 151 - DEBUG - no space word yes
+2025-05-01 14:55:53,871 - main - 173 - DEBUG - word candidates yes
+2025-05-01 14:55:53,871 - main - 154 - DEBUG - is word positive True
+2025-05-01 14:55:53,872 - main - 173 - DEBUG - word candidates None
+2025-05-01 14:55:53,872 - main - 156 - DEBUG - is word negative False
+2025-05-01 14:55:53,872 - main - 84 - INFO - revised input True
+2025-05-01 14:55:53,873 - main - 29 - INFO - asking second time
+2025-05-01 14:55:54,956 - main - 50 - INFO - teacher input: wilde
+2025-05-01 14:55:54,957 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-05-01 14:55:54,958 - main - 99 - INFO - starting ask period loop
+2025-05-01 14:55:55,405 - main - 101 - INFO - inputed time: 12
+2025-05-01 14:55:55,538 - Period - 24 - DEBUG - split input: [12]
+2025-05-01 14:55:55,539 - Period - 25 - DEBUG - spacless input: 12
+2025-05-01 14:55:55,539 - Period - 26 - DEBUG - list input: ['1', '2']
+2025-05-01 14:55:55,539 - Period - 55 - DEBUG - pm: False, am: False
+2025-05-01 14:55:55,539 - Period - 56 - DEBUG - has period: False
+2025-05-01 14:55:55,539 - Period - 72 - DEBUG - period as int 12
+2025-05-01 14:55:55,540 - Period - 83 - DEBUG - num time found 12
+2025-05-01 14:55:55,540 - Period - 103 - DEBUG - not long enough time unsupported operand type(s) for -: 'NoneType' and 'int'
+2025-05-01 14:55:55,540 - Period - 109 - DEBUG - integer list [12]
+2025-05-01 14:55:55,540 - Period - 121 - DEBUG - concentrated integer list [12]
+2025-05-01 14:55:55,540 - main - 112 - INFO - period: None time: 12.0
+2025-05-01 14:55:55,540 - main - 118 - INFO - starting ask time loop
+2025-05-01 14:55:59,892 - main - 121 - INFO - inputed day: 12th may
+2025-05-01 14:55:59,893 - Time - 24 - DEBUG - self.day_input 12th may
+2025-05-01 14:55:59,893 - Time - 48 - DEBUG - i, input (0, ['12th', 'may'])
+2025-05-01 14:55:59,893 - Time - 48 - DEBUG - i, input (1, ['12th', 'may'])
+2025-05-01 14:55:59,893 - Time - 61 - DEBUG - contracted: ['12th', 'may']
+2025-05-01 14:55:59,893 - Time - 68 - DEBUG - input ['12th', 'may']
+2025-05-01 14:55:59,893 - Time - 69 - DEBUG - month:None
+2025-05-01 14:55:59,894 - Time - 68 - DEBUG - input ['12th', 5]
+2025-05-01 14:55:59,894 - Time - 69 - DEBUG - month:5
+2025-05-01 14:55:59,894 - Time - 76 - DEBUG - input ['12th', 5]
+2025-05-01 14:55:59,894 - Time - 77 - DEBUG - day:None
+2025-05-01 14:55:59,894 - Time - 76 - DEBUG - input ['12th', 5]
+2025-05-01 14:55:59,894 - Time - 77 - DEBUG - day:None
+2025-05-01 14:55:59,894 - Time - 89 - DEBUG - list not split
+2025-05-01 14:56:26,024 - main - 50 - INFO - teacher input: wilde
+2025-05-01 14:56:26,025 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-05-01 14:56:26,036 - main - 19 - INFO - teacher current position JP11
+2025-05-01 14:56:26,036 - main - 20 - INFO - teacher class 12COM7
+2025-05-01 14:56:26,036 - main - 67 - INFO - location known ('JP11', '12COM7')
+2025-05-01 14:56:26,651 - main - 81 - INFO - user carry on input yes
+2025-05-01 14:56:26,651 - main - 151 - DEBUG - no space word yes
+2025-05-01 14:56:26,652 - main - 173 - DEBUG - word candidates yes
+2025-05-01 14:56:26,652 - main - 154 - DEBUG - is word positive True
+2025-05-01 14:56:26,653 - main - 173 - DEBUG - word candidates None
+2025-05-01 14:56:26,653 - main - 156 - DEBUG - is word negative False
+2025-05-01 14:56:26,653 - main - 84 - INFO - revised input True
+2025-05-01 14:56:26,654 - main - 29 - INFO - asking second time
+2025-05-01 14:56:27,467 - main - 50 - INFO - teacher input: wilde
+2025-05-01 14:56:27,468 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-05-01 14:56:27,468 - main - 99 - INFO - starting ask period loop
+2025-05-01 14:56:27,906 - main - 101 - INFO - inputed time: 12
+2025-05-01 14:56:28,032 - Period - 24 - DEBUG - split input: [12]
+2025-05-01 14:56:28,033 - Period - 25 - DEBUG - spacless input: 12
+2025-05-01 14:56:28,033 - Period - 26 - DEBUG - list input: ['1', '2']
+2025-05-01 14:56:28,033 - Period - 55 - DEBUG - pm: False, am: False
+2025-05-01 14:56:28,034 - Period - 56 - DEBUG - has period: False
+2025-05-01 14:56:28,034 - Period - 72 - DEBUG - period as int 12
+2025-05-01 14:56:28,034 - Period - 83 - DEBUG - num time found 12
+2025-05-01 14:56:28,034 - Period - 103 - DEBUG - not long enough time unsupported operand type(s) for -: 'NoneType' and 'int'
+2025-05-01 14:56:28,034 - Period - 109 - DEBUG - integer list [12]
+2025-05-01 14:56:28,034 - Period - 121 - DEBUG - concentrated integer list [12]
+2025-05-01 14:56:28,035 - main - 112 - INFO - period: None time: 12.0
+2025-05-01 14:56:28,035 - main - 118 - INFO - starting ask time loop
+2025-05-01 14:56:30,733 - main - 121 - INFO - inputed day: 12th may
+2025-05-01 14:56:30,733 - Time - 24 - DEBUG - self.day_input 12th may
+2025-05-01 14:56:30,734 - Time - 48 - DEBUG - i, input (0, ['12th', 'may'])
+2025-05-01 14:56:30,734 - Time - 48 - DEBUG - i, input (1, ['12th', 'may'])
+2025-05-01 14:56:30,734 - Time - 61 - DEBUG - contracted: ['12th', 'may']
+2025-05-01 14:56:30,735 - Time - 68 - DEBUG - input ['12th', 'may']
+2025-05-01 14:56:30,735 - Time - 69 - DEBUG - month:None
+2025-05-01 14:56:30,736 - Time - 68 - DEBUG - input ['12th', 5]
+2025-05-01 14:56:30,736 - Time - 69 - DEBUG - month:5
+2025-05-01 14:56:30,737 - Time - 76 - DEBUG - input ['12th', 5]
+2025-05-01 14:56:30,737 - Time - 77 - DEBUG - day:None
+2025-05-01 14:56:30,737 - Time - 76 - DEBUG - input ['12th', 5]
+2025-05-01 14:56:30,737 - Time - 77 - DEBUG - day:None
+2025-05-01 14:56:30,737 - Time - 89 - DEBUG - list not split
+2025-05-01 14:57:54,938 - main - 50 - INFO - teacher input: wilde
+2025-05-01 14:57:54,940 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-05-01 14:57:54,951 - main - 19 - INFO - teacher current position JP11
+2025-05-01 14:57:54,951 - main - 20 - INFO - teacher class 12COM7
+2025-05-01 14:57:54,951 - main - 67 - INFO - location known ('JP11', '12COM7')
+2025-05-01 14:57:55,691 - main - 81 - INFO - user carry on input 12
+2025-05-01 14:57:55,692 - main - 151 - DEBUG - no space word 12
+2025-05-01 14:57:55,693 - main - 173 - DEBUG - word candidates 12
+2025-05-01 14:57:55,693 - main - 154 - DEBUG - is word positive False
+2025-05-01 14:57:55,694 - main - 173 - DEBUG - word candidates 12
+2025-05-01 14:57:55,694 - main - 156 - DEBUG - is word negative False
+2025-05-01 14:57:55,694 - main - 84 - INFO - revised input None
+2025-05-01 14:57:57,116 - main - 81 - INFO - user carry on input wilde
+2025-05-01 14:57:57,116 - main - 151 - DEBUG - no space word wilde
+2025-05-01 14:57:57,160 - main - 173 - DEBUG - word candidates None
+2025-05-01 14:57:57,161 - main - 154 - DEBUG - is word positive False
+2025-05-01 14:57:57,198 - main - 173 - DEBUG - word candidates None
+2025-05-01 14:57:57,198 - main - 156 - DEBUG - is word negative False
+2025-05-01 14:57:57,199 - main - 84 - INFO - revised input None
+2025-05-01 14:57:57,972 - main - 81 - INFO - user carry on input yes
+2025-05-01 14:57:57,972 - main - 151 - DEBUG - no space word yes
+2025-05-01 14:57:57,973 - main - 173 - DEBUG - word candidates yes
+2025-05-01 14:57:57,974 - main - 154 - DEBUG - is word positive True
+2025-05-01 14:57:57,975 - main - 173 - DEBUG - word candidates None
+2025-05-01 14:57:57,975 - main - 156 - DEBUG - is word negative False
+2025-05-01 14:57:57,975 - main - 84 - INFO - revised input True
+2025-05-01 14:57:57,977 - main - 29 - INFO - asking second time
+2025-05-01 14:57:59,924 - main - 50 - INFO - teacher input: wilde
+2025-05-01 14:57:59,926 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-05-01 14:57:59,926 - main - 99 - INFO - starting ask period loop
+2025-05-01 14:58:00,236 - main - 101 - INFO - inputed time: 12
+2025-05-01 14:58:00,364 - Period - 24 - DEBUG - split input: [12]
+2025-05-01 14:58:00,364 - Period - 25 - DEBUG - spacless input: 12
+2025-05-01 14:58:00,364 - Period - 26 - DEBUG - list input: ['1', '2']
+2025-05-01 14:58:00,365 - Period - 55 - DEBUG - pm: False, am: False
+2025-05-01 14:58:00,365 - Period - 56 - DEBUG - has period: False
+2025-05-01 14:58:00,365 - Period - 72 - DEBUG - period as int 12
+2025-05-01 14:58:00,365 - Period - 83 - DEBUG - num time found 12
+2025-05-01 14:58:00,365 - Period - 103 - DEBUG - not long enough time unsupported operand type(s) for -: 'NoneType' and 'int'
+2025-05-01 14:58:00,366 - Period - 109 - DEBUG - integer list [12]
+2025-05-01 14:58:00,366 - Period - 121 - DEBUG - concentrated integer list [12]
+2025-05-01 14:58:00,366 - main - 112 - INFO - period: None time: 12.0
+2025-05-01 14:58:00,366 - main - 118 - INFO - starting ask time loop
+2025-05-01 14:58:02,143 - main - 121 - INFO - inputed day: 12th may
+2025-05-01 14:58:02,144 - Time - 24 - DEBUG - self.day_input 12th may
+2025-05-01 14:58:02,144 - Time - 48 - DEBUG - i, input (0, ['12th', 'may'])
+2025-05-01 14:58:02,144 - Time - 48 - DEBUG - i, input (1, ['12th', 'may'])
+2025-05-01 14:58:02,145 - Time - 61 - DEBUG - contracted: ['12th', 'may']
+2025-05-01 14:58:02,145 - Time - 68 - DEBUG - input ['12th', 'may']
+2025-05-01 14:58:02,146 - Time - 69 - DEBUG - month:None
+2025-05-01 14:58:02,146 - Time - 68 - DEBUG - input ['12th', 5]
+2025-05-01 14:58:02,146 - Time - 69 - DEBUG - month:5
+2025-05-01 14:58:02,146 - Time - 76 - DEBUG - input ['12th', 5]
+2025-05-01 14:58:02,146 - Time - 77 - DEBUG - day:None
+2025-05-01 14:58:02,147 - Time - 76 - DEBUG - input ['12th', 5]
+2025-05-01 14:58:02,147 - Time - 77 - DEBUG - day:None
+2025-05-01 14:58:02,147 - Time - 89 - DEBUG - list not split
+2025-05-01 14:58:02,147 - Time - 114 - DEBUG - num list: []
+2025-05-01 14:58:02,147 - main - 125 - INFO - day: None date: None
+2025-05-01 14:58:02,147 - main - 145 - INFO - day: None date: None
+2025-05-01 14:58:02,147 - main - 118 - INFO - starting ask time loop
+2025-05-01 15:08:26,453 - main - 50 - INFO - teacher input: wilde
+2025-05-01 15:08:26,465 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-05-01 15:08:26,516 - main - 19 - INFO - teacher current position JP11
+2025-05-01 15:08:26,517 - main - 20 - INFO - teacher class 12COM7
+2025-05-01 15:08:26,517 - main - 67 - INFO - location known ('JP11', '12COM7')
+2025-05-01 15:08:27,263 - main - 81 - INFO - user carry on input yes
+2025-05-01 15:08:27,264 - main - 151 - DEBUG - no space word yes
+2025-05-01 15:08:27,275 - main - 173 - DEBUG - word candidates yes
+2025-05-01 15:08:27,276 - main - 154 - DEBUG - is word positive True
+2025-05-01 15:08:27,289 - main - 173 - DEBUG - word candidates None
+2025-05-01 15:08:27,290 - main - 156 - DEBUG - is word negative False
+2025-05-01 15:08:27,290 - main - 84 - INFO - revised input True
+2025-05-01 15:08:27,310 - main - 29 - INFO - asking second time
+2025-05-01 15:08:28,453 - main - 50 - INFO - teacher input: wilde
+2025-05-01 15:08:28,454 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-05-01 15:08:28,454 - main - 99 - INFO - starting ask period loop
+2025-05-01 15:08:28,839 - main - 101 - INFO - inputed time: 12
+2025-05-01 15:08:28,978 - Period - 24 - DEBUG - split input: [12]
+2025-05-01 15:08:28,978 - Period - 25 - DEBUG - spacless input: 12
+2025-05-01 15:08:28,979 - Period - 26 - DEBUG - list input: ['1', '2']
+2025-05-01 15:08:28,979 - Period - 55 - DEBUG - pm: False, am: False
+2025-05-01 15:08:28,980 - Period - 56 - DEBUG - has period: False
+2025-05-01 15:08:28,980 - Period - 72 - DEBUG - period as int 12
+2025-05-01 15:08:28,980 - Period - 83 - DEBUG - num time found 12
+2025-05-01 15:08:28,981 - Period - 103 - DEBUG - not long enough time unsupported operand type(s) for -: 'NoneType' and 'int'
+2025-05-01 15:08:28,981 - Period - 109 - DEBUG - integer list [12]
+2025-05-01 15:08:28,981 - Period - 121 - DEBUG - concentrated integer list [12]
+2025-05-01 15:08:28,981 - main - 112 - INFO - period: None time: 12.0
+2025-05-01 15:08:28,981 - main - 118 - INFO - starting ask time loop
+2025-05-01 15:08:30,399 - main - 121 - INFO - inputed day: 12th may
+2025-05-01 15:08:30,400 - Time - 24 - DEBUG - self.day_input 12th may
+2025-05-01 15:08:30,400 - Time - 48 - DEBUG - i, input (0, ['12th', 'may'])
+2025-05-01 15:08:30,400 - Time - 48 - DEBUG - i, input (1, ['12th', 'may'])
+2025-05-01 15:08:30,400 - Time - 61 - DEBUG - contracted: ['12th', 'may']
+2025-05-01 15:08:30,401 - Time - 68 - DEBUG - input ['12th', 'may']
+2025-05-01 15:08:30,401 - Time - 69 - DEBUG - month:None
+2025-05-01 15:08:30,401 - Time - 68 - DEBUG - input ['12th', 5]
+2025-05-01 15:08:30,401 - Time - 69 - DEBUG - month:5
+2025-05-01 15:08:30,401 - Time - 76 - DEBUG - input ['12th', 5]
+2025-05-01 15:08:30,401 - Time - 77 - DEBUG - day:None
+2025-05-01 15:08:30,402 - Time - 76 - DEBUG - input ['12th', 5]
+2025-05-01 15:08:30,402 - Time - 77 - DEBUG - day:None
+2025-05-01 15:08:30,402 - Time - 89 - DEBUG - list not split
+2025-05-01 15:09:47,876 - main - 50 - INFO - teacher input: wilde
+2025-05-01 15:09:47,878 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-05-01 15:09:47,888 - main - 19 - INFO - teacher current position JP11
+2025-05-01 15:09:47,889 - main - 20 - INFO - teacher class 12COM7
+2025-05-01 15:09:47,889 - main - 67 - INFO - location known ('JP11', '12COM7')
+2025-05-01 15:09:50,175 - main - 81 - INFO - user carry on input yes
+2025-05-01 15:09:50,176 - main - 151 - DEBUG - no space word yes
+2025-05-01 15:09:50,177 - main - 173 - DEBUG - word candidates yes
+2025-05-01 15:09:50,178 - main - 154 - DEBUG - is word positive True
+2025-05-01 15:09:50,179 - main - 173 - DEBUG - word candidates None
+2025-05-01 15:09:50,179 - main - 156 - DEBUG - is word negative False
+2025-05-01 15:09:50,180 - main - 84 - INFO - revised input True
+2025-05-01 15:09:50,181 - main - 29 - INFO - asking second time
+2025-05-01 15:09:50,956 - main - 50 - INFO - teacher input: wilde
+2025-05-01 15:09:50,957 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-05-01 15:09:50,957 - main - 99 - INFO - starting ask period loop
+2025-05-01 15:09:51,903 - main - 101 - INFO - inputed time: 12
+2025-05-01 15:09:52,034 - Period - 24 - DEBUG - split input: [12]
+2025-05-01 15:09:52,034 - Period - 25 - DEBUG - spacless input: 12
+2025-05-01 15:09:52,034 - Period - 26 - DEBUG - list input: ['1', '2']
+2025-05-01 15:09:52,034 - Period - 55 - DEBUG - pm: False, am: False
+2025-05-01 15:09:52,035 - Period - 56 - DEBUG - has period: False
+2025-05-01 15:09:52,035 - Period - 72 - DEBUG - period as int 12
+2025-05-01 15:09:52,035 - Period - 83 - DEBUG - num time found 12
+2025-05-01 15:09:52,035 - Period - 103 - DEBUG - not long enough time unsupported operand type(s) for -: 'NoneType' and 'int'
+2025-05-01 15:09:52,035 - Period - 109 - DEBUG - integer list [12]
+2025-05-01 15:09:52,035 - Period - 121 - DEBUG - concentrated integer list [12]
+2025-05-01 15:09:52,035 - main - 112 - INFO - period: None time: 12.0
+2025-05-01 15:09:52,035 - main - 118 - INFO - starting ask time loop
+2025-05-01 15:09:53,288 - main - 121 - INFO - inputed day: 12th may
+2025-05-01 15:09:53,289 - Time - 24 - DEBUG - self.day_input 12th may
+2025-05-01 15:09:53,289 - Time - 48 - DEBUG - i, input (0, ['12th', 'may'])
+2025-05-01 15:09:53,289 - Time - 48 - DEBUG - i, input (1, ['12th', 'may'])
+2025-05-01 15:09:53,289 - Time - 61 - DEBUG - contracted: ['12th', 'may']
+2025-05-01 15:09:53,289 - Time - 68 - DEBUG - input ['12th', 'may']
+2025-05-01 15:09:53,289 - Time - 69 - DEBUG - month:None
+2025-05-01 15:09:53,290 - Time - 68 - DEBUG - input ['12th', 5]
+2025-05-01 15:09:53,290 - Time - 69 - DEBUG - month:5
+2025-05-01 15:09:53,290 - Time - 76 - DEBUG - input ['12th', 5]
+2025-05-01 15:09:53,290 - Time - 77 - DEBUG - day:None
+2025-05-01 15:09:53,290 - Time - 76 - DEBUG - input ['12th', 5]
+2025-05-01 15:09:53,290 - Time - 77 - DEBUG - day:None
+2025-05-01 15:09:53,290 - Time - 89 - DEBUG - list not split
+2025-05-01 15:09:53,290 - Time - 113 - DEBUG - num list: [12]
+2025-05-01 15:09:53,290 - Time - 141 - DEBUG - info long12:5:25
+2025-05-01 15:09:53,290 - Time - 142 - DEBUG - info12:05:25
+2025-05-01 15:09:53,290 - Time - 144 - INFO - date: 120525
+2025-05-01 15:09:53,291 - main - 125 - INFO - day: None date: 120525
+2025-05-01 15:09:53,299 - main - 145 - INFO - day: None date: 12/05/2025
+2025-05-01 15:09:53,301 - main - 67 - INFO - location known ('JP11', '10DTG2')
+2025-05-01 15:10:27,720 - main - 50 - INFO - teacher input: Mr irving
+2025-05-01 15:10:27,723 - main - 55 - INFO - teacher known mr_irving.csv
+2025-05-01 15:10:27,749 - main - 19 - INFO - teacher current position None
+2025-05-01 15:10:27,750 - main - 20 - INFO - teacher class None
+2025-05-01 15:10:27,750 - main - 63 - INFO - place unknown (None, None)
+2025-05-01 15:10:44,702 - main - 81 - INFO - user carry on input yes
+2025-05-01 15:10:44,703 - main - 151 - DEBUG - no space word yes
+2025-05-01 15:10:44,706 - main - 173 - DEBUG - word candidates yes
+2025-05-01 15:10:44,706 - main - 154 - DEBUG - is word positive True
+2025-05-01 15:10:44,708 - main - 173 - DEBUG - word candidates None
+2025-05-01 15:10:44,709 - main - 156 - DEBUG - is word negative False
+2025-05-01 15:10:44,709 - main - 84 - INFO - revised input True
+2025-05-01 15:10:44,711 - main - 29 - INFO - asking second time
+2025-05-01 15:10:50,716 - main - 50 - INFO - teacher input: Anca wilde
+2025-05-01 15:10:50,718 - main - 55 - INFO - teacher known mrs_wilde.csv
+2025-05-01 15:10:50,719 - main - 99 - INFO - starting ask period loop
+2025-05-01 15:11:11,059 - main - 101 - INFO - inputed time: period 4
+2025-05-01 15:11:11,196 - Period - 24 - DEBUG - split input: ['period', 4]
+2025-05-01 15:11:11,197 - Period - 25 - DEBUG - spacless input: period4
+2025-05-01 15:11:11,197 - Period - 26 - DEBUG - list input: ['p', 'e', 'r', 'i', 'o', 'd', '4']
+2025-05-01 15:11:11,197 - Period - 55 - DEBUG - pm: False, am: False
+2025-05-01 15:11:11,197 - Period - 56 - DEBUG - has period: True
+2025-05-01 15:11:11,197 - Period - 63 - DEBUG -  period: 4
+2025-05-01 15:11:11,197 - Period - 103 - DEBUG - not long enough time unsupported operand type(s) for -: 'NoneType' and 'int'
+2025-05-01 15:11:11,197 - Period - 109 - DEBUG - integer list [4]
+2025-05-01 15:11:11,197 - Period - 121 - DEBUG - concentrated integer list [4]
+2025-05-01 15:11:11,197 - main - 112 - INFO - period: 4 time: 4.0
+2025-05-01 15:11:11,197 - main - 118 - INFO - starting ask time loop
+2025-05-01 15:11:35,731 - main - 121 - INFO - inputed day: 13TH of october
+2025-05-01 15:11:35,732 - Time - 24 - DEBUG - self.day_input 13TH of october
+2025-05-01 15:11:35,732 - Time - 48 - DEBUG - i, input (0, ['13TH', 'of', 'october'])
+2025-05-01 15:11:35,733 - Time - 48 - DEBUG - i, input (1, ['13TH', 'of', 'october'])
+2025-05-01 15:11:35,734 - Time - 48 - DEBUG - i, input (2, ['13TH', 'of', 'october'])
+2025-05-01 15:11:35,734 - Time - 61 - DEBUG - contracted: ['13TH', 'of', 'october']
+2025-05-01 15:11:35,735 - Time - 68 - DEBUG - input ['13TH', 'of', 'october']
+2025-05-01 15:11:35,735 - Time - 69 - DEBUG - month:None
+2025-05-01 15:11:35,736 - Time - 68 - DEBUG - input ['13TH', 'of', 'october']
+2025-05-01 15:11:35,736 - Time - 69 - DEBUG - month:None
+2025-05-01 15:11:35,737 - Time - 68 - DEBUG - input ['13TH', 'of', 10]
+2025-05-01 15:11:35,738 - Time - 69 - DEBUG - month:10
+2025-05-01 15:11:35,738 - Time - 76 - DEBUG - input ['13TH', 'of', 10]
+2025-05-01 15:11:35,739 - Time - 77 - DEBUG - day:None
+2025-05-01 15:11:35,739 - Time - 76 - DEBUG - input ['13TH', 'of', 10]
+2025-05-01 15:11:35,740 - Time - 77 - DEBUG - day:None
+2025-05-01 15:11:35,740 - Time - 76 - DEBUG - input ['13TH', 'of', 10]
+2025-05-01 15:11:35,741 - Time - 77 - DEBUG - day:None
+2025-05-01 15:11:35,741 - Time - 89 - DEBUG - list not split
+2025-05-01 15:11:35,742 - Time - 113 - DEBUG - num list: [13]
+2025-05-01 15:11:35,742 - Time - 141 - DEBUG - info long13:10:25
+2025-05-01 15:11:35,742 - Time - 142 - DEBUG - info13:10:25
+2025-05-01 15:11:35,742 - Time - 144 - INFO - date: 131025
+2025-05-01 15:11:35,743 - main - 125 - INFO - day: None date: 131025
+2025-05-01 15:11:35,750 - main - 145 - INFO - day: None date: 13/10/2025
+2025-05-01 15:11:35,751 - main - 72 - INFO - no class (nan, nan)

@@ -104,7 +104,10 @@ class Time:
     def digit_to_num(self):
         if "day" in self.list_input:
             self.has_day = True
-        self.list_input = [int(i) for i in self.list_input if isinstance(i, str) and i.isdigit()]
+        self.list_input = [i for i in self.list_input if isinstance(i, str)]
+        for i,word in enumerate(self.list_input):
+            self.list_input[i] = "".join([j for j in word if j.isdigit()])
+        self.list_input = [int(i) for i in self.list_input if i.isdigit()]
         if self.has_day and len(self.list_input) == 1:
             self.day = self.list_input[0]
         logger.debug(f"num list: {self.list_input}")
