@@ -4,5 +4,6 @@
 "yes_file": "yes.txt",
 "no_file": "no.txt",
 "calender_file": "school_calender.csv",
-"teacher_file": "teachers.txt"
+"teacher_file": "teachers.txt",
+"text_delay": 0
 }

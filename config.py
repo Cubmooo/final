@@ -13,6 +13,7 @@ class ClassConfig:
             self.periods_file = self.data.get("periods_file")
             self.calendar_file = self.data.get("calender_file")
             self.teacher_file = self.data.get("teacher_file")
+            self.text_delay = self.data.get("text_delay")
             
         except FileNotFoundError:
             raise FileNotFoundError(f"config file missiing: {config_path}")

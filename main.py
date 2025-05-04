@@ -227,7 +227,7 @@ def exit_program():
 def print_slow(str, end_line = True):
     for i in str:
         print(i, end = "")
-        time.sleep(0.03)
+        time.sleep(config.text_delay)
     print() if end_line else None
 
 if __name__ == "__main__":

@@ -149,5 +149,5 @@ class Teacher:
     def print_slow(self, str, end_line = True):
         for i in str:
             print(i, end = "")
-            time.sleep(0.02)
+            time.sleep(self.config.text_delay)
         print() if end_line else None
