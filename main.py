@@ -163,7 +163,7 @@ def ask_day(time, teacher):
             teacher.add_day(time.date)
             teacher.get_day()
         elif (time.day is not None):
-            time.day = "Day " + str(time.day)
+            time.day = "day " + str(time.day)
             teacher.add_day(time.day)
         logger.info(f"day: {time.day} date: {time.date}")
 

@@ -111,7 +111,8 @@ class Teacher:
         # iterates through the calender to find the correct school day
         for _,row in school_calender.iterrows():
             if row["start_date"] == self.day:
-                self.day = row["name"][5:]
+                self.day = row["name"][5:].lower()
+        
     
     # finds current position based on school day and period       
     def current_position(self):

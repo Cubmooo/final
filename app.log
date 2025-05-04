@@ -8740,3 +8740,215 @@
        'day 7'],
       dtype='object')
 2025-05-04 12:45:46,990 - main - 83 - INFO - place unknown (None, None)
+2025-05-04 12:50:18,788 - main - 53 - INFO - list input: no
+2025-05-04 12:50:18,788 - main - 174 - DEBUG - no space word no
+2025-05-04 12:50:18,789 - main - 196 - DEBUG - word candidates None
+2025-05-04 12:50:18,789 - main - 177 - DEBUG - is word positive False
+2025-05-04 12:50:18,789 - main - 196 - DEBUG - word candidates no
+2025-05-04 12:50:18,790 - main - 179 - DEBUG - is word negative True
+2025-05-04 12:50:18,790 - main - 56 - INFO - revised input False
+2025-05-04 12:50:19,913 - main - 70 - INFO - teacher input: wilde
+2025-05-04 12:50:19,913 - Teacher - 38 - DEBUG - teacher list ['ancawilde', 'wilde', 'mrswilde', 'henryfranck', 'franck', 'mrfranck', 'miriamslow', 'slow', 'mrsslow', 'garthhorsnell', 'horsnell', 'mrhorsnell', 'shayneirving', 'irving', 'mrirving']
+2025-05-04 12:50:19,913 - Teacher - 47 - DEBUG - spell corrected teaher name: wilde
+2025-05-04 12:50:19,914 - Teacher - 58 - DEBUG - teacher dict {'ancawilde': 'mrs_wilde.csv', 'wilde': 'mrs_wilde.csv', 'mrswilde': 'mrs_wilde.csv', 'henryfranck': 'mr_franck.csv', 'franck': 'mr_franck.csv', 'mrfranck': 'mr_franck.csv', 'miriamslow': 'mrs_slow.csv', 'slow': 'mrs_slow.csv', 'mrsslow': 'mrs_slow.csv', 'garthhorsnell': 'mr_horsnell.csv', 'horsnell': 'mr_horsnell.csv', 'mrhorsnell': 'mr_horsnell.csv', 'shayneirving': 'mr_irving.csv', 'irving': 'mr_irving.csv', 'mrirving': 'mr_irving.csv'}
+2025-05-04 12:50:19,914 - main - 75 - INFO - teacher known mrs_wilde.csv
+2025-05-04 12:50:19,923 - Teacher - 120 - DEBUG - day: 04/05/2025, time: ETT
+2025-05-04 12:50:19,923 - Teacher - 125 - DEBUG - program recognises school time on a school day
+2025-05-04 12:50:19,923 - main - 21 - INFO - teacher current position None
+2025-05-04 12:50:19,923 - main - 22 - INFO - teacher class None
+2025-05-04 12:50:19,923 - main - 83 - INFO - place unknown (None, None)
+2025-05-04 12:50:23,411 - main - 102 - INFO - user carry on input yes
+2025-05-04 12:50:23,411 - main - 174 - DEBUG - no space word yes
+2025-05-04 12:50:23,411 - main - 196 - DEBUG - word candidates yes
+2025-05-04 12:50:23,411 - main - 177 - DEBUG - is word positive True
+2025-05-04 12:50:23,412 - main - 196 - DEBUG - word candidates None
+2025-05-04 12:50:23,518 - main - 179 - DEBUG - is word negative False
+2025-05-04 12:50:23,518 - main - 105 - INFO - revised input True
+2025-05-04 12:50:23,518 - main - 31 - INFO - asking second time
+2025-05-04 12:50:24,641 - main - 70 - INFO - teacher input: irving
+2025-05-04 12:50:24,641 - Teacher - 38 - DEBUG - teacher list ['ancawilde', 'wilde', 'mrswilde', 'henryfranck', 'franck', 'mrfranck', 'miriamslow', 'slow', 'mrsslow', 'garthhorsnell', 'horsnell', 'mrhorsnell', 'shayneirving', 'irving', 'mrirving']
+2025-05-04 12:50:24,641 - Teacher - 47 - DEBUG - spell corrected teaher name: irving
+2025-05-04 12:50:24,642 - Teacher - 58 - DEBUG - teacher dict {'ancawilde': 'mrs_wilde.csv', 'wilde': 'mrs_wilde.csv', 'mrswilde': 'mrs_wilde.csv', 'henryfranck': 'mr_franck.csv', 'franck': 'mr_franck.csv', 'mrfranck': 'mr_franck.csv', 'miriamslow': 'mrs_slow.csv', 'slow': 'mrs_slow.csv', 'mrsslow': 'mrs_slow.csv', 'garthhorsnell': 'mr_horsnell.csv', 'horsnell': 'mr_horsnell.csv', 'mrhorsnell': 'mr_horsnell.csv', 'shayneirving': 'mr_irving.csv', 'irving': 'mr_irving.csv', 'mrirving': 'mr_irving.csv'}
+2025-05-04 12:50:24,642 - main - 75 - INFO - teacher known mr_irving.csv
+2025-05-04 12:50:24,642 - main - 120 - INFO - starting ask period loop
+2025-05-04 12:50:26,871 - main - 123 - INFO - inputed time: period 5
+2025-05-04 12:50:26,967 - Period - 24 - DEBUG - split input: ['period', 5]
+2025-05-04 12:50:26,967 - Period - 25 - DEBUG - spacless input: period5
+2025-05-04 12:50:26,967 - Period - 26 - DEBUG - list input: ['p', 'e', 'r', 'i', 'o', 'd', '5']
+2025-05-04 12:50:26,967 - Period - 55 - DEBUG - pm: False, am: False
+2025-05-04 12:50:26,967 - Period - 56 - DEBUG - has period: True
+2025-05-04 12:50:26,968 - Period - 63 - DEBUG -  period: 5
+2025-05-04 12:50:26,968 - Period - 103 - DEBUG - not long enough time unsupported operand type(s) for -: 'NoneType' and 'int'
+2025-05-04 12:50:26,968 - Period - 109 - DEBUG - integer list [5]
+2025-05-04 12:50:26,968 - Period - 121 - DEBUG - concentrated integer list [5]
+2025-05-04 12:50:26,968 - main - 134 - INFO - period: 5 time: 5.0
+2025-05-04 12:50:26,968 - main - 140 - INFO - starting ask time loop
+2025-05-04 12:50:28,321 - main - 144 - INFO - inputed day: day 5
+2025-05-04 12:50:28,321 - Time - 24 - DEBUG - self.day_input day 5
+2025-05-04 12:50:28,321 - Time - 48 - DEBUG - i, input (0, ['day', '5'])
+2025-05-04 12:50:28,321 - Time - 48 - DEBUG - i, input (1, ['day', '5'])
+2025-05-04 12:50:28,321 - Time - 61 - DEBUG - contracted: ['day', '5']
+2025-05-04 12:50:28,321 - Time - 68 - DEBUG - input ['day', '5']
+2025-05-04 12:50:28,321 - Time - 69 - DEBUG - month:None
+2025-05-04 12:50:28,321 - Time - 68 - DEBUG - input ['day', '5']
+2025-05-04 12:50:28,321 - Time - 69 - DEBUG - month:None
+2025-05-04 12:50:28,321 - Time - 76 - DEBUG - input ['day', '5']
+2025-05-04 12:50:28,321 - Time - 77 - DEBUG - day:None
+2025-05-04 12:50:28,321 - Time - 76 - DEBUG - input ['day', '5']
+2025-05-04 12:50:28,321 - Time - 77 - DEBUG - day:None
+2025-05-04 12:50:28,321 - Time - 89 - DEBUG - list not split
+2025-05-04 12:50:28,321 - Time - 113 - DEBUG - num list: [5]
+2025-05-04 12:50:28,321 - main - 148 - INFO - day: 5 date: None
+2025-05-04 12:50:28,321 - main - 168 - INFO - day: day 5 date: None
+2025-05-04 12:50:28,323 - Teacher - 120 - DEBUG - day: day 5, time: Period 5
+2025-05-04 12:50:28,323 - Teacher - 125 - DEBUG - program recognises school time on a school day
+2025-05-04 12:50:28,323 - Teacher - 129 - DEBUG - period location: 15
+2025-05-04 12:50:28,323 - Teacher - 134 - DEBUG - is day possible: True
+2025-05-04 12:50:28,323 - Teacher - 135 - DEBUG - timetable coloums: Index(['Unnamed: 0', 'day 1', 'day 2', 'day 3', 'day 4', 'day 5', 'day 6',
+       'day 7'],
+      dtype='object')
+2025-05-04 12:50:28,323 - Teacher - 138 - DEBUG - day location: 5
+2025-05-04 12:50:28,323 - main - 87 - INFO - location known ('JP24', '12DVC1')
+2025-05-04 12:50:57,729 - main - 53 - INFO - list input: no
+2025-05-04 12:50:57,730 - main - 174 - DEBUG - no space word no
+2025-05-04 12:50:57,730 - main - 196 - DEBUG - word candidates None
+2025-05-04 12:50:57,731 - main - 177 - DEBUG - is word positive False
+2025-05-04 12:50:57,731 - main - 196 - DEBUG - word candidates no
+2025-05-04 12:50:57,731 - main - 179 - DEBUG - is word negative True
+2025-05-04 12:50:57,731 - main - 56 - INFO - revised input False
+2025-05-04 12:50:58,853 - main - 70 - INFO - teacher input: wilde
+2025-05-04 12:50:58,926 - Teacher - 38 - DEBUG - teacher list ['ancawilde', 'wilde', 'mrswilde', 'henryfranck', 'franck', 'mrfranck', 'miriamslow', 'slow', 'mrsslow', 'garthhorsnell', 'horsnell', 'mrhorsnell', 'shayneirving', 'irving', 'mrirving']
+2025-05-04 12:50:58,927 - Teacher - 47 - DEBUG - spell corrected teaher name: wilde
+2025-05-04 12:50:58,927 - Teacher - 58 - DEBUG - teacher dict {'ancawilde': 'mrs_wilde.csv', 'wilde': 'mrs_wilde.csv', 'mrswilde': 'mrs_wilde.csv', 'henryfranck': 'mr_franck.csv', 'franck': 'mr_franck.csv', 'mrfranck': 'mr_franck.csv', 'miriamslow': 'mrs_slow.csv', 'slow': 'mrs_slow.csv', 'mrsslow': 'mrs_slow.csv', 'garthhorsnell': 'mr_horsnell.csv', 'horsnell': 'mr_horsnell.csv', 'mrhorsnell': 'mr_horsnell.csv', 'shayneirving': 'mr_irving.csv', 'irving': 'mr_irving.csv', 'mrirving': 'mr_irving.csv'}
+2025-05-04 12:50:58,927 - main - 75 - INFO - teacher known mrs_wilde.csv
+2025-05-04 12:50:58,935 - Teacher - 120 - DEBUG - day: 04/05/2025, time: ETT
+2025-05-04 12:50:58,935 - Teacher - 125 - DEBUG - program recognises school time on a school day
+2025-05-04 12:50:58,936 - main - 21 - INFO - teacher current position None
+2025-05-04 12:50:58,936 - main - 22 - INFO - teacher class None
+2025-05-04 12:50:58,936 - main - 83 - INFO - place unknown (None, None)
+2025-05-04 12:51:03,977 - main - 102 - INFO - user carry on input yes
+2025-05-04 12:51:03,977 - main - 174 - DEBUG - no space word yes
+2025-05-04 12:51:03,978 - main - 196 - DEBUG - word candidates yes
+2025-05-04 12:51:03,978 - main - 177 - DEBUG - is word positive True
+2025-05-04 12:51:03,978 - main - 196 - DEBUG - word candidates None
+2025-05-04 12:51:03,978 - main - 179 - DEBUG - is word negative False
+2025-05-04 12:51:03,978 - main - 105 - INFO - revised input True
+2025-05-04 12:51:03,979 - main - 31 - INFO - asking second time
+2025-05-04 12:51:07,385 - main - 70 - INFO - teacher input: irving
+2025-05-04 12:51:07,385 - Teacher - 38 - DEBUG - teacher list ['ancawilde', 'wilde', 'mrswilde', 'henryfranck', 'franck', 'mrfranck', 'miriamslow', 'slow', 'mrsslow', 'garthhorsnell', 'horsnell', 'mrhorsnell', 'shayneirving', 'irving', 'mrirving']
+2025-05-04 12:51:07,385 - Teacher - 47 - DEBUG - spell corrected teaher name: irving
+2025-05-04 12:51:07,386 - Teacher - 58 - DEBUG - teacher dict {'ancawilde': 'mrs_wilde.csv', 'wilde': 'mrs_wilde.csv', 'mrswilde': 'mrs_wilde.csv', 'henryfranck': 'mr_franck.csv', 'franck': 'mr_franck.csv', 'mrfranck': 'mr_franck.csv', 'miriamslow': 'mrs_slow.csv', 'slow': 'mrs_slow.csv', 'mrsslow': 'mrs_slow.csv', 'garthhorsnell': 'mr_horsnell.csv', 'horsnell': 'mr_horsnell.csv', 'mrhorsnell': 'mr_horsnell.csv', 'shayneirving': 'mr_irving.csv', 'irving': 'mr_irving.csv', 'mrirving': 'mr_irving.csv'}
+2025-05-04 12:51:07,386 - main - 75 - INFO - teacher known mr_irving.csv
+2025-05-04 12:51:07,386 - main - 120 - INFO - starting ask period loop
+2025-05-04 12:51:09,900 - main - 123 - INFO - inputed time: period 5
+2025-05-04 12:51:09,995 - Period - 24 - DEBUG - split input: ['period', 5]
+2025-05-04 12:51:09,996 - Period - 25 - DEBUG - spacless input: period5
+2025-05-04 12:51:09,996 - Period - 26 - DEBUG - list input: ['p', 'e', 'r', 'i', 'o', 'd', '5']
+2025-05-04 12:51:09,996 - Period - 55 - DEBUG - pm: False, am: False
+2025-05-04 12:51:09,996 - Period - 56 - DEBUG - has period: True
+2025-05-04 12:51:09,996 - Period - 63 - DEBUG -  period: 5
+2025-05-04 12:51:09,996 - Period - 103 - DEBUG - not long enough time unsupported operand type(s) for -: 'NoneType' and 'int'
+2025-05-04 12:51:09,996 - Period - 109 - DEBUG - integer list [5]
+2025-05-04 12:51:09,996 - Period - 121 - DEBUG - concentrated integer list [5]
+2025-05-04 12:51:09,996 - main - 134 - INFO - period: 5 time: 5.0
+2025-05-04 12:51:09,996 - main - 140 - INFO - starting ask time loop
+2025-05-04 12:51:12,068 - main - 144 - INFO - inputed day: 1/05
+2025-05-04 12:51:12,069 - Time - 24 - DEBUG - self.day_input 1/05
+2025-05-04 12:51:12,069 - Time - 48 - DEBUG - i, input (0, ['1', '05'])
+2025-05-04 12:51:12,069 - Time - 48 - DEBUG - i, input (1, ['1', '05'])
+2025-05-04 12:51:12,069 - Time - 61 - DEBUG - contracted: ['1', '05']
+2025-05-04 12:51:12,069 - Time - 68 - DEBUG - input ['1', '05']
+2025-05-04 12:51:12,069 - Time - 69 - DEBUG - month:None
+2025-05-04 12:51:12,069 - Time - 68 - DEBUG - input ['1', '05']
+2025-05-04 12:51:12,069 - Time - 69 - DEBUG - month:None
+2025-05-04 12:51:12,069 - Time - 76 - DEBUG - input ['1', '05']
+2025-05-04 12:51:12,069 - Time - 77 - DEBUG - day:None
+2025-05-04 12:51:12,069 - Time - 76 - DEBUG - input ['1', '05']
+2025-05-04 12:51:12,069 - Time - 77 - DEBUG - day:None
+2025-05-04 12:51:12,069 - Time - 89 - DEBUG - list not split
+2025-05-04 12:51:12,069 - Time - 113 - DEBUG - num list: [1, 5]
+2025-05-04 12:51:12,069 - Time - 141 - DEBUG - info long1:5:25
+2025-05-04 12:51:12,069 - Time - 142 - DEBUG - info01:05:25
+2025-05-04 12:51:12,069 - Time - 144 - INFO - date: 010525
+2025-05-04 12:51:12,069 - main - 148 - INFO - day: None date: 010525
+2025-05-04 12:51:12,075 - main - 168 - INFO - day: None date: 01/05/2025
+2025-05-04 12:51:12,076 - Teacher - 120 - DEBUG - day: Day 5, time: Period 5
+2025-05-04 12:51:12,076 - Teacher - 125 - DEBUG - program recognises school time on a school day
+2025-05-04 12:51:12,076 - Teacher - 129 - DEBUG - period location: 15
+2025-05-04 12:51:12,076 - Teacher - 134 - DEBUG - is day possible: False
+2025-05-04 12:51:12,076 - Teacher - 135 - DEBUG - timetable coloums: Index(['Unnamed: 0', 'day 1', 'day 2', 'day 3', 'day 4', 'day 5', 'day 6',
+       'day 7'],
+      dtype='object')
+2025-05-04 12:51:12,077 - main - 83 - INFO - place unknown (None, None)
+2025-05-04 12:56:18,843 - main - 53 - INFO - list input: no
+2025-05-04 12:56:18,844 - main - 174 - DEBUG - no space word no
+2025-05-04 12:56:18,844 - main - 196 - DEBUG - word candidates None
+2025-05-04 12:56:18,845 - main - 177 - DEBUG - is word positive False
+2025-05-04 12:56:18,845 - main - 196 - DEBUG - word candidates no
+2025-05-04 12:56:18,845 - main - 179 - DEBUG - is word negative True
+2025-05-04 12:56:18,845 - main - 56 - INFO - revised input False
+2025-05-04 12:56:19,968 - main - 70 - INFO - teacher input: wilde
+2025-05-04 12:56:19,968 - Teacher - 38 - DEBUG - teacher list ['ancawilde', 'wilde', 'mrswilde', 'henryfranck', 'franck', 'mrfranck', 'miriamslow', 'slow', 'mrsslow', 'garthhorsnell', 'horsnell', 'mrhorsnell', 'shayneirving', 'irving', 'mrirving']
+2025-05-04 12:56:19,968 - Teacher - 47 - DEBUG - spell corrected teaher name: wilde
+2025-05-04 12:56:19,969 - Teacher - 58 - DEBUG - teacher dict {'ancawilde': 'mrs_wilde.csv', 'wilde': 'mrs_wilde.csv', 'mrswilde': 'mrs_wilde.csv', 'henryfranck': 'mr_franck.csv', 'franck': 'mr_franck.csv', 'mrfranck': 'mr_franck.csv', 'miriamslow': 'mrs_slow.csv', 'slow': 'mrs_slow.csv', 'mrsslow': 'mrs_slow.csv', 'garthhorsnell': 'mr_horsnell.csv', 'horsnell': 'mr_horsnell.csv', 'mrhorsnell': 'mr_horsnell.csv', 'shayneirving': 'mr_irving.csv', 'irving': 'mr_irving.csv', 'mrirving': 'mr_irving.csv'}
+2025-05-04 12:56:19,969 - main - 75 - INFO - teacher known mrs_wilde.csv
+2025-05-04 12:56:19,977 - Teacher - 121 - DEBUG - day: 04/05/2025, time: ETT
+2025-05-04 12:56:19,977 - Teacher - 126 - DEBUG - program recognises school time on a school day
+2025-05-04 12:56:19,977 - main - 21 - INFO - teacher current position None
+2025-05-04 12:56:19,978 - main - 22 - INFO - teacher class None
+2025-05-04 12:56:19,978 - main - 83 - INFO - place unknown (None, None)
+2025-05-04 12:56:23,467 - main - 102 - INFO - user carry on input yes
+2025-05-04 12:56:23,467 - main - 174 - DEBUG - no space word yes
+2025-05-04 12:56:23,468 - main - 196 - DEBUG - word candidates yes
+2025-05-04 12:56:23,468 - main - 177 - DEBUG - is word positive True
+2025-05-04 12:56:23,468 - main - 196 - DEBUG - word candidates None
+2025-05-04 12:56:23,469 - main - 179 - DEBUG - is word negative False
+2025-05-04 12:56:23,469 - main - 105 - INFO - revised input True
+2025-05-04 12:56:23,469 - main - 31 - INFO - asking second time
+2025-05-04 12:56:24,590 - main - 70 - INFO - teacher input: irving
+2025-05-04 12:56:24,590 - Teacher - 38 - DEBUG - teacher list ['ancawilde', 'wilde', 'mrswilde', 'henryfranck', 'franck', 'mrfranck', 'miriamslow', 'slow', 'mrsslow', 'garthhorsnell', 'horsnell', 'mrhorsnell', 'shayneirving', 'irving', 'mrirving']
+2025-05-04 12:56:24,590 - Teacher - 47 - DEBUG - spell corrected teaher name: irving
+2025-05-04 12:56:24,591 - Teacher - 58 - DEBUG - teacher dict {'ancawilde': 'mrs_wilde.csv', 'wilde': 'mrs_wilde.csv', 'mrswilde': 'mrs_wilde.csv', 'henryfranck': 'mr_franck.csv', 'franck': 'mr_franck.csv', 'mrfranck': 'mr_franck.csv', 'miriamslow': 'mrs_slow.csv', 'slow': 'mrs_slow.csv', 'mrsslow': 'mrs_slow.csv', 'garthhorsnell': 'mr_horsnell.csv', 'horsnell': 'mr_horsnell.csv', 'mrhorsnell': 'mr_horsnell.csv', 'shayneirving': 'mr_irving.csv', 'irving': 'mr_irving.csv', 'mrirving': 'mr_irving.csv'}
+2025-05-04 12:56:24,591 - main - 75 - INFO - teacher known mr_irving.csv
+2025-05-04 12:56:24,591 - main - 120 - INFO - starting ask period loop
+2025-05-04 12:56:26,140 - main - 123 - INFO - inputed time: period 5
+2025-05-04 12:56:26,234 - Period - 24 - DEBUG - split input: ['period', 5]
+2025-05-04 12:56:26,234 - Period - 25 - DEBUG - spacless input: period5
+2025-05-04 12:56:26,235 - Period - 26 - DEBUG - list input: ['p', 'e', 'r', 'i', 'o', 'd', '5']
+2025-05-04 12:56:26,235 - Period - 55 - DEBUG - pm: False, am: False
+2025-05-04 12:56:26,235 - Period - 56 - DEBUG - has period: True
+2025-05-04 12:56:26,235 - Period - 63 - DEBUG -  period: 5
+2025-05-04 12:56:26,235 - Period - 103 - DEBUG - not long enough time unsupported operand type(s) for -: 'NoneType' and 'int'
+2025-05-04 12:56:26,235 - Period - 109 - DEBUG - integer list [5]
+2025-05-04 12:56:26,235 - Period - 121 - DEBUG - concentrated integer list [5]
+2025-05-04 12:56:26,235 - main - 134 - INFO - period: 5 time: 5.0
+2025-05-04 12:56:26,235 - main - 140 - INFO - starting ask time loop
+2025-05-04 12:56:28,963 - main - 144 - INFO - inputed day: 1/5
+2025-05-04 12:56:28,963 - Time - 24 - DEBUG - self.day_input 1/5
+2025-05-04 12:56:28,963 - Time - 48 - DEBUG - i, input (0, ['1', '5'])
+2025-05-04 12:56:28,963 - Time - 48 - DEBUG - i, input (1, ['1', '5'])
+2025-05-04 12:56:28,963 - Time - 61 - DEBUG - contracted: ['1', '5']
+2025-05-04 12:56:28,963 - Time - 68 - DEBUG - input ['1', '5']
+2025-05-04 12:56:28,963 - Time - 69 - DEBUG - month:None
+2025-05-04 12:56:28,963 - Time - 68 - DEBUG - input ['1', '5']
+2025-05-04 12:56:28,963 - Time - 69 - DEBUG - month:None
+2025-05-04 12:56:28,963 - Time - 76 - DEBUG - input ['1', '5']
+2025-05-04 12:56:28,963 - Time - 77 - DEBUG - day:None
+2025-05-04 12:56:28,963 - Time - 76 - DEBUG - input ['1', '5']
+2025-05-04 12:56:28,963 - Time - 77 - DEBUG - day:None
+2025-05-04 12:56:28,963 - Time - 89 - DEBUG - list not split
+2025-05-04 12:56:28,963 - Time - 113 - DEBUG - num list: [1, 5]
+2025-05-04 12:56:28,963 - Time - 141 - DEBUG - info long1:5:25
+2025-05-04 12:56:28,964 - Time - 142 - DEBUG - info01:05:25
+2025-05-04 12:56:28,964 - Time - 144 - INFO - date: 010525
+2025-05-04 12:56:28,964 - main - 148 - INFO - day: None date: 010525
+2025-05-04 12:56:28,969 - main - 168 - INFO - day: None date: 01/05/2025
+2025-05-04 12:56:28,970 - Teacher - 121 - DEBUG - day: day 5, time: Period 5
+2025-05-04 12:56:28,970 - Teacher - 126 - DEBUG - program recognises school time on a school day
+2025-05-04 12:56:28,970 - Teacher - 130 - DEBUG - period location: 15
+2025-05-04 12:56:28,970 - Teacher - 135 - DEBUG - is day possible: True
+2025-05-04 12:56:28,971 - Teacher - 136 - DEBUG - timetable coloums: Index(['Unnamed: 0', 'day 1', 'day 2', 'day 3', 'day 4', 'day 5', 'day 6',
+       'day 7'],
+      dtype='object')
+2025-05-04 12:56:28,971 - Teacher - 139 - DEBUG - day location: 5
+2025-05-04 12:56:28,971 - main - 87 - INFO - location known ('JP24', '12DVC1')
