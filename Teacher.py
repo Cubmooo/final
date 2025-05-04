@@ -77,7 +77,7 @@ class Teacher:
         
     def add_time(self, time):
         # defines the inputted period as a attribute of Teacher
-        self.time = "Period " + str(time)
+        self.time = "period " + str(time)
         
     def add_day(self, date):
         # defines the inputted date as a attribute of Teacher
@@ -89,14 +89,14 @@ class Teacher:
         bell_times={
         "Before School" : [00.00, 8.40],
         "Morning Tutor":[8.40, 8.50],
-        "Period 1" : [8.50, 9.40],
-        "Period 2" : [9.40, 10.30],
-        "Period 3" : [10.50, 11.40],
-        "Period 4" : [11.40, 12.30],
+        "period 1" : [8.50, 9.40],
+        "period 2" : [9.40, 10.30],
+        "period 3" : [10.50, 11.40],
+        "period 4" : [11.40, 12.30],
         "ETT" : [12.30, 13.00],
         "Lunch" : [13.00, 13.50],
-        "Period 5" : [13.50, 14.40],
-        "Period 6" : [14.40, 15.30],
+        "period 5" : [13.50, 14.40],
+        "period 6" : [14.40, 15.30],
         "After School" : [15.30, 24.00],                 
         }
         

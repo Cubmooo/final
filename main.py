@@ -86,6 +86,7 @@ def ask_teacher(teacher):
 
 # Prints out information about the teacher        
 def display_teacher(teacher):
+    logger.info(f"teacher location: {teacher.location}")
     if teacher.location is None:
         logger.info(f"place unknown {teacher.location, teacher.class_code}")
         print_slow("location unknown its currently outside of school hours")
