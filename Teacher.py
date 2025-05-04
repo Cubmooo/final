@@ -10,6 +10,26 @@ logger = setup_logger(__name__)
 
 # The teacher class handles finding the teachers name and locating them
 class Teacher:
+    """Holds the information about the teacher and its location.
+    
+    This class:
+        finds current time,
+        shows list of teachers,
+        compares if a users input is a real teacher,
+        find the location of a teacher based on the time
+        
+    Attributes:
+        location: teachers room number
+        class_code: class code of the class the teacher is in
+        class_name: name of the class the teacher is in
+        day: the school day on which the location is found
+        time: the time of day the teachers location is to be found
+        name: the name of the teacher
+        spaced_teachers: a list of teachers in a human readable format
+        teachers: list of teachers in a hard to read format
+        config: config file holding the file paths to the list of teachers
+    """
+    
     def __init__(self):
         self.location = None
         self.class_name = None
@@ -27,13 +47,19 @@ class Teacher:
         self.spaced_teachers = self.teachers
         
     def print_teacher_list(self):
+        """Prints the human readable list of teachers."""
         self.print_slow("List of teachers: ")
         for i, teacher in enumerate(self.spaced_teachers):
             if i % 3 == 0:
                 self.print_slow(teacher.title())
             
-    # Find and store the name in the users input  
     def add(self, name):
+        """Takes a user inputed name and adds the correct one as an attribute.
+
+        Args:
+            name (str): Name to be checked
+        """
+        
         #make input case insensitive
         name = name.replace(" ","").lower()
         self.teachers = [i.replace(" ","") for i in self.teachers]
@@ -57,11 +83,13 @@ class Teacher:
                 ''.join(line.strip().split()[:-1]): line.strip().split()[-1]
                 for line in file
     }
+        # finds the file path the the dictonary associated with the teacher
         logger.debug(f"teacher dict {name_index}")
         name = name_index[name]
         self.name = name
     
     def get_current_time(self):
+        """Finds the current date and time."""
         # finds and formats the current time
         current_date_and_time = datetime.now()
         self.day = current_date_and_time.strftime("%d/%m/%Y")
@@ -72,19 +100,19 @@ class Teacher:
         self.get_day()
         
     def add_day_time(self, dayTime):
-        # defines the inputted time as a attribute of Teacher
+        """Defines the inputted time as a attribute of Teacher"""
         self.day_time = dayTime
         
     def add_time(self, time):
-        # defines the inputted period as a attribute of Teacher
+        """defines the inputted period as a attribute of Teacher"""
         self.time = "period " + str(time)
         
     def add_day(self, date):
-        # defines the inputted date as a attribute of Teacher
+        """defines the inputted date as a attribute of Teacher"""
         self.day = date
     
-    # Finds the period in which any time sits
     def get_period(self):
+        """Finds the period at any inputted time"""
         # Defines list of periods and there times
         bell_times={
         "Before School" : [00.00, 8.40],
@@ -104,9 +132,9 @@ class Teacher:
         for period,times in bell_times.items():
             if times[0] <= float(self.day_time) < times[1]:
                 self.time = period
-    
-    # Finds the school day for the given date           
+               
     def get_day(self):
+        """Finds the school day for the given date."""
         # Defines calender
         school_calender = pd.read_csv(self.config.calendar_file)
         
@@ -115,9 +143,9 @@ class Teacher:
             if row["start_date"] == self.day:
                 self.day = row["name"][5:].lower()
         
-    
-    # finds current position based on school day and period       
+          
     def current_position(self):
+        """Finds the teachers current position based on the time and date."""
         timetable = pd.read_csv(self.name)
         
         logger.debug(f"day: {self.day}, time: {self.time}")
@@ -126,14 +154,14 @@ class Teacher:
                 (self.time not in ["Before School", "After School"])):
             try:
                 logger.debug("program recognises school time on a school day")
-                # finds the position of the information on the table
+                # finds the position of the information on the timetable
                 loc = timetable.iloc[:, 0] == self.time
                 period_iloc = timetable.index[loc][0]
                 logger.debug(f"period location: {period_iloc}")  
             except:
-                return
+                return # end function and leave self.location as None
             
-            # find the correct information based on its location
+            # find the information on the timetable from its row and coloum
             logger.debug(f"is day possible: {self.day in timetable.columns}")
             logger.debug(f"timetable coloums: {timetable.columns}")
             if self.day in timetable.columns:
@@ -149,6 +177,12 @@ class Teacher:
                 self.location = self.info.tolist()[2]
     
     def print_slow(self, str, end_line = True):
+        """Prints any text slowly to help with readability.
+
+        Args:
+            str (str): words to be printed
+            end_line (bool, optional): if program adds \n. Defaults to True.
+        """
         for i in str:
             print(i, end = "")
             time.sleep(self.config.text_delay)

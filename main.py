@@ -263,17 +263,25 @@ def compute_day(time, teacher):
         teacher.add_day(time.day) 
     logger.info(f"day: {time.day} date: {time.date}")
 
-#  Finds if a given input is affirmative or not
 def sentiment_finder(config, word):
-    # loads positive spell checker and makes input space insensitive
+    """Finds if a given input is a affirmative response or not
+
+    Args:
+        config (dict): config file holding file path to yes and no lists
+        word (str): string which sentiment will be found
+
+    Returns:
+        boolean: True is affirmative, False is not, None if unknown
+    """
     word = word.replace(" ","")
     logger.debug(f"no space word {word}")
-    # finds if word is negative of positive
+    # checks if the words is positive
     is_positive = sentiment(word, config.yes_file)
     logger.debug(f"is word positive {is_positive}")
+    # checks if word is negative
     is_negative = sentiment(word, config.no_file)
     logger.debug(f"is word negative {is_negative}")
-    # returns if the program should carry on
+    # returns if words is positive, negative or unknown
     if is_positive:
         return True
     elif is_negative:
@@ -281,6 +289,15 @@ def sentiment_finder(config, word):
     return None
         
 def sentiment(word, file):
+    """Compares word to a dictionary of words with a certain sentiment.
+
+    Args:
+        word (str): word being checked
+        file (str): file path of the list of words to be checked against
+
+    Returns:
+        boolean: if the word is found in the dict or not
+    """
     # loads spell checker and might reduce word Levenshtein distance
     spell = SpellChecker(language = None)
     spell.word_frequency.load_text_file(file)
@@ -295,14 +312,21 @@ def sentiment(word, file):
     else:
         return False
 
-# thanks the user and exits the program
+
 def exit_program():
+    """Thanks user and exit program"""
     print_slow("Thank you for using this program\n" +  
                "I hope you found what you needed")
     logger.info("user exited program")
     exit()
     
 def print_slow(str, end_line = True):
+    """Prints any text slowly to help with readability.
+
+    Args:
+        str (str): words to be printed
+        end_line (bool, optional): if program adds \n. Defaults to True.
+    """
     for i in str:
         print(i, end = "")
         time.sleep(config.text_delay)
