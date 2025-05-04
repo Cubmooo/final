@@ -189,7 +189,7 @@ def ask_period(period, teacher):
         # add time as an atribute of the period object
         period.add(inputed_time)
         # procces the inputed time into a period or time of day
-        period.num_time()
+        period.num_time_set_up()
         period.word_time()
         # add the found time as an atribute of the teacher object
         if (period.period is None) and (period.time) is not None:

@@ -1,6 +1,7 @@
 import json
 
 class ClassConfig:
+    """Config file, reads json and stores info as attributes of a class."""
     def __init__(self, config_path = "config.json"):
         try:
             with open(config_path) as f:

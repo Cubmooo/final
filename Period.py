@@ -4,6 +4,28 @@ from logging_config import setup_logger
 logger = setup_logger(__name__)
 
 class Period:
+    """Holds and proccese the information about the time of day.
+    
+    This class:
+        Finds the correct time from multiple diffrent formats including:
+            school period e.g. Period 1
+            digital time e.g. 1:45
+            spelled out e.g. five thirty, quarter to six
+            includes am/pm
+        
+    Attributes:
+        has_pm: a boolean of if pm is present in the input
+        has_am: a boolean of if am is present in the input
+        has_period: a boolean of if "period" is present in the input
+        time: float of the time of day format Hour.Minute
+        period: int of the period of the day
+        to_or_past_index: int of the location of to or past in input
+        has_to: a boolean of if to is present in the input
+        split_input: a list of the user input split into words
+        spaceless_input: a str of user input with no spaces
+        list_input: the users input stored as a list of characters
+    """
+    
     def __init__(self):
         self.has_pm = False
         self.has_am = False
@@ -13,20 +35,33 @@ class Period:
         self.to_or_past_index = None
         self.has_to = False
     
-    # Store the users time input as various attributes
     def add(self, inputedTime):
+        """Stores the users inputted time as an various attributes
+
+        Args:
+            inputedTime (str): The time inputted by the user
+        """
         # stores input as spell corrected and caps in-sensitive 
         self.split_input = self.num_word_spell_check(inputedTime.split())
         self.split_input = [word.lower() if isinstance(word, str) else word
                            for word in self.split_input]
+        # stores input without spaces
         self.spaceless_input = inputedTime.replace(" ","")
+        # stores input as a list of characters
         self.list_input = list(self.spaceless_input)
         logger.debug(f"split input: {self.split_input}")
         logger.debug(f"spacless input: {self.spaceless_input}")
         logger.debug(f"list input: {self.list_input}")
                 
     def num_word_spell_check(self, str):
-        # iterates through the inputs
+        """Spell corrects an input and turns written words into ints
+
+        Args:
+            str (str): given string to check
+
+        Returns:
+            str (str): the corrected str 
+        """
         spell = SpellChecker()
         for i,word in enumerate(str):
             # Corrects the spelling of the input
@@ -42,9 +77,9 @@ class Period:
             except ValueError:
                 pass
         return str
-    
-    # find the time if written in a hour minute format    
-    def num_time(self):
+        
+    def num_time_set_up(self):
+        """Gains info around an input such as  where pm and period are."""
         # Checks if time is inputed as a period or am or pm are present
         if "period" in self.split_input:
             self.has_period = True
@@ -63,9 +98,13 @@ class Period:
                 logger.debug(f" period: {self.period}")
                 return
             except:
-                pass
+                return
+            
+        self.num_time() # finds the time of written as a digit
         
-        # remove all words from the inputted time
+    def num_time(self):
+        """Finds the given time if time is written in digits"""
+        # remove all words from the inputted time and make all digits ints
         self.int_list = [int(num) for num in self.list_input if num.isdigit()]
         self.period_int = "".join(map(str, self.int_list))
         self.period_int = int(self.period_int) if self.period_int else None
@@ -82,7 +121,8 @@ class Period:
             self.time = self.period_int
         logger.debug(f"num time found {self.time}")
 
-    def word_time(self):
+    def to_or_past_time(self):
+        """Finds the time if written using to or past"""
         # find the location of the words to and past if present
         if "to" in self.split_input:
             self.to_or_past_index = self.split_input.index("to")
@@ -91,18 +131,21 @@ class Period:
             self.to_or_past_index = self.split_input.index("past")
             logger.debug(f"has to {self.has_to} pos: {self.to_or_past_index}")
         
-        # Finds the time based on the location found earlier
+        # Finds the hours and minutes in the time
         try:
             minutes = self.split_input[self.to_or_past_index - 1]
             hours = self.split_input[self.to_or_past_index + 1]
             offset = (-2 * self.has_to + 1) * minutes - 40 * self.has_to
-            self.time = hours + offset / 100
+            self.time = hours + offset / 100 # finds final time
             logger.debug(f"minutes {minutes}, hours {hours}, offset {offset}")
-            return
+            return # returns with self.time being defined if time found
         except (IndexError, TypeError) as e:
             logger.debug(f"not long enough time {e}")
             pass
-        
+        self.word_time()
+
+    def word_time(self):
+        """Finds the time if time written in words"""
         # remove all words from input
         self.split_input = [int(i) for i in self.split_input
                            if str(i).isdigit()]
@@ -117,18 +160,28 @@ class Period:
                     self.split_input.pop(i + 1)
                 else:
                     i += 1
-            # return final time
+            # store final time as self.time then end function
             logger.debug(f"concentrated integer list {self.split_input}")
             self.time = float(".".join([str(i) for i in self.split_input]))
         except ValueError:
             logger.warning("word time empty")
             pass
         except Exception:
-            logger.critical("unkown error")
+            logger.critical("unknown error")
             raise
 
-    # converts 12 hour time to 24 hour time
     def add_pm(self, time):
+        """Converts time between am and pm.
+        
+        if either am or pm are stated the code will follow that,
+        however if nothing is stated the code will assume the most logical one
+        Args:
+            time (float): The given time
+
+        Returns:
+            _type_: The given time changed however best fit
+        """
+        # if pm present add 12 hours to the time
         if self.has_pm and (time < 12):
             time += 12
         # automaticaly assumes school hours unless otherwise stated
