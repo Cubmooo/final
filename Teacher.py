@@ -1,4 +1,5 @@
 from datetime import datetime
+import time
 
 import pandas as pd
 from spellchecker import SpellChecker
@@ -16,31 +17,45 @@ class Teacher:
         self.day = None
         self.time = None
         self.name = None
+        self.teachers = []
         self.config = ClassConfig()
-    
+        
+        # Create list of teachers names
+        teachers_file = open(self.config.teacher_file, "r")
+        self.teachers.extend(' '.join(t.split()[:-1]) for t in teachers_file)
+        
+    def print_teacher_list(self):
+        self.print_slow("List of teachers: ")
+        for i, teacher in enumerate(self.teachers):
+            if i % 3 == 0:
+                self.print_slow(teacher.title())
+            
     # Find and store the name in the users input  
     def add(self, name):
-        # Create list of teachers names and make input case insensitive
+        #make input case insensitive
         name = name.replace(" ","").lower()
-        teacher_list=[]
-        teachers = open(self.config.teacher_file, "r")
-        for i in teachers:
-            teacher_list.append(i.split(" ",1)[0])
-
+        self.teachers = [i.replace(" ","") for i in self.teachers]
+        logger.debug(f"teacher list {self.teachers}")
+        
         # Define spell checker
         spell = SpellChecker(language = None, distance=2)
-        spell.word_frequency.load_words(teacher_list)
+        spell.word_frequency.load_words(self.teachers)
 
         # Correct input and check that the user has inputted a name
         fixed_name = spell.correction(name)
         name = fixed_name if (name != fixed_name) or (name in spell) else None
+        logger.debug(f"spell corrected teaher name: {fixed_name}")
         if name is None:
             self.name = name
             return
         
         # turns list of teachers into a dict then finds filepath
-        with open(self.config.teacher_file) as gh:
-            name_index = dict([line.strip().split(" ",1) for line in gh])
+        with open(self.config.teacher_file) as file:
+            name_index = {
+                ''.join(line.strip().split()[:-1]): line.strip().split()[-1]
+                for line in file
+    }
+        logger.debug(f"teacher dict {name_index}")
         name = name_index[name]
         self.name = name
     
@@ -102,22 +117,34 @@ class Teacher:
     def current_position(self):
         timetable = pd.read_csv(self.name)
         
+        logger.debug(f"day: {self.day}, time: {self.time}")
         # checks that it is within school hours
         if ((self.day != "No School") and
                 (self.time not in ["Before School", "After School"])):
             try:
+                logger.debug("program recognises school time on a school day")
                 # finds the position of the information on the table
                 loc = timetable.iloc[:, 0] == self.time
-                period_iloc = timetable.index[loc][0]  
+                period_iloc = timetable.index[loc][0]
+                logger.debug(f"period location: {period_iloc}")  
             except:
                 return
             
             # find the correct information based on its location
+            logger.debug(f"is day possible: {self.day in timetable.columns}")
+            logger.debug(f"timetable coloums: {timetable.columns}")
             if self.day in timetable.columns:
                 day_iloc = timetable.columns.get_loc(self.day)
+                logger.debug(f"day location: {day_iloc}")
                 self.info = timetable.iloc[period_iloc:period_iloc + 3, day_iloc]
 
                 # Store the location information
                 self.class_name = self.info.tolist()[0]
                 self.class_code = self.info.tolist()[1]
                 self.location = self.info.tolist()[2]
+    
+    def print_slow(self, str, end_line = True):
+        for i in str:
+            print(i, end = "")
+            time.sleep(0.02)
+        print() if end_line else None

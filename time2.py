@@ -79,7 +79,7 @@ class Time:
             try:
                 if (self.day_input[i][-6:] == "twenty"
                     or self.day_input[i][-6:] == "thirty"):
-                    self.day_input[i] = self.day_input[i] + self.day_input[i + 1]
+                    self.day_input[i] += self.day_input[i + 1]
                     self.day_input.pop(i + 1)
             except TypeError as e:
                 logger.debug(f"day input empty {e}")

@@ -5,7 +5,7 @@ from collections import defaultdict
 message_counts = defaultdict(int)
 
 class TerminateOnExcessiveLogs(logging.Handler):
-    def __init__(self, threshold=10):
+    def __init__(self, threshold = 10):
         super().__init__()
         self.threshold = threshold
     
@@ -13,7 +13,7 @@ class TerminateOnExcessiveLogs(logging.Handler):
         msg = self.format(record)
         message_counts[msg] += 1
         if message_counts[msg] >= self.threshold:
-            print(f"ERROR: Message '{msg}' appeared {self.threshold} times. Terminating program.")
+            print(f"Infinite loop {msg} ")
             sys.exit(1)
 
 def setup_logger(name: str, log_file: str = "app.log" ):

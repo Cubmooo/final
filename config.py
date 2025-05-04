@@ -15,6 +15,6 @@ class ClassConfig:
             self.teacher_file = self.data.get("teacher_file")
             
         except FileNotFoundError:
-            raise FileNotFoundError(f"Configuration file not found at: {config_path}")
+            raise FileNotFoundError(f"config file missiing: {config_path}")
         except json.JSONDecodeError:
-            raise ValueError(f"Invalid JSON in configuration file: {config_path}")
+            raise ValueError(f"Invalid json in config file: {config_path}")

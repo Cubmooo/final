@@ -1,5 +1,6 @@
 from datetime import datetime
 from spellchecker import SpellChecker
+import time
 
 from config import ClassConfig
 import Teacher
@@ -12,6 +13,7 @@ logger = setup_logger(__name__)
 def main(config):
     # creates teacher object then ask for teacher location
     teacher = Teacher.Teacher()
+    ask_teacher_list(teacher)
     ask_teacher(teacher)
     # Get and display current position of teacher
     teacher.get_current_time()
@@ -43,10 +45,28 @@ def ask_second_time(teacher,period,time):
     teacher.current_position()
     display_teacher(teacher)
 
-# Asks user to input new teachers name
-def ask_teacher(teacher):
+# ask user if they want to see list of teachers
+def ask_teacher_list(teacher):
     while True:
-        teacher_input = input("What teacher would you like to find: ")
+        print_slow("Would you like to see a list of teachers: ", False)
+        list_input = input()
+        logger.info(f"list input: {list_input}")
+        # evaluate wether the answer was yes or no
+        list_input = sentiment_finder(config, list_input)
+        logger.info(f"revised input {list_input}")
+        # if unknown repeat answer
+        if list_input is None:
+            print_slow("Input again please")
+            continue
+        if list_input:
+            teacher.print_teacher_list()
+        break
+
+# Asks user to input new teachers name
+def ask_teacher(teacher):    
+    while True:
+        print_slow("What teacher would you like to find: ", False)
+        teacher_input = input()
         logger.info(f"teacher input: {teacher_input}")
         # Checks input is valid then makes it an atribute of teacher
         teacher.add(teacher_input)
@@ -54,37 +74,38 @@ def ask_teacher(teacher):
         if teacher.name is not None:
             logger.info(f"teacher known {teacher.name}")
             break
-        print("Teacher Unknown Please Input again")
+        print_slow("Teacher Unknown Please Input again")
         logger.info(f"teacher unknown input: {teacher_input}")
 
 # Prints out information about the teacher        
 def display_teacher(teacher):
     if teacher.location is None:
         logger.info(f"place unknown {teacher.location, teacher.class_code}")
-        print("location unknown its currently outside of school hours")
+        print_slow("location unknown its currently outside of school hours")
         return
     if isinstance(teacher.location, str):
         logger.info(f"location known {teacher.location, teacher.class_code}")
-        print(f"Teacher's Location is {teacher.location}")
-        print(f"Teacher's Class is {teacher.class_name}")
-        print(f"Teacher's Class code is {teacher.class_code}")
+        print_slow(f"Teacher's Location is {teacher.location}")
+        print_slow(f"Teacher's Class is {teacher.class_name}")
+        print_slow(f"Teacher's Class code is {teacher.class_code}")
     else:
         logger.info(f"no class {teacher.location, teacher.class_code}")
-        print("Teacher does not currently have a class")
-        print("The teachers location is unknown")
+        print_slow("Teacher does not currently have a class")
+        print_slow("The teachers location is unknown")
            
 # Ask if the user would like to terminate the program      
-def ask_continue(confug):
+def ask_continue(config):
     while True:
-        new_info_input = input("Would you like to pick " +
-                             "a different teacher or time: ")
+        print_slow("Would you like to pick " +
+                    "a different teacher or time (yes/no): ", False)
+        new_info_input = input()
         logger.info(f"user carry on input {new_info_input}")
         # evaluate wether the answer was yes or no
         new_info_input = sentiment_finder(config, new_info_input)
         logger.info(f"revised input {new_info_input}")
         # if unknown repeat answer
         if new_info_input is None:
-            print("Input again please")
+            print_slow("Input again please")
             continue
         break
     
@@ -97,7 +118,8 @@ def ask_period(period, teacher):
     # repeat until a satasfactory answer is found
     while period.period is None and period.time is None:
         logger.info("starting ask period loop")
-        inputed_time = input("What time of day:")
+        print_slow("What time of day: ", False)
+        inputed_time = input()
         logger.info(f"inputed time: {inputed_time}")
         # add time as an atribute of the period object
         period.add(inputed_time)
@@ -117,7 +139,8 @@ def ask_day(time, teacher):
     while time.day is None and time.date is None:
         logger.info("starting ask time loop")
         # ask for day then find intended day
-        inputed_day = input("What day would you like: ")
+        print_slow("What day would you like: ", False)
+        inputed_day = input()
         logger.info(f"inputed day: {inputed_day}")
         time.add(inputed_day)
         time.word_day()
@@ -130,7 +153,7 @@ def ask_day(time, teacher):
                 time.date = datetime.strftime(time.date, "%d/%m/%Y")
             except ValueError as e:
                 logger.info(f"date failed {e}")
-                print("Your date could not be understood " + 
+                print_slow("Your date could not be understood " + 
                       "check your spelling or input you date as DD/MM/YY")
                 time.day = None
                 time.date = None
@@ -149,7 +172,7 @@ def sentiment_finder(config, word):
     # loads positive spell checker and makes input space insensitive
     word = word.replace(" ","")
     logger.debug(f"no space word {word}")
-    # finds if word is negative of positve
+    # finds if word is negative of positive
     is_positive = sentiment(word, config.yes_file)
     logger.debug(f"is word positive {is_positive}")
     is_negative = sentiment(word, config.no_file)
@@ -178,10 +201,16 @@ def sentiment(word, file):
 
 # thanks the user and exits the program
 def exit_program():
-    print("Thank you for using this program\n" +
+    print_slow("Thank you for using this program\n" +
           "I hope you found what you needed")
     logger.info("user exited program")
     exit()
+    
+def print_slow(str, end_line = True):
+    for i in str:
+        print(i, end = "")
+        time.sleep(0.03)
+    print() if end_line else None
 
 if __name__ == "__main__":
     config = ClassConfig()
