@@ -17,16 +17,18 @@ class Teacher:
         self.day = None
         self.time = None
         self.name = None
+        self.spaced_teachers = []
         self.teachers = []
         self.config = ClassConfig()
         
         # Create list of teachers names
         teachers_file = open(self.config.teacher_file, "r")
         self.teachers.extend(' '.join(t.split()[:-1]) for t in teachers_file)
+        self.spaced_teachers = self.teachers
         
     def print_teacher_list(self):
         self.print_slow("List of teachers: ")
-        for i, teacher in enumerate(self.teachers):
+        for i, teacher in enumerate(self.spaced_teachers):
             if i % 3 == 0:
                 self.print_slow(teacher.title())
             

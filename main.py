@@ -56,14 +56,16 @@ def ask_teacher_list(teacher):
         logger.info(f"revised input {list_input}")
         # if unknown repeat answer
         if list_input is None:
-            print_slow("Input again please")
+            print_slow('Your input was unrecognised ' +
+                       'please input either "yes" or "no"')
             continue
         if list_input:
             teacher.print_teacher_list()
         break
 
 # Asks user to input new teachers name
-def ask_teacher(teacher):    
+def ask_teacher(teacher):
+    teacher_ask_num = 0    
     while True:
         print_slow("What teacher would you like to find: ", False)
         teacher_input = input()
@@ -74,7 +76,12 @@ def ask_teacher(teacher):
         if teacher.name is not None:
             logger.info(f"teacher known {teacher.name}")
             break
+        if teacher_ask_num >= 1:
+            print_slow("Teacher not recognised " + 
+                       "please input a name from this list")
+            teacher.print_teacher_list()
         print_slow("Teacher Unknown Please Input again")
+        teacher_ask_num += 1
         logger.info(f"teacher unknown input: {teacher_input}")
 
 # Prints out information about the teacher        
@@ -105,7 +112,7 @@ def ask_continue(config):
         logger.info(f"revised input {new_info_input}")
         # if unknown repeat answer
         if new_info_input is None:
-            print_slow("Input again please")
+            print_slow('Answer not recognised please input "yes" or "no"')
             continue
         break
     
@@ -116,9 +123,9 @@ def ask_continue(config):
 # ask the user for the period the want
 def ask_period(period, teacher):
     # repeat until a satasfactory answer is found
-    while period.period is None and period.time is None:
+    while True:
         logger.info("starting ask period loop")
-        print_slow("What time of day: ", False)
+        print_slow("What time of day e.g. period 5, 1:45: ", False)
         inputed_time = input()
         logger.info(f"inputed time: {inputed_time}")
         # add time as an atribute of the period object
@@ -132,20 +139,30 @@ def ask_period(period, teacher):
         elif (period.period is not None):
             teacher.add_time(period.period)
         logger.info(f"period: {period.period} time: {period.time}")
+        if period.period is not None or period.time is not None:
+            break
+        print_slow('Your time was not recognised please input again')
             
 # ask the user for what time they would like to chose
 def ask_day(time, teacher):
     # repeat until a suitable date or day is found
-    while time.day is None and time.date is None:
+    while True:
         logger.info("starting ask time loop")
         # ask for day then find intended day
-        print_slow("What day would you like: ", False)
+        print_slow("What day would you like e.g. day 5, dd/mm/yy: ", False)
         inputed_day = input()
         logger.info(f"inputed day: {inputed_day}")
         time.add(inputed_day)
         time.word_day()
         time.num_day()
         logger.info(f"day: {time.day} date: {time.date}")
+        compute_day(time, teacher)
+        if time.day is not None or time.date is not None:
+            break
+        print_slow("Your day was not recognised")
+        
+        
+def compute_day(time, teacher):
         # add time as a period as an attribute of Teacher
         if (time.day is None) and (time.date is not None):
             try:
