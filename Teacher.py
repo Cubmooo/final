@@ -139,7 +139,9 @@ class Teacher:
             if self.day in timetable.columns:
                 day_iloc = timetable.columns.get_loc(self.day)
                 logger.debug(f"day location: {day_iloc}")
-                self.info = timetable.iloc[period_iloc:period_iloc + 3, day_iloc]
+                self.info = timetable.iloc[
+                    period_iloc:period_iloc + 3, day_iloc
+                ]
 
                 # Store the location information
                 self.class_name = self.info.tolist()[0]

@@ -13986,3 +13986,18 @@
 2025-05-04 17:46:01,433 - main - 159 - INFO - day: None date: None
 2025-05-04 17:46:01,433 - main - 186 - INFO - day: None date: None
 2025-05-04 17:46:01,433 - main - 151 - INFO - starting ask time loop
+2025-05-04 20:48:19,827 - main - 88 - INFO - list input: no
+2025-05-04 20:48:19,828 - main - 234 - DEBUG - no space word no
+2025-05-04 20:48:19,829 - main - 256 - DEBUG - word candidates None
+2025-05-04 20:48:19,829 - main - 237 - DEBUG - is word positive False
+2025-05-04 20:48:19,830 - main - 256 - DEBUG - word candidates no
+2025-05-04 20:48:19,831 - main - 239 - DEBUG - is word negative True
+2025-05-04 20:48:19,831 - main - 91 - INFO - revised input False
+2025-05-04 20:48:21,186 - main - 113 - INFO - teacher input: paiudh
+2025-05-04 20:48:21,186 - Teacher - 40 - DEBUG - teacher list ['ancawilde', 'wilde', 'mrswilde', 'henryfranck', 'franck', 'mrfranck', 'miriamslow', 'slow', 'mrsslow', 'garthhorsnell', 'horsnell', 'mrhorsnell', 'shayneirving', 'irving', 'mrirving']
+2025-05-04 20:48:21,219 - Teacher - 49 - DEBUG - spell corrected teaher name: None
+2025-05-04 20:48:21,220 - main - 127 - INFO - teacher unknown input: paiudh
+2025-05-04 20:48:22,377 - main - 113 - INFO - teacher input: asidfba
+2025-05-04 20:48:22,377 - Teacher - 40 - DEBUG - teacher list ['ancawilde', 'wilde', 'mrswilde', 'henryfranck', 'franck', 'mrfranck', 'miriamslow', 'slow', 'mrsslow', 'garthhorsnell', 'horsnell', 'mrhorsnell', 'shayneirving', 'irving', 'mrirving']
+2025-05-04 20:48:22,420 - Teacher - 49 - DEBUG - spell corrected teaher name: None
+2025-05-04 20:48:22,423 - main - 127 - INFO - teacher unknown input: asidfba

@@ -50,7 +50,7 @@ class Time:
                 if (self.list_input[i][-6:] == "twenty"
                     or self.list_input[i][-6:] == "thirty"):
                     try:
-                        self.list_input[i] = self.list_input[i] + self.list_input[i + 1]
+                        self.list_input[i] += self.list_input[i + 1]
                         self.list_input.pop(i + 1)
                     except:
                         i += 1
@@ -139,6 +139,5 @@ class Time:
                 
     def final_date(self):
         logger.debug(f"info long{self.month_day}:{self.month}:{self.year}")
-        logger.debug(f"info{self.month_day:02d}:{self.month:02d}:{self.year % 100}")
         self.date = f"{self.month_day:02d}{self.month:02d}{self.year % 100}"
         logger.info(f"date: {self.date}")

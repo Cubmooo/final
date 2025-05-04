@@ -1,3 +1,11 @@
+"""This program finds the location of a teacher at saint kentigern college.
+
+it automaticaly finds the current time and asks user for the teachers name
+it then allows the user to input a new time and diffrent teacher
+
+This is a program for Level 2 computer science
+"""
+
 from datetime import datetime
 from spellchecker import SpellChecker
 import time
@@ -11,7 +19,19 @@ logger = setup_logger(__name__)
 
 
 def main(config):
-    # creates teacher object then ask for teacher location
+    """Runs the whole program from the start to the ask second time function.
+    
+    this function:
+        creates teacher object
+        prompts user for teacher
+        displays approiate location
+        calls the ask_second_time function
+        
+    Arguments:
+        config: config file
+
+    """
+    # creates teacher object then ask user for a teachers name
     teacher = Teacher.Teacher()
     ask_teacher_list(teacher)
     ask_teacher(teacher)
@@ -29,9 +49,18 @@ def main(config):
     period = Period.Period()
     time = Time.Time()
     logger.info("asking second time")
+    
+    # carry on to asking for a new teacher
+    # program would have terminated earlier if requested
     ask_second_time(teacher, period, time)
     
 def ask_second_time(teacher,period,time):
+    """Displays a teacher location based on the user inputed name and time.
+    Args:
+        teacher (object): stores info about name and location
+        period (object): stores info about inputed period
+        time (object): stores info about the inputted day
+    """
     #ask users for what teacher they want
     ask_teacher(teacher)
     
@@ -47,26 +76,38 @@ def ask_second_time(teacher,period,time):
 
 # ask user if they want to see list of teachers
 def ask_teacher_list(teacher):
-    while True:
+    """Asks user if they want to see the list of teachers this program stores.
+
+    Args:
+        teacher (object): stores the list of teachers
+    """
+    while True: # asks again until suitable answer found
+        # asks user if the would like to see the list of teachers
         print_slow("Would you like to see a list of teachers: ", False)
         list_input = input()
         logger.info(f"list input: {list_input}")
         # evaluate wether the answer was yes or no
         list_input = sentiment_finder(config, list_input)
         logger.info(f"revised input {list_input}")
-        # if unknown repeat answer
-        if list_input is None:
+
+        if list_input is None: # if unknown repeat answer
             print_slow('Your input was unrecognised ' +
                        'please input either "yes" or "no"')
             continue
-        if list_input:
+        if list_input: # prints teacher list if answer was yes
             teacher.print_teacher_list()
         break
 
-# Asks user to input new teachers name
 def ask_teacher(teacher):
-    teacher_ask_num = 0    
-    while True:
+    """Asks user for the name of the teacher they wish to find.
+
+    Args:
+        teacher (object): finds and stores correct name
+    """
+    
+    teacher_ask_num = 0
+    while True: # asks until appropriate teacher name given
+        # asks for teachers name
         print_slow("What teacher would you like to find: ", False)
         teacher_input = input()
         logger.info(f"teacher input: {teacher_input}")
@@ -76,34 +117,45 @@ def ask_teacher(teacher):
         if teacher.name is not None:
             logger.info(f"teacher known {teacher.name}")
             break
+        # if too many invalid names given prints the teacher list again
         if teacher_ask_num >= 1:
             print_slow("Teacher not recognised " + 
                        "please input a name from this list")
             teacher.print_teacher_list()
-        print_slow("Teacher Unknown Please Input again")
+        else:
+            # informs user that they must reinput
+            print_slow("Teacher Unknown Please Input again")
         teacher_ask_num += 1
         logger.info(f"teacher unknown input: {teacher_input}")
-
-# Prints out information about the teacher        
+       
 def display_teacher(teacher):
+    """Displays to the user the infomation about the teachers location.
+
+    Args:
+        teacher (object): holds the teachers position to be displayed
+    """
     logger.info(f"teacher location: {teacher.location}")
-    if teacher.location is None:
+    if teacher.location is None: # location will be none if out of school hours
         logger.info(f"place unknown {teacher.location, teacher.class_code}")
         print_slow("location unknown its currently outside of school hours")
         return
-    if isinstance(teacher.location, str):
+    if isinstance(teacher.location, str): # will be string if location known
         logger.info(f"location known {teacher.location, teacher.class_code}")
         print_slow(f"Teacher's Location is {teacher.location}")
         print_slow(f"Teacher's Class is {teacher.class_name}")
         print_slow(f"Teacher's Class code is {teacher.class_code}")
-    else:
+    else: # location will be Nan if during school but teacher has no class
         logger.info(f"no class {teacher.location, teacher.class_code}")
         print_slow("Teacher does not currently have a class")
         print_slow("The teachers location is unknown")
-           
-# Ask if the user would like to terminate the program      
+                
 def ask_continue(config):
-    while True:
+    """Asks user if the wish to input another teacher or time.
+
+    Args:
+        config (dictonary): holds all the file paths used for yes and no files
+    """
+    while True: # repeats until valid answer given
         print_slow("Would you like to pick " +
                     "a different teacher or time (yes/no): ", False)
         new_info_input = input()
@@ -121,16 +173,22 @@ def ask_continue(config):
     if new_info_input == False:
         exit_program()
 
-# ask the user for the period the want
 def ask_period(period, teacher):
-    # repeat until a satasfactory answer is found
-    while True:
+    """Asks the user what period they want the teachers location from.
+
+    Args:
+        period (object): procces iformation about the period
+        teacher (object): stores the final period
+    """
+    
+    while True: # repeat until a satasfactory answer is found
         logger.info("starting ask period loop")
         print_slow("What time of day e.g. period 5, 1:45: ", False)
         inputed_time = input()
         logger.info(f"inputed time: {inputed_time}")
         # add time as an atribute of the period object
         period.add(inputed_time)
+        # procces the inputed time into a period or time of day
         period.num_time()
         period.word_time()
         # add the found time as an atribute of the teacher object
@@ -140,12 +198,18 @@ def ask_period(period, teacher):
         elif (period.period is not None):
             teacher.add_time(period.period)
         logger.info(f"period: {period.period} time: {period.time}")
+        # if a time is found break else ask for time again
         if period.period is not None or period.time is not None:
             break
         print_slow('Your time was not recognised please input again')
             
-# ask the user for what time they would like to chose
 def ask_day(time, teacher):
+    """Asks the user for the day they want to know the teachers location.
+
+    Args:
+        time (object): process the user input into a time
+        teacher (object): stores the final day
+    """
     # repeat until a suitable date or day is found
     while True:
         logger.info("starting ask time loop")
@@ -153,37 +217,51 @@ def ask_day(time, teacher):
         print_slow("What day would you like e.g. day 5, dd/mm/yy: ", False)
         inputed_day = input()
         logger.info(f"inputed day: {inputed_day}")
+        # adds the inputed time as an atribute of the time object
         time.add(inputed_day)
+        # tunrs the input into a date or school day
         time.word_day()
         time.num_day()
         logger.info(f"day: {time.day} date: {time.date}")
+        # turns a date into a school
         compute_day(time, teacher)
+        # if time is found move on else ask again
         if time.day is not None or time.date is not None:
             break
         print_slow("Your day was not recognised")
         
         
 def compute_day(time, teacher):
-        # add time as a period as an attribute of Teacher
-        if (time.day is None) and (time.date is not None):
-            try:
-                time.date = datetime.strptime(str(time.date), "%d%m%y")
-                time.date = datetime.strftime(time.date, "%d/%m/%Y")
-            except ValueError as e:
-                logger.info(f"date failed {e}")
-                print_slow("Your date could not be understood " + 
-                      "check your spelling or input you date as DD/MM/YY")
-                time.day = None
-                time.date = None
-            except Exception as e:
-                logger.critical(f"unkown error {e}")
-                raise
-            teacher.add_day(time.date)
-            teacher.get_day()
-        elif (time.day is not None):
-            time.day = "day " + str(time.day)
-            teacher.add_day(time.day)
-        logger.info(f"day: {time.day} date: {time.date}")
+    """turns date into a school day then stores school day.
+
+    Args:
+        time (object): holds the original date and school day
+        teacher (object): stores the final school day
+    """
+    if (time.day is None) and (time.date is not None): # if time is a date
+        try:
+            # make sure time is not truncated i.e. mm/dd/yyyy
+            time.date = datetime.strptime(str(time.date), "%d%m%y")
+            time.date = datetime.strftime(time.date, "%d/%m/%Y")
+        except ValueError as e:
+            # if error is raised then date does not exsist
+            logger.info(f"date failed {e}")
+            # prompts user to input date again
+            print_slow("Your date could not be understood " + 
+                    "check your spelling or input you date as DD/MM/YY")
+            time.day = None
+            time.date = None
+        except Exception as e:
+            # if any other error occurs raise it
+            logger.critical(f"unkown error {e}")
+            raise
+        teacher.add_day(time.date) # stores date as atribute of teacher
+        teacher.get_day() # finds corrosponding school day
+    elif (time.day is not None): # is school day known
+        # store school day as attribute of teacher
+        time.day = "day " + str(time.day)
+        teacher.add_day(time.day) 
+    logger.info(f"day: {time.day} date: {time.date}")
 
 #  Finds if a given input is affirmative or not
 def sentiment_finder(config, word):
@@ -219,8 +297,8 @@ def sentiment(word, file):
 
 # thanks the user and exits the program
 def exit_program():
-    print_slow("Thank you for using this program\n" +
-          "I hope you found what you needed")
+    print_slow("Thank you for using this program\n" +  
+               "I hope you found what you needed")
     logger.info("user exited program")
     exit()
     
